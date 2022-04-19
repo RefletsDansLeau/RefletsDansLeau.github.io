@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="jp">
+
+<head>
+    <meta charset="utf-8">
+
+    <style>
+        #wrap{
+            position:absolute;
+            display:grid;
+            grid-template-columns:1fr 1fr 1fr;
+        }
+
+        
+        div.jimin{
+            position:relative;
+            background-color: aqua;
+        }
+        div.minshu{
+            position:relative;
+            background-color: chocolate;
+        }
+        div.kyosan{
+            background-color: brown;
+            position: relative;
+        }
+    </style>
+
+</head>
+
+<body>
+    <div id="wrap">
+        
+    </div>
+    
+    <script>//参考記事→https://qiita.com/hiroyuki-n/items/5786c8fc84eb85944681
+
+        const output_csv = document.getElementById('mylist');
+        const dataPath = 'https://docs.google.com/spreadsheets/d/1c73plRh0CbcWj37a79vE2zVFYZc1Y0mVmmEybtzRMNs/gviz/tq?tqx=out:csv&sheet=Sheet1';// csvのパス
+        //const dataPath = 'senkyo_kohosha_sample.csv';// 練習用のcsvのパス
+
+        //open load send
+        function csv_data() {//csv_data関数を以下に定義する。
+            const myrequest = new XMLHttpRequest(); // HTTPでファイルを読み込む
+            myrequest.open('GET', dataPath, true);
+            myrequest.addEventListener('load', (event) => { // ロードさせ実行
+                const myresponse = event.target.responseText; // 受け取ったテキストを返す
+                csv_array(myresponse); // 下記のarray関数を実行する。
+            });
+            myrequest.send();
+        }
+
+        function csv_array(data) {//csv_array関数を以下に定義する。
+            const dataArray = []; //空の配列を用意
+            const dataReplace = data.replace(/"/g,"");//Google spreadsheetはcsvにすると文字列が”で囲まれてしまうため、それを削除する。
+            const dataString = dataReplace.split('\n'); //改行で分割
+            
+            for (let i = 0; i < dataString.length; i++) { //あるだけループ
+                dataArray[i] = dataString[i].split(',');
+            }
+            
+            for (let i = 1; i < dataArray.length; i++) {
+
+                const newdiv = document.createElementNS("http://www.w3.org/1999/xhtml", "div");
+                newdiv.setAttribute('class', dataArray[i][0]);
+
+                for (let a = 1; a < 4; a++) {
+                    const newtext = document.createTextNode(dataArray[i][a]);
+                    const parent = document.getElementById('wrap');
+                    const mydiv = parent.   appendChild(newdiv).appendChild(newtext);
+                    //newtext.split('"').join('');//ダブルクオテーションを削除
+
+                    const linebreak = document.createElement('br');
+                    newdiv.appendChild(linebreak);  //
+                }
+            }
+
+        }
+
+        csv_data(dataPath); //csv_data関数を実行する。
+
+
+
+    </script>
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+
+</html>
