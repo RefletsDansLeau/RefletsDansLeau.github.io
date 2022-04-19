@@ -52,7 +52,7 @@
 
         function csv_array(data) {//csv_array関数を以下に定義する。
             const dataArray = []; //空の配列を用意
-            const dataReplace = data.replace(/"/g,"");//Google spreadsheetはcsvにすると文字列が”で囲まれてしまうため、それを削除する。
+            const dataReplace = data.replace(/"/g,"");//Google spreadsheetはcsvにすると文字列が”で囲まれてしまうため、それを削除する。ただし、本文中の”も削除されてしまう。
             const dataString = dataReplace.split('\n'); //改行で分割
             
             for (let i = 0; i < dataString.length; i++) { //あるだけループ
