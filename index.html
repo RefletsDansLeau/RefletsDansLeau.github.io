@@ -21,8 +21,8 @@
             background-color: chocolate;
         }
         div.kyosan{
-            background-color: brown;
             position: relative;
+            background-color: brown;            
         }
     </style>
 
@@ -73,6 +73,9 @@
                     const linebreak = document.createElement('br');
                     newdiv.appendChild(linebreak);  //
                 }
+                const image = document.createElement('img');
+                image.src = 'pic/' + dataArray[i][4];
+                newdiv.appendChild(image);
             }
 
         }
