@@ -16,13 +16,12 @@
             line-height: 1.5em; 
         }
 
-        span.col_1{
+        div.col_1{
             font-size:x-large;
             
         }
 
-        span.col_2{
-            display:block;
+        div.col_2{
             background-color:#ccc;
         }
 
@@ -101,7 +100,7 @@
 
                 for (let k = 1; k < 4; k++) {
                     const newtext = document.createTextNode(dataArray[j][k]);
-                    const myspan = document.createElement('span');
+                    const myspan = document.createElement('div');
                     myspan.setAttribute('class', 'col_'+k);
                     const parent = document.getElementById('wrap');
                     const mydiv = parent.   appendChild(newdiv).appendChild(myspan).appendChild(newtext);                        
