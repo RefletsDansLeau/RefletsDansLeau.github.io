@@ -54,8 +54,7 @@
 </head>
 <title>中野区長選挙2022｜アンケート</title>
 <body>
-    <div id="wrap">
-        
+    <div id="wrap">       
     </div>
     
     <script>//参考記事→https://qiita.com/hiroyuki-n/items/5786c8fc84eb85944681
@@ -97,8 +96,8 @@
                     const parent = document.getElementById('wrap');
                     const mydiv = parent.   appendChild(newdiv).appendChild(myspan).appendChild(newtext);                        
 
-                    //const linebreak = document.createElement('br');
-                    //newdiv.appendChild(linebreak);  //
+                    const linebreak = document.createElement('br');
+                    newdiv.appendChild(linebreak);  
                 }
                 const image = document.createElement('img');
                 image.src = 'pic/' + dataArray[j][4];
@@ -108,21 +107,8 @@
         }
 
         csv_data(dataPath); //csv_data関数を実行する。
-
-
-
+        
     </script>
-
-
-
-
-
-
-
-
-
-
-
 
 </body>
 
