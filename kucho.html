@@ -115,6 +115,7 @@
             for (let j = 1; j < dataArray.length; j++) {
 
                 const newdiv = document.createElementNS("http://www.w3.org/1999/xhtml", "div");
+
                 newdiv.setAttribute('class', dataArray[j][2]); //各政党毎に色を変えたりできるようにする
 
                 const image = document.createElement('img');
@@ -122,6 +123,7 @@
                 image.setAttribute('class', 'circle');
                 newdiv.appendChild(image);
                 
+
                 for (let k = 3; k < 16; k++) {
                     const newtext = document.createTextNode(dataArray[j][k]);
                     const myspan = document.createElement('div');
