@@ -16,13 +16,18 @@
             line-height: 1.5em; 
         }
 
-        div.col_2{
+        div.col_3{
             font-size:x-large;
     
         }
 
-        div.col_4,div.col_6,div.col_8{
+        div.col_5,div.col_7,div.col_9,div.col_11,div.col_12,div.col_13{
             background-color:#eee;
+        }
+        div.col_13{
+            
+            height:3em;
+            overflow:hidden;
         }
 
 
@@ -110,14 +115,16 @@
             for (let j = 1; j < dataArray.length; j++) {
 
                 const newdiv = document.createElementNS("http://www.w3.org/1999/xhtml", "div");
-                newdiv.setAttribute('class', dataArray[j][1]); //各政党毎に色を変えたりできるようにする
+
+                newdiv.setAttribute('class', dataArray[j][2]); //各政党毎に色を変えたりできるようにする
 
                 const image = document.createElement('img');
                 image.src = 'pic/' + dataArray[j][0];
                 image.setAttribute('class', 'circle');
                 newdiv.appendChild(image);
                 
-                for (let k = 2; k < 10; k++) {
+
+                for (let k = 3; k < 16; k++) {
                     const newtext = document.createTextNode(dataArray[j][k]);
                     const myspan = document.createElement('div');
                     myspan.setAttribute('class', 'col_'+k);
