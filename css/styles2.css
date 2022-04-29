@@ -1,0 +1,80 @@
+ul.menu {
+	padding: 0 ;
+	margin: 0;
+  }
+  ul.menu li {
+	float: left;  /*メインメニューは横並びに*/
+	width: 150px;
+	height: 40px;
+	background-color: #2F4B97;
+	position: relative;  /*子要素の基準とするために指定*/
+	list-style-type: none;
+	box-sizing:border-box;
+  }
+  ul.menu li a {
+	display: block;
+	line-height: 40px;
+	text-align: center;
+	text-decoration: none;
+	color: #fff;
+  }
+  ul.menu li a:hover {
+	background-color: #5169A8;
+  }
+  ul.menu li ul.sub {
+	display: none;
+	position: absolute;
+	/*サブメニューを開いた際に、背後の要素の影響を受けないようにする*/
+	padding: 0;
+	margin: 0;
+  }
+   
+  ul.menu li:hover ul.sub {
+	display: block; 
+  }
+   
+  ul.menu li ul.sub li:first-child{
+	border-top: 1px solid #1C2973; /*最初の要素のみボーダートップを指定*/
+  }
+  ul.menu li ul.sub li {
+	border: 1px solid #1C2973;  /*ボーダーの指定*/
+	border-top: none;  /*ボーダートップは重なって太くなるので解除*/
+  }
+  ul.menu {
+   zoom:1; /*Clearfix IE6-7 対応*/
+  }
+  ul.menu:after { /*Clearfix*/
+	height:0;
+	visibility:hidden;
+	content:".";
+	display:block;
+	clear:both;
+  }
+
+body{
+	padding: 0;
+	margin: 0;
+}
+
+  .style-1{
+	  background-color: rgb(191, 208, 237);
+	  padding: 30px;
+	  margin: 30px;
+  }
+
+  .style-2{
+	background-color: rgb(255, 255, 255);
+	margin: 30px;
+ }
+
+ h1{
+	 font-family:"Hiragino Maru Gothic Pro", "メイリオ", sans-serif;
+ }
+
+ h2{
+	 font-family:sans-serif;
+ }
+
+ p{
+	 font-family: "Hiragino Maru Gothic Pro", "メイリオ", sans-serif;
+ }
