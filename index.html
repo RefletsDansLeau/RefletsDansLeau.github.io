@@ -110,7 +110,7 @@
             for (let j = 1; j < dataArray.length; j++) {
 
                 const newdiv = document.createElementNS("http://www.w3.org/1999/xhtml", "div");
-                newdiv.setAttribute('class', dataArray[j][0]); //各政党毎に色を変えたりできるようにする
+                newdiv.setAttribute('class', dataArray[j][1]); //各政党毎に色を変えたりできるようにする
 
                 const image = document.createElement('img');
                 image.src = 'pic/' + dataArray[j][0];
