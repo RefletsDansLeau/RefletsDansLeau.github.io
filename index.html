@@ -26,15 +26,25 @@
         }
 
 
+        @media screen and (min-width:768px){
+            #wrap{
+                position:absolute;
+                display:grid;
+                grid-template-columns: repeat(3,1fr);
+                column-gap: 1em;
+                row-gap:0.2em
+            }
+        }
+
         #wrap{
             position:absolute;
             display:grid;
-            grid-template-columns: repeat(3,1fr);
             column-gap: 1em;
             row-gap:0.2em
-        }
+}
 
         
+         
         div.jimin{
             position:relative;
             border: 2px solid;
