@@ -1,145 +1,165 @@
 <!DOCTYPE html>
-<html lang="jp">
+<html lang="ja">
 
 <head>
-    <meta charset="utf-8">
     <meta name="robots" content="noindex">
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="中野区長選挙｜子育て世代による市民アンケート"> 
     <meta name="keywords" content="中野区長選挙,子育て環境向上委員会,アンケート">
-
-    <style>
-        @charset "UTF-8";
-        *{
-            font-size: 1em;
-            font-family:'Hiragino Sans','Yu Gothic UI','Meiryo UI',sans-serif; 
-            line-height: 1.5em; 
-        }
-
-        div.col_3{
-            font-size:x-large;
-    
-        }
-
-        div.col_5,div.col_7,div.col_9,div.col_11,div.col_12,div.col_13{
-            background-color:#eee;
-        }
-        div.col_13{
-            font-size:small;
-            height:3em;
-            overflow:hidden;
-        }
-
-
-        @media screen and (min-width:768px){
-            #wrap{
-                position:absolute;
-                display:grid;
-                grid-template-columns: repeat(3,1fr);
-                column-gap: 1em;
-                row-gap:0.2em
-            }
-        }
-
-        #wrap{
-            position:absolute;
-            display:grid;
-            column-gap: 1em;
-            row-gap:0.2em
-}
-
-        
-         
-        div.jimin{
-            position:relative;
-            border: 2px solid;
-            border-color: #aaa;
-            text-align: center;
-            border-radius: 1em;
-        }
-        div.minshu{
-            position:relative;
-            border: 2px solid;
-            border-color: #aaa;
-            text-align: center;
-            border-radius: 1em;
-        }
-        div.kyosan{
-            position: relative;
-            border: 2px solid;
-            border-color: #aaa;
-            text-align: center;
-            border-radius: 1em;
-        }
-        img{
-            width:20vw
-        }
-        .circle{
-            clip-path:circle(40%);
-        }
-    </style>
+    <link rel="stylesheet" href="style_senkyo2.css">
+    <script src="csv_data_get.js"></script>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+    <script src="csv_road.js"></script>
 
 </head>
-<title>中野区長選挙2022｜アンケート</title>
+<title>中野区長選挙2022｜市民アンケート</title>
+
+
 <body>
-    <div id="wrap">       
+    <h1 class="style-2">中野区長選挙 2022 候補予定者公開アンケート結果</h1>
+
+    <nav class="navbar navbar-expand-sm navbar-dark bg-dark mt-3 mb-3">
+        <a class="navbar-brand" href="index.html">Menu</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+            <ul class="navbar-nav">
+                <li class="nav-item active">
+                    <a class="nav-link dropdown-toggle" href="kucho.html" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        区長選挙
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                        <a class="dropdown-item" href="kucho.html#">酒井直人</a>
+                        <a class="dropdown-item" href="kucho.html#">いながきじゅん子</a>
+                    </div>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="kugiho.html" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        区議補欠選挙
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                        <a class="dropdown-item" href="kugiho.html#">候補予定者A</a>
+                        <a class="dropdown-item" href="kugiho.html#">候補予定者B</a>
+                    </div>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link about" href="kosodate.html" id="navbarDropdownMenuLink" role="button" aria-haspopup="true" aria-expanded="false">
+                        About
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <div id="kucho">       
     </div>
+    <!--
+    <div class="footer" id="footer">
+        <div class="container">
+            <ul class="footer-menu">
+                <li><a href="index.html">home</a> ｜</li>
+                <li><a href="kucho.html">区長選</a> ｜</li>
+                <li><a href="kugiho.html">区議補選</a> ｜</li>
+                <li><a href="kosodate.html">About</a></li>
+               </ul>
+          <p class="text-muted">© All rights reserved by 子育て環境向上委員会@中野</p>
+        </div>
+    </div>-->
     
+    <script>
+        function draw_kucho(kouho, type){
+        let divListList = [];
+
+        for (var i = 0; i < kouho.length; i++) { 
+            var divList = document.createElement('div'); 
+            divList.setAttribute('class', "col-md-60"); 
+
+        //名前
+            let divItem_1 = document.createElement('div');
+            divItem_1.setAttribute('class',"mycol_1");    
+            var name_string = cat_dc(kouho[i][COL_NO_NAME]);
+            var newtext_1=document.createTextNode(name_string);
+            
+            
+        //イメージ作成
+            let image = document.createElement('img');
+                if(type == TYPE_KUCHO){
+                    image.src = 'pic/kucho' + i + ".jpg";
+                } else {
+                image.src = 'pic/kugi' + i + ".jpg";
+            }
+            image.setAttribute('class', 'circle');
+        
+        //党 divItem_2
+            let divItem_2=document.createElement('div');
+            divItem_2.setAttribute('class', "mycol-2");
+            var tou_string = cat_dc(kouho[i][COL_NO_TOU]);
+            var newtext_2 =  document.createTextNode(tou_string);    
+
+        //Q1 質問　divItem_3
+            let divItem_3= document.createElement('div');
+            divItem_3.setAttribute('class', "mycol-3");
+            var newtext_3=document.createTextNode('質問1')
+
+        //Q1　答え divItem_4
+            let divItem_4 = document.createElement('div');
+            divItem_4.setAttribute('class', "mycol-4");
+            var Q1_string = cat_dc(kouho[i][COL_NO_Q_1]);
+            var newtext_4 =  document.createTextNode(Q1_string);
+
+ 
+        //appendChild     
+            divList.appendChild(divItem_1).appendChild(newtext_1);
+            divList.appendChild(image);
+            divList.appendChild(divItem_2).appendChild(newtext_2);
+            divList.appendChild(divItem_3).appendChild(newtext_3);
+            divList.appendChild(divItem_4).appendChild(newtext_4);
+    
+        divListList.push(divList);
+    }
+    return divListList;
+}
+    </script>
+
+
+
     <script>//参考記事→https://qiita.com/hiroyuki-n/items/5786c8fc84eb85944681
 
        //Googleスプレッドシートのcsvのパスを記載する。
-        const dataPath = 'https://docs.google.com/spreadsheets/d/1c73plRh0CbcWj37a79vE2zVFYZc1Y0mVmmEybtzRMNs/gviz/tq?tqx=out:csv&sheet=Sheet1';// csvのパス
+       const dataPath = 'https://docs.google.com/spreadsheets/d/1LdAUVyOJRMcW_daa5AbARPcgwStX6a5Mi3VTliyIV8k/gviz/tq?tqx=out:csv&sheet=候補者の回答';
+
+       //スプレッドシートをopen、load、send、配列に変換、「”」を削除   
+         let csv_row = csv_data_get(dataPath); 
+
+
+        let kucho = get_type(csv_row, TYPE_KUCHO);
+
+
+
+
+        let divList = draw_kucho(kucho, TYPE_KUCHO);
+
+        for(var i = 0; i < divList.length; i++){
+            document.getElementById('kucho').appendChild(divList[i]); 
+        }
+
+
         
-        //open load send
-        function csv_data() {//csv_data関数を以下に定義する。
-            const myrequest = new XMLHttpRequest(); // HTTPでファイルを読み込む
-            myrequest.open('GET', dataPath, true);
-            myrequest.addEventListener('load', (event) => { // ロードさせ実行
-                const myresponse = event.target.responseText; // 受け取ったテキストを返す
-                csv_array(myresponse); // 下記のarray関数を実行する。
-            });
-            myrequest.send();
-        }
 
-         //csvを配列にする。[[たんじろう],[自民],[コメント]],[[ねずこ],[共産],[コメント]],…というイメージ
-        function csv_array(data) {//csv_array関数を以下に定義する。
-            const dataArray = []; //空の配列を用意
-            const dataReplace = data.replace(/"/g,"");//Google spreadsheetはcsvにすると文字列が”で囲まれてしまうため、それを削除する。ただし、本文中の”も削除されてしまう。
-            const dataString = dataReplace.split('\n'); //改行で分割
+
             
-            for (let i = 0; i < dataString.length; i++) { //あるだけループ
-                dataArray[i] = dataString[i].split(',');
-            }
-            
-            //配列から必要なデータを取り出し、HTMLを書く
-            for (let j = 1; j < dataArray.length; j++) {
-
-                const newdiv = document.createElementNS("http://www.w3.org/1999/xhtml", "div");
-
-                newdiv.setAttribute('class', dataArray[j][2]); //各政党毎に色を変えたりできるようにする
-
-                const image = document.createElement('img');
-                image.src = 'pic/' + dataArray[j][0];
-                image.setAttribute('class', 'circle');
-                newdiv.appendChild(image);
-                
-
-                for (let k = 3; k < 16; k++) {
-                    const newtext = document.createTextNode(dataArray[j][k]);
-                    const myspan = document.createElement('div');
-                    myspan.setAttribute('class', 'col_'+k);
-                    const parent = document.getElementById('wrap');
-                    const mydiv = parent.   appendChild(newdiv).appendChild(myspan).appendChild(newtext);                                             
-                }
-                
-            }
-
-        }
-
-        csv_data(dataPath); //csv_data関数を実行する。
         
     </script>
 
+   
 </body>
 
 </html>
