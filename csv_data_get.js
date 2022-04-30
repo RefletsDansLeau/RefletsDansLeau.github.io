@@ -71,8 +71,10 @@ function draw_top(kouho, type){
     for (var i = 0; i < kouho.length; i++) { 
         var divList = document.createElement('div'); 
         divList.setAttribute('class', "col-md-6"); 
-        divList.textContent = kouho[i][COL_NO_NAME];
-        
+        var name_string = cat_dc(kouho[i][COL_NO_NAME]);
+        //divList.textContent = cat_dc(kouho[i][COL_NO_NAME]);
+        divList.textContent = name_string;
+
         let divItem = document.createElement('div');
         divItem.setAttribute('class', "col-3");
         
@@ -90,5 +92,12 @@ function draw_top(kouho, type){
         divListList.push(divList);
     }
     return divListList;
+}
+
+// 文字列の先頭と末尾を削除する
+function cat_dc(string){
+    var new_string = string.slice(1);
+    var new_string2 = new_string.slice(0,-1);
+    return new_string2;
 }
 
