@@ -1,0 +1,79 @@
+@charset "UTF-8";
+*{
+    font-size: 1em;
+    font-family:'Hiragino Sans','Yu Gothic UI','Meiryo UI',sans-serif; 
+    line-height: 1.5em; 
+}
+
+
+
+
+.col-md-60{
+    position:relative;
+    border: 2px solid;
+    border-color: #aaa;
+    text-align: center;
+    border-radius: 1em;
+}
+
+div.mycol-1{
+    font-size:x-large;    
+
+}
+
+div.mycol-3,div.mycol-7,div.mycol-9,div.mycol-11,div.mycol-12,div.mycol-13{
+    background-color:#eee;
+}
+div.mycol-13{  /*質問文*/
+    font-size:small;
+    height:3em;
+    overflow:hidden;
+}
+
+
+@media screen and (min-width:768px){
+    #kucho{
+        position:absolute;
+        display:grid;
+        grid-template-columns: repeat(3,1fr);
+        column-gap: 1em;
+        row-gap:0.2em
+    }
+}
+
+#kucho{
+    position:absolute;
+    display:grid;
+    column-gap: 1em;
+    row-gap:0.2em
+}
+
+
+ 
+div.jimin{
+    position:relative;
+    border: 2px solid;
+    border-color: #aaa;
+    text-align: center;
+    border-radius: 1em;
+}
+div.minshu{
+    position:relative;
+    border: 2px solid;
+    border-color: #aaa;
+    text-align: center;
+    border-radius: 1em;
+}
+div.kyosan{
+    position: relative;
+    border: 2px solid;
+    border-color: #aaa;
+    text-align: center;
+    border-radius: 1em;
+}
+img{
+    width:20vw
+}
+.circle{
+    clip-path:circle(40%);
+}
