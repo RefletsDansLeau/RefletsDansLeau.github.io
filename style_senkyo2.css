@@ -76,4 +76,5 @@ img{
 }
 .circle{
     clip-path:circle(40%);
+    width:20vh
 }
