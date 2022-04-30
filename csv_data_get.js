@@ -31,7 +31,15 @@ function csv_data_get(dataPath) {
     let lines = srt.responseText.split("\n");
 
     // 1行ごとに処理
-    for (let i = 0; i < lines.length; ++i) {
+    for (let i = 0; i < lines.length; i++) {
+        // 文字列の最後が"ではない場合、途中で切ってしまったと判断し、
+        // 次の列と繋げる。(ただし、２回以上改行が入っているとうまく動かない・・・)
+        if(lines[i].slice( -1 ) != '"') {
+            lines[i] = lines[i]+lines[i+1];
+        } else if(lines[i].slice(0,1) != '"'){
+            break;
+        }
+
         let cells = lines[i].split(",");
         if (cells.length != 1) {
             csletr.push(cells);
@@ -56,6 +64,7 @@ function get_type(csv_list, type){
     
 }
 
+// トップ画像用のdivセットを生成する（タイプごと）
 function draw_top(kouho, type){
     let divListList = [];
 
