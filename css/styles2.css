@@ -109,3 +109,13 @@ ul.menu {
 ul.footer-menu li {
 	display: inline;
 	}
+
+footer{
+	/*footerの装飾*/
+	width: 100%;
+	text-align: center;
+	padding: 0px 0;
+
+	position: absolute;/*←絶対位置*/
+	bottom: 0; /*下に固定*/
+}
