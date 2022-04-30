@@ -50,11 +50,15 @@ ul.menu {
 	display:block;
 	clear:both;
   }
-
-body{
+  html{
+  	position: relative;
+  	min-height: 100%;
+  }
+  body{
 	padding: 0;
 	margin: 0;
-}
+	margin-bottom: 60px;
+  }
 
   .style-1{
 	  background-color: rgb(191, 208, 237);
@@ -78,3 +82,40 @@ body{
  p{
 	 font-family: "Hiragino Maru Gothic Pro", "メイリオ", sans-serif;
  }
+
+
+.footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  /* Set the fixed height of the footer here */
+  height: 60px;
+  background-color: #f5f5f5;
+}
+ 
+ 
+/* Custom page CSS
+-------------------------------------------------- */
+/* Not required for template or sticky footer method. */
+ 
+.container {
+  width: auto;
+  max-width: 800px;
+  padding: 0 15px;
+}
+.container .text-muted {
+  margin: 3px 0;
+}
+ul.footer-menu li {
+	display: inline;
+	}
+
+footer{
+	/*footerの装飾*/
+	width: 100%;
+	text-align: center;
+	padding: 0px 0;
+
+	position: absolute;/*←絶対位置*/
+	bottom: 0; /*下に固定*/
+}

@@ -5,11 +5,15 @@
 <title>2022 中野区　区長選挙・区議補欠選挙　候補予定者公開アンケート結果＠中野区子育て環境向上委員会</title>
 <!-- Bootstrap CSS -->
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
- 
-<!--script src="jquery-3.6.0.min.js"></script-->
-<!--<![endif]-->
-<!--script src="js/main.js"></script-->
+<script src="csv_data_get.js"></script>
 <link href="css/styles2.css" rel="stylesheet">
+
+<script>
+    //Googleスプレッドシートのcsvのパスを記載する。
+    //const dataPath = 'https://docs.google.com/spreadsheets/d/1c73plRh0CbcWj37a79vE2zVFYZc1Y0mVmmEybtzRMNs/gviz/tq?tqx=out:csv&sheet=Sheet1';// csvのパス
+    // アンケート結果そのものへのパス
+    const dataPath = 'https://docs.google.com/spreadsheets/d/1LdAUVyOJRMcW_daa5AbARPcgwStX6a5Mi3VTliyIV8k/gviz/tq?tqx=out:csv&sheet=候補者の回答';
+</script>
 </head>
 <body>
 
@@ -17,24 +21,119 @@
 
 
     <nav class="navbar navbar-expand-sm navbar-dark bg-dark mt-3 mb-3">
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav4" aria-controls="navbarNav4" aria-expanded="false" aria-label="Toggle navigation">
+        <a class="navbar-brand" href="index.html">Menu</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
-        <a class="navbar-brand" href="#">Navbar</a>
-        <div class="collapse navbar-collapse">
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
             <ul class="navbar-nav">
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="kucho.html" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        区長選挙
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                        <a class="dropdown-item" href="kucho.html#">酒井直人</a>
+                        <a class="dropdown-item" href="kucho.html#">いながきじゅん子</a>
+                    </div>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="kugiho.html" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        区議補欠選挙
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                        <a class="dropdown-item" href="kugiho.html#">候補予定者A</a>
+                        <a class="dropdown-item" href="kugiho.html#">候補予定者B</a>
+                    </div>
+                </li>
                 <li class="nav-item active">
-                    <a href="kucho.html">区長選挙</a>
-                </li>
-                <li class="nav-item">
-                    <a href="kugiho.html">区議補欠選挙</a>
-                </li>
-                <li class="nav-item">
-                    <a href="kosodate.html">About</a>
+                    <a class="nav-link about" href="kosodate.html" id="navbarDropdownMenuLink" role="button" aria-haspopup="true" aria-expanded="false">
+                        About
+                    </a>
                 </li>
             </ul>
         </div>
     </nav>   
+    
+    <div class="container">
+        <div class="row"><h2>区長選挙候補予定者</h2></div>
+        <div class="row" id="kucho">
+
+        </div>
+        
+        <div class="row"><h2>区議補欠選挙候補予定者</h2></div>
+        <div class="row" id="kugi">
+
+        </div>
+    </div>
+    <script>
+
+        // 区長候補
+        let csv_row = csv_data_get(dataPath); //csv_data関数を実行する。
+        let kucho = get_type(csv_row, TYPE_KUCHO);
+        let divList = draw_top(kucho, TYPE_KUCHO);
+
+        for(var i = 0; i < divList.length; i++){
+            document.getElementById('kucho').appendChild(divList[i]); 
+        }
+        
+        // 区議補候補
+        let kugi = get_type(csv_row, TYPE_KUGI);
+        let divList_kugi = draw_top(kugi, TYPE_KUGI);
+
+        for(var i = 0; i < divList_kugi.length; i++){
+            document.getElementById('kugi').appendChild(divList_kugi[i]); 
+        }
+    </script>
+
+    <div class="container">	
+        <!--div class="row"><h2>区長選挙</h2></div>					
+        <div class="row">
+            <div class="col-md-6">酒井直人
+                <div class="col-3">
+                     <img class="img-fluid" src="pic/img007.jpg">
+                </div>
+            </div>
+            <div class="col-md-6">いながきじゅん子
+                <div class="col-3">
+                    <img class="img-fluid" src="pic/img007.jpg">
+               </div>
+            </div>
+        </div-->
+        <!--div class="row"><h2>区議補欠選挙</h2></div>
+        <div class = "row">
+            <div class="col-md-2">広川まさのり
+                <div class="col">
+                    <img class="img-fluid" src="pic/img007.jpg">
+               </div>
+            </div>
+            <div class="col-md-2">細野かよこ
+                <div class="col">
+                    <img class="img-fluid" src="pic/img007.jpg">
+               </div>
+            </div>
+            <div class="col-md-2">生藤健人
+                <div class="col">
+                    <img class="img-fluid" src="pic/img007.jpg">
+               </div>
+            </div>
+            <div class="col-md-2">黒沢ゆか
+                <div class="col">
+                    <img class="img-fluid" src="pic/img007.jpg">
+               </div>
+            </div>
+            <div class="col-md-2">斉藤けいた
+                <div class="col">
+                    <img class="img-fluid" src="pic/img007.jpg">
+               </div>
+            </div>
+            <div class="col-md-2">大木慶一
+                <div class="col">
+                    <img class="img-fluid" src="pic/img007.jpg">
+               </div>
+            </div>
+        </div-->
+    </div>
+
 
 <div class="style-1">
     <p>子育て環境向上委員会@中野 です。</p>
@@ -53,11 +152,25 @@
     
     <p>本サイトが皆様の投票の参考となりましたら嬉しいです。</p>
 </div>
+
  <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+   
 
+
+  <div class="footer">
+    <div class="container">
+        <ul class="footer-menu">
+            <li>home ｜</li>
+            <li><a href="kucho.html">区長選</a> ｜</li>
+            <li><a href="kugiho.html">区議補選</a> ｜</li>
+            <li><a href="kosodate.html">About</a></li>
+           </ul>
+      <p class="text-muted">© All rights reserved by 子育て環境向上委員会@中野</p>
+    </div>
+  </footer>
 </body>
 </html>
