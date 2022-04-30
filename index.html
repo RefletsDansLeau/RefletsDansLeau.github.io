@@ -64,6 +64,10 @@
         <div class="row" id="kugi">
 
         </div>
+
+        <!-- 確認用 -->
+        <!--ul id="list">
+        </ul-->
     </div>
     <script>
 
@@ -75,13 +79,31 @@
         for(var i = 0; i < divList.length; i++){
             document.getElementById('kucho').appendChild(divList[i]); 
         }
-        
+
+        // 確認用
+        //for(var m = 0; m < csv_row.length; m++){
+        //    var todoList = document.createElement('li'); 
+        //    todoList.textContent = csv_row[m];
+        //    document.getElementById('list').appendChild(todoList); 
+        //}
+
+
         // 区議補候補
         let kugi = get_type(csv_row, TYPE_KUGI);
+        
+        // 確認用
+        //for(var m = 0; m < kugi.length; m++){
+        //    var todoList = document.createElement('li'); 
+        //    todoList.textContent = kugi[m];
+        //    document.getElementById('list').appendChild(todoList); 
+        //}
+
         let divList_kugi = draw_top(kugi, TYPE_KUGI);
 
-        for(var i = 0; i < divList_kugi.length; i++){
-            document.getElementById('kugi').appendChild(divList_kugi[i]); 
+
+
+        for(var j = 0; j < divList_kugi.length; j++){
+            document.getElementById('kugi').appendChild(divList_kugi[j]); 
         }
     </script>
 

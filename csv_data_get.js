@@ -31,7 +31,15 @@ function csv_data_get(dataPath) {
     let lines = srt.responseText.split("\n");
 
     // 1行ごとに処理
-    for (let i = 0; i < lines.length; ++i) {
+    for (let i = 0; i < lines.length; i++) {
+        // 文字列の最後が"ではない場合、途中で切ってしまったと判断し、
+        // 次の列と繋げる。(ただし、２回以上改行が入っているとうまく動かない・・・)
+        if(lines[i].slice( -1 ) != '"') {
+            lines[i] = lines[i]+lines[i+1];
+        } else if(lines[i].slice(0,1) != '"'){
+            break;
+        }
+
         let cells = lines[i].split(",");
         if (cells.length != 1) {
             csletr.push(cells);
@@ -56,14 +64,17 @@ function get_type(csv_list, type){
     
 }
 
+// トップ画像用のdivセットを生成する（タイプごと）
 function draw_top(kouho, type){
     let divListList = [];
 
     for (var i = 0; i < kouho.length; i++) { 
         var divList = document.createElement('div'); 
         divList.setAttribute('class', "col-md-6"); 
-        divList.textContent = kouho[i][COL_NO_NAME];
-        
+        var name_string = cat_dc(kouho[i][COL_NO_NAME]);
+        //divList.textContent = cat_dc(kouho[i][COL_NO_NAME]);
+        divList.textContent = name_string;
+
         let divItem = document.createElement('div');
         divItem.setAttribute('class', "col-3");
         
@@ -81,5 +92,12 @@ function draw_top(kouho, type){
         divListList.push(divList);
     }
     return divListList;
+}
+
+// 文字列の先頭と末尾を削除する
+function cat_dc(string){
+    var new_string = string.slice(1);
+    var new_string2 = new_string.slice(0,-1);
+    return new_string2;
 }
 
