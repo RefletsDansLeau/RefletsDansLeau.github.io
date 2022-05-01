@@ -23,6 +23,7 @@
 
 
 <body>
+    <div class="wrap">
     <h1 class="style-2">中野区長選挙 2022 候補予定者公開アンケート結果</h1>
 
     <nav class="navbar navbar-expand-sm navbar-dark bg-dark mt-3 mb-3">
@@ -61,19 +62,20 @@
 
     <div id="kucho">       
     </div>
-    <!--
-    <div class="footer" id="footer">
-        <div class="container">
-            <ul class="footer-menu">
+    
+        <div class="footer" id="footer">
+            <div class="container">
+                <ul class="footer-menu">
                 <li><a href="index.html">home</a> ｜</li>
                 <li><a href="kucho.html">区長選</a> ｜</li>
                 <li><a href="kugiho.html">区議補選</a> ｜</li>
                 <li><a href="kosodate.html">About</a></li>
                </ul>
-          <p class="text-muted">© All rights reserved by 子育て環境向上委員会@中野</p>
+            <p class="text-muted">© All rights reserved by 子育て環境向上委員会@中野</p>
+            </div>
         </div>
-    </div>-->
     
+
     <script>
         function draw_kucho(kouho, type){
         let divListList = [];
@@ -124,20 +126,20 @@
             divList.appendChild(divItem_4).appendChild(newtext_4);
     
         divListList.push(divList);
-    }
+        }
     return divListList;
-}
+    }
     </script>
 
 
 
-    <script>//参考記事→https://qiita.com/hiroyuki-n/items/5786c8fc84eb85944681
+    <script>
 
        //Googleスプレッドシートのcsvのパスを記載する。
        const dataPath = 'https://docs.google.com/spreadsheets/d/1LdAUVyOJRMcW_daa5AbARPcgwStX6a5Mi3VTliyIV8k/gviz/tq?tqx=out:csv&sheet=候補者の回答';
 
        //スプレッドシートをopen、load、send、配列に変換、「”」を削除   
-         let csv_row = csv_data_get(dataPath); 
+        let csv_row = csv_data_get(dataPath); 
 
 
         let kucho = get_type(csv_row, TYPE_KUCHO);
@@ -152,14 +154,15 @@
         }
 
 
-        
+        //フッターを一番下へ移動
+        let elem_footer = document.querySelector('.footer');
+        let elem_parent = document.getElementById('kucho');
 
-
-            
+        elem_parent.insertBefore(elem_footer,null); 
         
     </script>
 
-   
+</div><!--End wrap-->
 </body>
 
 </html>
