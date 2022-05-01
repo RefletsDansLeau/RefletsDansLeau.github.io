@@ -49,7 +49,8 @@ ul.footer-menu{ /*フッターの表示*/
           "footer footer";
 }
 .footer{
-    grid-area: footer;    
+    grid-area: footer; 
+    margin:auto
 }
 
 
