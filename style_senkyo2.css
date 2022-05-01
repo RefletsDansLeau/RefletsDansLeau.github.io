@@ -30,22 +30,34 @@ div.mycol-13{  /*質問文*/
     overflow:hidden;
 }
 
+ul.footer-menu{ /*フッターの表示*/
+    display:flex;
+    list-style: none;
+    padding-top: 1em;
+}
 
 @media screen and (min-width:768px){
     #kucho{
         position:absolute;
         display:grid;
-        grid-template-columns: repeat(3,1fr);
+        grid-template-columns: 1fr 1fr;
         column-gap: 1em;
-        row-gap:0.2em
-    }
+        row-gap:0.2em;
+        grid-template-areas:
+          "main main"
+          "main main"
+          "footer footer";
 }
+.footer{
+    grid-area: footer;    
+}
+
 
 #kucho{
     position:absolute;
     display:grid;
     column-gap: 1em;
-    row-gap:0.2em
+    row-gap:0.2em;
 }
 
 
