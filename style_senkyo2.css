@@ -5,6 +5,51 @@
     line-height: 1.5em; 
 }
 
+/*アコーディオン*/
+.acd-check, .acd-check0,.acd-check1,.acd-check2,.acd-check3{
+    display: none;
+}
+.acd-label{
+    background: #eee;
+    color: #000;
+    display: block;
+
+}
+.acd-content{
+    height: 0;
+    opacity: 0;
+    transition: .5s;
+    visibility: hidden;
+}
+.acd-check0:checked + .acd-label + .acd-content{    
+    opacity: 1;
+    visibility: visible;
+    height:fit-content
+}
+.acd-check1:checked + .acd-label + .acd-content{
+    opacity: 1;
+    visibility: visible;
+    height:fit-content
+}
+.acd-check2:checked + .acd-label + .acd-content{
+    opacity: 1;
+    visibility: visible;
+    height:fit-content
+}
+.acd-check3:checked + .acd-label + .acd-content{
+    opacity: 1;
+    visibility: visible;
+    height:fit-content
+}
+.acd-check4:checked + .acd-label + .acd-content{
+    opacity: 1;
+    visibility: visible;
+    height:fit-content
+}
+
+/*アコーディオン終わり*/
+
+
 
 
 
@@ -21,14 +66,11 @@ div.mycol-1{
 
 }
 
-div.mycol-3,div.mycol-7,div.mycol-9,div.mycol-11,div.mycol-12,div.mycol-13{
+div.mycol-3,div.mycol-5,div.mycol-7,div.mycol-9,div.mycol-10,div.mycol-12,div.mycol-13{
     background-color:#eee;
+    font-weight: bold;
 }
-div.mycol-13{  /*質問文*/
-    font-size:small;
-    height:3em;
-    overflow:hidden;
-}
+
 
 ul.footer-menu{ /*フッターの表示*/
     display:flex;
@@ -49,8 +91,8 @@ ul.footer-menu{ /*フッターの表示*/
           "footer footer";
 }
 .footer{
-    grid-area: footer; 
-    margin:auto
+    grid-area: footer;
+    margin:auto    
 }
 
 
