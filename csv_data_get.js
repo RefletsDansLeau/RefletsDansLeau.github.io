@@ -65,12 +65,12 @@ function get_type(csv_list, type){
      let csletr = [];
      for (var i = 0; i < csv_list.length; i++) { 
          let data = csv_list[i];
-         console.log(data[11]);
+         
          if(data[COL_NO_TYPE] == type){
              csletr.push(data);
          }
      }
-     //console.log(csletr);
+ 
      return csletr;
     
 }
@@ -98,7 +98,17 @@ function draw_top(kouho, type){
         image.setAttribute('class', 'img-fluid');
         divItem.appendChild(image); 
 
-        divList.appendChild(divItem);
+        // a 要素の作成と属性の指定
+        var newAnchor = document.createElement("a");
+        newAnchor.appendChild( divItem );
+        if(type == TYPE_KUCHO){
+            newAnchor.setAttribute("href", "kucho.html#"+kouho[i][COL_NO_NAME]);
+        } else {
+            newAnchor.setAttribute("href", "kugiho.html#"+kouho[i][COL_NO_NAME]);
+        }
+
+        divList.appendChild(newAnchor);
+        //divList.appendChild(divItem);
     
         divListList.push(divList);
     }
