@@ -1,6 +1,7 @@
 div.top{
     background-image: url(../pic/top.png);
-    height: 30vh;
+    height: 50vh;
+    width: 100vw;
     background-size: contain;
     overflow: hidden;
     background-position: bottom;
