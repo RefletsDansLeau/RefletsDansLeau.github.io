@@ -1,5 +1,5 @@
 div.top{
-    background-image: url(pic/top.png);
+    background-image: url(../pic/top.png);
     height: 50vh;
     background-size: contain;
     overflow: hidden;
