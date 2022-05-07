@@ -2,7 +2,19 @@
 *{
     font-size: 1em;
     font-family:'Hiragino Sans','Yu Gothic UI','Meiryo UI',sans-serif; 
-    line-height: 2em; 
+    line-height: 2em;
+}
+div.top{
+    background-image: url(pic/top.png);
+    height: 50vh;
+    background-size: cover;
+    overflow: hidden;
+    background-position: bottom;
+    background-repeat: no-repeat;
+}
+
+h1{
+    font-size: xx-large;
 }
 
 /*アコーディオン*/
