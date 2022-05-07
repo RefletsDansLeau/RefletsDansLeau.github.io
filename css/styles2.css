@@ -29,7 +29,7 @@ img{
 
 div.top{
     background-image: url(../pic/top.png);
-    height: 50vh;
+    height: 30vh;
     width: 100vw;
     background-size: contain;
     overflow: hidden;
