@@ -125,7 +125,7 @@ footer{
 	width: 100%;
 	text-align: center;
 	padding: 0px 0;
-
+	text-align: center; 
 	position: absolute;/*←絶対位置*/
 	bottom: 0; /*下に固定*/
 }
