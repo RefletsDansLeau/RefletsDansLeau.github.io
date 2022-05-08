@@ -7,7 +7,7 @@
 div.top{
     background-image: url(../pic/top.png);
     height: 30vh;
-    background-size: contain;
+    background-size: 100% auto;
     overflow: hidden;
     background-position: bottom;
     background-repeat: no-repeat;
