@@ -21,9 +21,6 @@ div.top{
 		background-repeat: no-repeat;
 	}
 }
-img{
-    width:30vw
-}
 
 
 h1{
@@ -156,10 +153,6 @@ div.kyosan{
     border-color: #aaa;
     text-align: center;
     border-radius: 1em;
-}
-img{
-    width:20vw;
-    clip-path:ellipse(40% 50% at 50% 50%);
 }
 img.circle{
     clip-path:ellipse(40% 50% at 50% 50%);
