@@ -1,6 +1,6 @@
 .img-fluid{
-	clip-path:circle(40%);
-    width:20vh
+	clip-path: ellipse(40% 50% at 50% 50%);
+    	width:20vh
 }
 .col-3{
 	margin:0 auto;
