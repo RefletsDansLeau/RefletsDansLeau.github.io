@@ -7,15 +7,34 @@
 div.top{
     background-image: url(../pic/top.png);
     height: 30vh;
-    background-size: contain;
+    background-size: 100% auto;
     overflow: hidden;
     background-position: bottom;
     background-repeat: no-repeat;
 }
+@media screen and (max-width:768px){
+	div.top{
+		background-image: url(../pic/top-sumaho.png);
+		height: 30vh;
+		background-size: 100% auto;
+		background-position: bottom;
+		background-repeat: no-repeat;
+	}
+}
+img{
+    width:30vw
+}
+
 
 h1{
-    font-size: xx-large;
+    font-size: x-large;
 }
+h1.style-2{
+	font-family:"Hiragino Maru Gothic Pro", "メイリオ", sans-serif;
+	font-size: x-large;
+}
+
+
 
 /*アコーディオン*/
 .acd-check, .acd-check0,.acd-check1,.acd-check2,.acd-check3{
@@ -139,9 +158,10 @@ div.kyosan{
     border-radius: 1em;
 }
 img{
-    width:20vw
+    width:20vw;
+    clip-path:ellipse(40% 50% at 50% 50%);
 }
-.circle{
-    clip-path:circle(40%);
+img.circle{
+    clip-path:ellipse(40% 50% at 50% 50%);
     width:20vh
 }

@@ -6,7 +6,6 @@
 	margin:0 auto;
 	max-width: fit-content;
 }
-
 img{
     width:20vw
 }
@@ -38,10 +37,10 @@ div.top{
     background-position: bottom;
     background-repeat: no-repeat;
 }
-@media screen and (max-width:768px){
+@media screen and (max-width:768px){ /*スマホ画面*/
 	div.top{
 		background-image: url(../pic/top-sumaho.png);
-		height: 30vh;
+		/*height: 30vh;*/
 		background-size: 100% auto;
 		background-position: bottom;
 		background-repeat: no-repeat;
@@ -52,8 +51,8 @@ div.top{
 ul.menu {
 	padding: 0 ;
 	margin: 0;
-  }
-  ul.menu li {
+}
+ul.menu li {
 	float: left;  /*メインメニューは横並びに*/
 	width: 150px;
 	height: 40px;
@@ -61,32 +60,30 @@ ul.menu {
 	position: relative;  /*子要素の基準とするために指定*/
 	list-style-type: none;
 	box-sizing:border-box;
-  }
-  ul.menu li a {
+}
+ul.menu li a {
 	display: block;
 	line-height: 40px;
 	text-align: center;
 	text-decoration: none;
 	color: #fff;
-  }
-  ul.menu li a:hover {
+}
+ul.menu li a:hover {
 	background-color: #5169A8;
-  }
-  ul.menu li ul.sub {
+}
+ul.menu li ul.sub {
 	display: none;
 	position: absolute;
 	/*サブメニューを開いた際に、背後の要素の影響を受けないようにする*/
 	padding: 0;
 	margin: 0;
-  }
-   
-  ul.menu li:hover ul.sub {
+}
+ul.menu li:hover ul.sub {
 	display: block; 
-  }
-   
-  ul.menu li ul.sub li:first-child{
+}
+ul.menu li ul.sub li:first-child{
 	border-top: 1px solid #1C2973; /*最初の要素のみボーダートップを指定*/
-  }
+}
   ul.menu li ul.sub li {
 	border: 1px solid #1C2973;  /*ボーダーの指定*/
 	border-top: none;  /*ボーダートップは重なって太くなるので解除*/
@@ -128,6 +125,11 @@ ul.menu {
   .style-2{
 	padding: 0.6em;
  }
+ h1.style-2{
+	font-family:"Hiragino Maru Gothic Pro", "メイリオ", sans-serif;
+	font-size: x-large;
+}
+
 
  h1{
 	 font-family:"Hiragino Maru Gothic Pro", "メイリオ", sans-serif;
@@ -175,3 +177,47 @@ ul.footer-menu li {
 	bottom: 0; /*下に固定*/
 	font-size: small;
 }
+
+/*アコーディオン*/
+.acd-check, .acd-check0,.acd-check1,.acd-check2,.acd-check3{
+    display: none;
+}
+.acd-label{
+    background: #eee;
+    color: #000;
+    display: block;
+
+}
+.acd-content{
+    height: 0;
+    opacity: 0;
+    transition: .5s;
+    visibility: hidden;
+}
+.acd-check0:checked + .acd-label + .acd-content{    
+    opacity: 1;
+    visibility: visible;
+    height:fit-content
+}
+.acd-check1:checked + .acd-label + .acd-content{
+    opacity: 1;
+    visibility: visible;
+    height:fit-content
+}
+.acd-check2:checked + .acd-label + .acd-content{
+    opacity: 1;
+    visibility: visible;
+    height:fit-content
+}
+.acd-check3:checked + .acd-label + .acd-content{
+    opacity: 1;
+    visibility: visible;
+    height:fit-content
+}
+.acd-check4:checked + .acd-label + .acd-content{
+    opacity: 1;
+    visibility: visible;
+    height:fit-content
+}
+
+/*アコーディオン終わり*/
