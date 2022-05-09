@@ -117,6 +117,7 @@ ul.footer-menu{ /*フッターの表示*/
           "main main"
           "main main"
           "footer footer";
+	}
 }
 .footer{
     grid-area: footer;
