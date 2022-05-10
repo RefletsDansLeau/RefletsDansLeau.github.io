@@ -24,27 +24,10 @@
 
 
 <body>
-    <div class="wrap">
-        <div class="top"></div>
-    <h1 class="style-2">中野区長選挙 2022 候補予定者公開アンケート結果</h1>
-
-
+<div class="wrap">
+    <div class="top"></div><!--top画像表示-->
     
-
-
-
-
-
-
-
-<!--
-<input id="acd-check1" class="acd-check" type="checkbox">
-<label class="acd-label" for="acd-check1">クリックで開く1</label>
-<div class="acd-content">
-    hello.world!
-</div>   
--->
-
+    <h1 class="style-2">中野区長選挙 2022 候補予定者公開アンケート結果</h1>
 
     <nav class="navbar navbar-expand-sm navbar-dark bg-dark mt-3 mb-3">
         <a class="navbar-brand" href="index.html">Menu</a>
@@ -81,8 +64,9 @@
     </nav>
 
     <div id="kucho">       
-    </div>
-    
+        <div id="spreadsheet">
+            <iframe src="https://docs.google.com/spreadsheets/d/e/2PACX-1vSwD_ZtsLHEZYeovIuV-5QX_ixZwjPwiQsQlJw5EX9y02uyjN59kccTUj6svwM_7S4wvG94OtKTDIA1/pubhtml?gid=1008084121&amp;single=true&amp;widget=true&amp;headers=false"></iframe>
+        </div>
         <div class="footer" id="footer">
             <div class="container">
                 <ul class="footer-menu">
@@ -94,6 +78,12 @@
             <p class="text-muted">© All rights reserved by 子育て環境向上委員会@中野</p>
             </div>
         </div>
+    </div><!--end of kucho-->
+
+    
+
+    
+    
     
 
     <script>
@@ -155,52 +145,7 @@
             divItem_8.setAttribute('class', "mycol-8");
             var newtext_8 =  document.createTextNode(kouho[i][COL_NO_Q_3]);
 
-        //Q4　質問 divItem_9
-            let divItem_9 = document.createElement('div');
-            divItem_9.setAttribute('class', "mycol-9");
-            var newtext_9 =  document.createTextNode('質問４．有権者からの質問への回答');
-            
-        //Q4　質問番号 divItem_10
-            let divItem_10 = document.createElement('div');
-            divItem_10.setAttribute('class', "mycol-10");
-            var newtext_10 =  document.createTextNode('質問番号'+kouho[i][COL_NO_Q_4]+'番');
-
-        //Q4　回答 divItem_11
-            let divItem_11 = document.createElement('div');
-            divItem_11.setAttribute('class', "mycol-11");
-            var newtext_11 =  document.createTextNode(kouho[i][COL_NO_Q_ANS]);
-
-        //Q5　質問 divItem_12
-            let divItem_12 = document.createElement('div');
-            divItem_12.setAttribute('class', "mycol-12");
-            var newtext_12 =  document.createTextNode('質問４．有権者からの質問への回答２');
-            
-        //Q5　質問番号 divItem_13
-            let divItem_13 = document.createElement('div');
-            divItem_13.setAttribute('class', "mycol-13");
-            var newtext_13 =  document.createTextNode('質問番号'+kouho[i][12]+'番');
-
-        //Q5　回答 divItem_14
-            let divItem_14 = document.createElement('div');
-            divItem_14.setAttribute('class', "mycol-14");
-            var newtext_14 =  document.createTextNode(kouho[i][13]);    
-
-            //　続きを読む　divItem_n
-            let divItem_n=document.createElement('div');
-            divItem_n.setAttribute('class', "mycol-n");
-            var input_item= document.createElement('input');
-            input_item.setAttribute('class',"acd-check"+ i);
-            input_item.setAttribute('id',"acd-check" + i);
-            input_item.setAttribute('type',"checkbox");
-            let label_item= document.createElement('label');
-            label_item.setAttribute('class',"acd-label");
-            label_item.setAttribute('for',"acd-check" + i);
-            var newtext_n =document.createTextNode('▶続きを読む');
-            let divItem_n2=document.createElement('div');
-            divItem_n2.setAttribute('class',"acd-content");
-            var newtext_n2 =document.createTextNode('testtest');//⇐ここに文章を追加
-            
- 
+        
         //appendChild     
             divList.appendChild(divItem_1).appendChild(newtext_1);
             divList.appendChild(image);
@@ -210,19 +155,7 @@
             divList.appendChild(divItem_5).appendChild(newtext_5);
             divList.appendChild(divItem_6).appendChild(newtext_6);
             divList.appendChild(divItem_7).appendChild(newtext_7);
-            divList.appendChild(divItem_8).appendChild(newtext_8);
-            divList.appendChild(divItem_9).appendChild(newtext_9);
-            divList.appendChild(divItem_10).appendChild(newtext_10);
-            divList.appendChild(divItem_11).appendChild(newtext_11);
-            divList.appendChild(divItem_12).appendChild(newtext_12);
-            divList.appendChild(divItem_13).appendChild(newtext_13);
-            divList.appendChild(divItem_14).appendChild(newtext_14);
-            divList.appendChild(divItem_n).appendChild(input_item);
-            divItem_n.appendChild(label_item).appendChild(newtext_n);
-            divItem_n.appendChild(divItem_n2).appendChild(newtext_n2);
-
-            
-
+            divList.appendChild(divItem_8).appendChild(newtext_8);       
             
         divListList.push(divList);
         }
@@ -240,11 +173,7 @@
        //スプレッドシートをopen、load、send、配列に変換、「”」を削除   
         let csv_row = csv_data_get(dataPath); 
 
-
         let kucho = get_type(csv_row, TYPE_KUCHO);
-
-
-
 
         let divList = draw_kucho(kucho, TYPE_KUCHO);
 
@@ -253,15 +182,18 @@
         }
 
 
-        //フッターを一番下へ移動
+        //スプレッドシートトフッターをkuchoと同じdiv内の下へ移動する必要あり。gridレイアウトだと高さが0になってしまうため浮いてしまう。        
+        let elem_sheet = document.getElementById('spreadsheet');
         let elem_footer = document.querySelector('.footer');
-        let elem_parent = document.getElementById('kucho');
-
+        let elem_parent= document.getElementById('kucho');
+        elem_parent.insertBefore(elem_sheet,null);         
         elem_parent.insertBefore(elem_footer,null); 
         
     </script>
 
 </div><!--End wrap-->
+
+    
 </body>
 
 </html>
