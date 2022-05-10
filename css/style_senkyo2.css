@@ -4,6 +4,42 @@
     font-family:'Hiragino Sans','Yu Gothic UI','Meiryo UI',sans-serif; 
     line-height: 2em;
 }
+@media screen and (min-width:768px){/*スマホ以外のレイアウト*/
+    #kucho{
+        position:absolute;
+        display:grid;
+        grid-template-columns: 1fr 1fr;
+        column-gap: 1em;
+        row-gap:0.2em;
+        grid-template-areas:
+          "main main"
+          "main main"
+          "iframe iframe"
+          "footer footer";
+}
+.footer{
+    grid-area: footer;
+    margin:auto    
+}
+#spreadsheet{
+    grid-area:iframe;
+    width: 100vw;
+    height:1200vh
+}
+iframe{
+    width:100vw;
+    height:1200vh
+}
+}
+@media screen and (max-width:768px){
+#kucho{ /*スマホ*/
+    position:absolute;
+    display:grid;
+    column-gap: 1em;
+    row-gap:0.2em;
+}
+}
+
 div.top{
     background-image: url(../pic/top.png);
     height: 30vh;
@@ -21,7 +57,20 @@ div.top{
 		background-repeat: no-repeat;
 	}
 }
+img.circle{/*候補者の顔を切り取る図形*/
+    clip-path:ellipse(40% 50% at 50% 50%);
+    width:30vh
+}
+img.mycircle{/*候補者の顔を切り取る図形*/
+    clip-path:ellipse(40% 50% at 50% 50%);
+    width:30vh
+}
 
+ul.footer-menu{ /*フッターの表示*/
+    display:flex;
+    list-style: none;
+    padding-top: 1em;
+}
 
 h1{
     font-size: x-large;
@@ -34,7 +83,7 @@ h1.style-2{
 
 
 /*アコーディオン*/
-.acd-check, .acd-check0,.acd-check1,.acd-check2,.acd-check3{
+.acd-check, .acd-check0,.acd-check1,.acd-check2,.acd-check3.mycol-11{
     display: none;
 }
 .acd-label{
@@ -43,7 +92,7 @@ h1.style-2{
     display: block;
 
 }
-.acd-content{
+.acd-content,.acd-content1,.acd-content2,.acd-content3,.acd-content4{
     height: 0;
     opacity: 0;
     transition: .5s;
@@ -89,51 +138,25 @@ h1.style-2{
     border-radius: 1em;
 }
 
-div.mycol-1{
+div.mycol-1{ /*名前*/
     font-size:x-large;    
-
 }
 
-div.mycol-3,div.mycol-5,div.mycol-7,div.mycol-9,div.mycol-10,div.mycol-12,div.mycol-13{
+div.mycol-3,div.mycol-5,div.mycol-7,div.mycol-9,div.mycol-10,div.mycol-12,div.mycol-13{/*質問*/
     background-color:#eee;
     font-weight: bold;
 }
-
-
-ul.footer-menu{ /*フッターの表示*/
-    display:flex;
-    list-style: none;
-    padding-top: 1em;
+/*
+div.mycol-11{
+    background-color:#eee;
+    font-size: small;
 }
-
-@media screen and (min-width:768px){
-    #kucho{
-        position:absolute;
-        display:grid;
-        grid-template-columns: 1fr 1fr;
-        column-gap: 1em;
-        row-gap:0.2em;
-        grid-template-areas:
-          "main main"
-          "main main"
-          "footer footer";
-	}
-}
-.footer{
-    grid-area: footer;
-    margin:auto    
-}
+*/
 
 
-#kucho{
-    position:absolute;
-    display:grid;
-    column-gap: 1em;
-    row-gap:0.2em;
-}
 
 
- 
+/* 
 div.jimin{
     position:relative;
     border: 2px solid;
@@ -155,11 +178,4 @@ div.kyosan{
     text-align: center;
     border-radius: 1em;
 }
-img.circle{
-    clip-path:ellipse(40% 50% at 50% 50%);
-    width:20vh
-}
-img.mycircle{
-    clip-path:ellipse(40% 50% at 50% 50%);
-    width:20vh
-}
+*/
