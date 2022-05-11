@@ -30,7 +30,10 @@
                 "main main"
                 "iframe iframe"
                 "footer footer";
-        }
+            }
+            #pdf{
+                display: none;
+            }         
     }
     @media screen and (max-width:768px){
     #main_content{ /*スマホレイアウト*/
@@ -50,7 +53,7 @@
 
     <body>
     <div class="wrap">
-        <div class="top"></div><!--top画像表示-->
+        <div class="top_image"></div><!--top画像表示-->
         <nav>
             <ul class="nav_menu">
                 <li><a href="index.html">home</a> ｜</li>
@@ -67,12 +70,12 @@
         <div id="main_content">  
 
             <div id="spreadsheet">
-                <h3>質問４．有権者からの質問に対する答え<br>については下記スプレッドシートをご覧ください。</h3>
+                <h3>質問４．有権者からの質問に対する答えについては、下記をご覧ください。</h3>
                 <iframe src="https://docs.google.com/spreadsheets/d/e/2PACX-1vSwD_ZtsLHEZYeovIuV-5QX_ixZwjPwiQsQlJw5EX9y02uyjN59kccTUj6svwM_7S4wvG94OtKTDIA1/pubhtml?gid=1008084121&amp;single=true&amp;widget=true&amp;headers=false"></iframe>
             </div>
             <div id="pdf">
-                <h3>質問４．有権者からの質問に対する答え<br>については長文になるため下記PDFをご覧ください。</h3>
-                <p><a href="kucho_Q4.pdf" download="kucho_Q4.pdf">PDFファイルをダウンロード</a></p>
+                <h3>質問４．有権者からの質問に対する答えについては長文になるため下記PDFをダウンロードしてご覧ください。</h3>
+                <p><a href="kucho_Q4.pdf" download="kucho_Q4.pdf">⇒ここをクリックしてPDFをダウンロード</a></p>
             </div>
             <div class="footer" id="footer">
                 <div class="container">
