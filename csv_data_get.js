@@ -1,4 +1,3 @@
-
 const COL_NO_TIME_STAMP = 0;
 const COL_NO_MAIL = 1;
 const COL_NO_NAME = 2;
@@ -98,7 +97,11 @@ function draw_top(kouho, type){
 
         let divItem = document.createElement('div');
         divItem.setAttribute('class', "col-3");
-        
+
+        let text_1 = document.createTextNode('アンケート結果');
+        divItem.appendChild(text_1);
+        divItem.appendChild( document.createElement( 'br' ) );
+
         let image = document.createElement('img');
         if(type == TYPE_KUCHO){
             image.src = 'pic/kucho' + i + ".jpg";
@@ -110,16 +113,20 @@ function draw_top(kouho, type){
         divItem.appendChild( document.createElement( 'br' ) );
         
         //候補者のウェブサイトURL追加
+        //let text_2 =document.createTextNode('公式ウェブサイト');
+        //divItem.appendChild(text_2);
         let websiteURL = document.createElement("a");
         websiteURL.setAttribute("href",kouho[i][COL_NO_URL]);
-        let URLtext = document.createTextNode(kouho[i][COL_NO_URL]);
+        let URLtext = document.createTextNode('公式ウェブサイト');
+        //let URLtext = document.createTextNode(kouho[i][COL_NO_URL]);
+        
         divItem.appendChild(websiteURL).appendChild(URLtext);
         divItem.appendChild( document.createElement( 'br' ) );
 
         //候補者のツイッターアカウント追加
         let twitterID = document.createElement("a");
         twitterID.setAttribute("href",kouho[i][COL_NO_TWITTER]);
-        let TwitterText = document.createTextNode(kouho[i][COL_NO_TWITTER]);
+        let TwitterText = document.createTextNode('Twitterアカウント');
         divItem.appendChild(twitterID).appendChild(TwitterText);
 
         
@@ -270,11 +277,12 @@ function cat_dc(string){
             var divList = document.createElement('div'); 
             divList.setAttribute('class', "col-md-60"); 
 
-        //名前
+        //候補者氏名
             let divItem_1 = document.createElement('div');
             divItem_1.setAttribute('class',"mycol-1"); 
             divItem_1.setAttribute('id', kouho[i][COL_NO_NAME]);  
             //var newtext_1=document.createTextNode(kouho[i][COL_NO_NAME]);
+            //createTextNodeが下記関数に含まれている。
             setDivList(divList, divItem_1, kouho[i][COL_NO_NAME]);
             
         //イメージ作成
@@ -287,163 +295,175 @@ function cat_dc(string){
             image.setAttribute('class', 'circle');
             divList.appendChild(image);
 
-        //党 divItem_2
+        //党 
             let divItem_2=document.createElement('div');
             divItem_2.setAttribute('class', "mycol-2");
-            var newtext_2 =  document.createTextNode(kouho[i][COL_NO_TOU]); 
-            //divList.appendChild(divItem_2).appendChild(newtext_2);  
+            var newtext_2 =  document.createTextNode(kouho[i][COL_NO_TOU]);   
             setDivList(divList, divItem_2, kouho[i][COL_NO_TOU]); 
 
-        //Q1 質問１　divItem_3
+        //質問１　            
             let divItem_3= document.createElement('div');
             divItem_3.setAttribute('class', "mycol-3");
             var newtext_3=document.createTextNode('質問１. 子育て世代へアピールしたいことは何ですか？')
             divList.appendChild(divItem_3).appendChild(newtext_3);
 
-        //Q1　質問１-回答 divItem_4
+        //質問１-回答 
             let divItem_4 = document.createElement('div');
             divItem_4.setAttribute('class', "mycol-4");
             var newtext_4 =  document.createTextNode(kouho[i][COL_NO_Q_1]);
             setDivList(divList, divItem_4, kouho[i][COL_NO_Q_1]);
 
-        //Q2 質問２　divItem_5
+        //質問２　
             let divItem_5= document.createElement('div');
             divItem_5.setAttribute('class', "mycol-5");
             var newtext_5=document.createTextNode('質問２．ご自身が小学生の頃、どこで何をして遊んでいましたか？')
             divList.appendChild(divItem_5).appendChild(newtext_5);
 
-        //Q2　質問２-回答 divItem_6
+        //質問２-回答 
             let divItem_6 = document.createElement('div');
             divItem_6.setAttribute('class', "mycol-6");
             var newtext_6 =  document.createTextNode(kouho[i][COL_NO_Q_2]);
             setDivList(divList, divItem_6, kouho[i][COL_NO_Q_2]);
 
-        //Q3 質問３　divItem_7
+        //質問３　
             let divItem_7= document.createElement('div');
             divItem_7.setAttribute('class', "mycol-7");
             var newtext_7=document.createTextNode('質問３．中野区の子育て支援で、何に一番力を入れたいですか？')
             divList.appendChild(divItem_7).appendChild(newtext_7);
 
-        //Q3　質問３-回答 divItem_8
+        //質問３-回答 
             let divItem_8 = document.createElement('div');
             divItem_8.setAttribute('class', "mycol-8");
             setDivList(divList, divItem_8, kouho[i][COL_NO_Q_3]);
 
-        //Q4　質問４ divItem_9
-            //let divItem_9 = document.createElement('div');
-            //divItem_9.setAttribute('class', "mycol-9");
-            //var newtext_9 =  document.createTextNode('質問４．有権者からの質問への回答');
-            //divList.appendChild(divItem_9).appendChild(newtext_9);
-
-        //Q4　質問４　質問番号 divItem_10
+        //質問４ 質問番号 
             let divItem_10 = document.createElement('div');
             divItem_10.setAttribute('class', "mycol-10");
             var newtext_10 =  document.createTextNode('有権者からの質問'+kouho[i][COL_NO_Q_4]+'番への答え');
             divList.appendChild(divItem_10).appendChild(newtext_10);
 
-        //Q4　質問４の回答 divItem_11
+        //質問４の回答 
             let divItem_11 = document.createElement('div');
             divItem_11.setAttribute('class', "mycol-11");
             //var newtext_11 =  document.createTextNode(kouho[i][COL_NO_Q_4_ANS]);
             setDivList(divList, divItem_11, kouho[i][COL_NO_Q_4_ANS]);
 
-        //Q5　質問４ー２divItem_12
+        //質問４ー２
         if(kouho[i][COL_NO_Q_4_2] != null){
-            //let divItem_12 = document.createElement('div');
-            //divItem_12.setAttribute('class', "mycol-12");
-            //var newtext_12 =  document.createTextNode('質問４-２．有権者からの質問への回答２');
-            //divList.appendChild(divItem_12).appendChild(newtext_12);
-
-        //Q5　質問４ー２　質問番号 divItem_13
             let divItem_13 = document.createElement('div');
             divItem_13.setAttribute('class', "mycol-13");
             var newtext_13 =  document.createTextNode('有権者からの質問'+kouho[i][COL_NO_Q_4_2]+'番への答え');
             divList.appendChild(divItem_13).appendChild(newtext_13);
 
-        //Q5　質問４ー２　回答 divItem_14
+        //質問４ー２　回答 
             let divItem_14 = document.createElement('div');
             divItem_14.setAttribute('class', "mycol-14");
             //var newtext_14 =  document.createTextNode(kouho[i][COL_NO_Q_4_2_ANS]);    
             setDivList(divList, divItem_14, kouho[i][COL_NO_Q_4_2_ANS]);
         }
 
-        //Q5　質問４ー３ divItem_15
+        //質問４ー３ 
         if(kouho[i][COL_NO_Q_4_3] != null){
-            //let divItem_15 = document.createElement('div');
-            //divItem_15.setAttribute('class', "mycol-15");
-            //var newtext_15 =  document.createTextNode('質問４-３．有権者からの質問への回答３');
-            //divList.appendChild(divItem_15).appendChild(newtext_15);
-
-        //Q5　質問４-３　質問番号 divItem_16
             let divItem_16 = document.createElement('div');
             divItem_16.setAttribute('class', "mycol-16");
             var newtext_16 =  document.createTextNode('有権者からの質問'+kouho[i][COL_NO_Q_4_3]+'番への答え');
             divList.appendChild(divItem_16).appendChild(newtext_16);
 
-        //Q5　質問４-３　回答 divItem_17
+        //質問４-３　回答
             let divItem_17 = document.createElement('div');
-            divItem_17.setAttribute('class', "mycol-17");
-            //var newtext_17 =  document.createTextNode(kouho[i][COL_NO_Q_4_3_ANS]);    
+            divItem_17.setAttribute('class', "mycol-17");   
             setDivList(divList, divItem_17, kouho[i][COL_NO_Q_4_3_ANS]);
         }
-        //Q5　質問４-４ divItem_18
+        //質問４-４ 質問番号
         if(kouho[i][COL_NO_Q_4_4] != null){
-            //let divItem_18 = document.createElement('div');
-            //divItem_18.setAttribute('class', "mycol-18");
-            //var newtext_18 =  document.createTextNode('質問４-３．有権者からの質問への回答３');
-            //divList.appendChild(divItem_18).appendChild(newtext_18);
-
-        //Q5　質問４-４　質問番号 divItem_19
             let divItem_19 = document.createElement('div');
             divItem_19.setAttribute('class', "mycol-19");
             var newtext_19 =  document.createTextNode('有権者からの質問'+kouho[i][COL_NO_Q_4_4]+'番への答え');
             divList.appendChild(divItem_19).appendChild(newtext_19);
 
-        //Q5　質問４ー４　回答 divItem_20
+        //質問４ー４　回答 
             let divItem_20 = document.createElement('div');
             divItem_20.setAttribute('class', "mycol-20");
             //var newtext_20 =  document.createTextNode(kouho[i][COL_NO_Q_4_4_ANS]);    
             setDivList(divList, divItem_20, kouho[i][COL_NO_Q_4_4_ANS]);
         }
-            //　続きを読む　divItem_n
-            //let divItem_n=document.createElement('div');
-            //divItem_n.setAttribute('class', "mycol-n");
-            //var input_item= document.createElement('input');
-            //input_item.setAttribute('class',"acd-check"+ i);
-            //input_item.setAttribute('id',"acd-check" + i);
-            //input_item.setAttribute('type',"checkbox");
-            //let label_item= document.createElement('label');
-            //label_item.setAttribute('class',"acd-label");
-            //label_item.setAttribute('for',"acd-check" + i);
-            //var newtext_n =document.createTextNode('▶続きを読む');
-            //let divItem_n2=document.createElement('div');
-            //divItem_n2.setAttribute('class',"acd-content");
-            //var newtext_n2 =document.createTextNode('testtest');//⇐ここに文章を追加
-            
- 
-        //appendChild     
-            //divList.appendChild(divItem_1).appendChild(newtext_1);
-            //divList.appendChild(image);
-            //divList.appendChild(divItem_2).appendChild(newtext_2);
-            //divList.appendChild(divItem_3).appendChild(newtext_3);
-            //divList.appendChild(divItem_4).appendChild(newtext_4);
-            //divList.appendChild(divItem_5).appendChild(newtext_5);
-            //divList.appendChild(divItem_6).appendChild(newtext_6);
-            //divList.appendChild(divItem_7).appendChild(newtext_7);
-            //divList.appendChild(divItem_8).appendChild(newtext_8);
-            //divList.appendChild(divItem_9).appendChild(newtext_9);
-            //divList.appendChild(divItem_10).appendChild(newtext_10);
-            //divList.appendChild(divItem_11).appendChild(newtext_11);
-
-            
-            //divList.appendChild(divItem_12).appendChild(newtext_12);
-            //divList.appendChild(divItem_13).appendChild(newtext_13);
-            //divList.appendChild(divItem_14).appendChild(newtext_14);
-            //divList.appendChild(divItem_n).appendChild(input_item);
-            //divItem_n.appendChild(label_item).appendChild(newtext_n);
-            //divItem_n.appendChild(divItem_n2).appendChild(newtext_n2);
-            
+       
             divListList.push(divList);
         }
         return divListList;
+    }
+    //区長候補のページ
+    function draw_kucho(kouho, type){
+        let divListList = [];
+
+        for (var i = 0; i < kouho.length; i++) { 
+            var divList = document.createElement('div'); 
+            divList.setAttribute('class', "col-md-60"); 
+
+        //名前
+            let divItem_1 = document.createElement('div');
+            divItem_1.setAttribute('class',"mycol-1");  
+            divItem_1.setAttribute('id', kouho[i][COL_NO_NAME]);  
+            var newtext_1=document.createTextNode(kouho[i][COL_NO_NAME]);
+            
+            
+        //イメージ作成
+            let image = document.createElement('img');
+                if(type == TYPE_KUCHO){
+                    image.src = 'pic/kucho' + i + ".jpg";
+                } else {
+                image.src = 'pic/kugi' + i + ".jpg";
+            }
+            image.setAttribute('class', 'mycircle');
+        
+        //党 divItem_2
+            let divItem_2=document.createElement('div');
+            divItem_2.setAttribute('class', "mycol-2");
+            var newtext_2 =  document.createTextNode(kouho[i][COL_NO_TOU]);    
+
+        //Q1 質問　divItem_3
+            let divItem_3= document.createElement('div');
+            divItem_3.setAttribute('class', "mycol-3");
+            var newtext_3=document.createTextNode('質問１. 子育て世代へアピールしたいことは何ですか？')
+
+        //Q1　回答 divItem_4
+            let divItem_4 = document.createElement('div');
+            divItem_4.setAttribute('class', "mycol-4");
+            var newtext_4 =  document.createTextNode(kouho[i][COL_NO_Q_1]);
+
+        //Q2 質問　divItem_5
+            let divItem_5= document.createElement('div');
+            divItem_5.setAttribute('class', "mycol-5");
+            var newtext_5=document.createTextNode('質問２．ご自身が小学生の頃、どこで何をして遊んでいましたか？')
+
+        //Q2　回答 divItem_6
+            let divItem_6 = document.createElement('div');
+            divItem_6.setAttribute('class', "mycol-6");
+            var newtext_6 =  document.createTextNode(kouho[i][COL_NO_Q_2]);
+
+        //Q3 質問　divItem_7
+            let divItem_7= document.createElement('div');
+            divItem_7.setAttribute('class', "mycol-7");
+            var newtext_7=document.createTextNode('質問３．中野区の子育て支援で、何に一番力を入れたいですか？')
+
+        //Q3　回答 divItem_8
+            let divItem_8 = document.createElement('div');
+            divItem_8.setAttribute('class', "mycol-8");
+            var newtext_8 =  document.createTextNode(kouho[i][COL_NO_Q_3]);
+
+        
+        //appendChild     
+            divList.appendChild(divItem_1).appendChild(newtext_1);
+            divList.appendChild(image);
+            divList.appendChild(divItem_2).appendChild(newtext_2);
+            divList.appendChild(divItem_3).appendChild(newtext_3);
+            divList.appendChild(divItem_4).appendChild(newtext_4);
+            divList.appendChild(divItem_5).appendChild(newtext_5);
+            divList.appendChild(divItem_6).appendChild(newtext_6);
+            divList.appendChild(divItem_7).appendChild(newtext_7);
+            divList.appendChild(divItem_8).appendChild(newtext_8);       
+            
+        divListList.push(divList);
+        }
+    return divListList;
     }
