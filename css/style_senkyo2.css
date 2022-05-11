@@ -8,12 +8,14 @@
     display:flex;
     list-style: none;
     padding: 1em 2em;
-    background-color: #666;
+    background-color: #eee;
 }
 a,a:link,a:visited{
-    color:#fff
+    color:#333
 }
-
+a:hover{
+    font-weight: bold;
+}
 
 
 
@@ -50,6 +52,9 @@ iframe{
     display:grid;
     column-gap: 1em;
     row-gap:0.2em;
+}
+#spreadsheet{
+    display: none;
 }
 }
 
