@@ -1,8 +1,16 @@
 
 a{
-	line-height: 1.5em;
+	line-height: 2em;
+	font-size: small;
+	text-decoration: none;
 	font-size: small;
 }
+a:hover{
+	font-weight:bold;
+	text-decoration: none;
+	font-size: medium;
+}
+
 .img-fluid{
 	clip-path:ellipse(40% 50% at 50% 50%);
     width:20vh
@@ -36,10 +44,11 @@ a{
     border-color: #aaa;
     text-align: center;
     border-radius: 1em;
+	font-size: x-large;
 }
 
 img{
-    width:20vw
+    width:20vw;
 }
 .col-md-6{
 	font-size: large;
@@ -210,46 +219,3 @@ ul.footer-menu li {
 	font-size: small;
 }
 
-/*アコーディオン*/
-.acd-check, .acd-check0,.acd-check1,.acd-check2,.acd-check3{
-    display: none;
-}
-.acd-label{
-    background: #eee;
-    color: #000;
-    display: block;
-
-}
-.acd-content{
-    height: 0;
-    opacity: 0;
-    transition: .5s;
-    visibility: hidden;
-}
-.acd-check0:checked + .acd-label + .acd-content{    
-    opacity: 1;
-    visibility: visible;
-    height:fit-content
-}
-.acd-check1:checked + .acd-label + .acd-content{
-    opacity: 1;
-    visibility: visible;
-    height:fit-content
-}
-.acd-check2:checked + .acd-label + .acd-content{
-    opacity: 1;
-    visibility: visible;
-    height:fit-content
-}
-.acd-check3:checked + .acd-label + .acd-content{
-    opacity: 1;
-    visibility: visible;
-    height:fit-content
-}
-.acd-check4:checked + .acd-label + .acd-content{
-    opacity: 1;
-    visibility: visible;
-    height:fit-content
-}
-
-/*アコーディオン終わり*/
