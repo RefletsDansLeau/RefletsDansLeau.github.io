@@ -18,6 +18,29 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
     <script src="csv_road.js"></script>
+    <style>
+        @media screen and (min-width:768px){/*スマホ以外のレイアウト*/
+            #main_content{
+                position:absolute;
+                display:grid;
+                grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+                column-gap: 1em;
+                row-gap:0.2em;
+                grid-template-areas:
+                "main main main main main"
+                "footer footer footer footer footer";
+            }
+                     
+    }
+    @media screen and (max-width:768px){
+    #main_content{ /*スマホレイアウト*/
+        position:absolute;
+        display:grid;
+        column-gap: 1em;
+        row-gap:0.2em;
+    }
+    }
+    </style>
 
 </head>
 <title>中野区長選挙2022｜市民アンケート</title>
@@ -25,20 +48,13 @@
 
 <body>
 <div class="wrap">
-    <div class="top_image"></div><!--top画像表示-->
-    
+    <div class="top_image"></div><!--top画像表示-->    
     <h1 class="style-2">中野区長選挙 2022 候補予定者公開アンケート結果</h1>
 
-    <nav>
-        <ul class="nav_menu">
-            <li><a href="index.html">home</a> ｜</li>
-            <li><a href="kucho.html">区長選</a> ｜</li>
-            <li><a href="kugiho.html">区議補選</a> ｜</li>
-            <li><a href="kosodate.html">About</a></li>
-        </ul>
-    </nav>
+    <!--共通メニューを呼び出す -->
+    <div id="menu"></div>
 
-    <div id="kucho">       
+    <div id="main_content">       
         <div class="footer" id="footer">
             <div class="container">
                 <nav>
@@ -52,14 +68,29 @@
                 <p class="text-muted">© All rights reserved by 子育て環境向上委員会@中野</p>
             </div>
         </div>
-    </div><!--end of kucho-->
+    </div>
 
     <script>
+        // 共通メニューを呼び出す処理
+        var xhr = new XMLHttpRequest(),
+                    method = "GET",
+                    url = "header.html";//読み込まれるHTMLを指定
+                var box=document.getElementById("menu");//読み込みたい位置を指定
+            
+                xhr.open(method, url, true);
+                xhr.onreadystatechange = function () {
+                    if(xhr.readyState === 4 && xhr.status === 200) {
+                        var restxt=xhr.responseText;//String型で取得
+                        box.innerHTML=restxt;//完了
+                    }
+                };
+        xhr.send();
+
 
        //Googleスプレッドシートのcsvのパスを記載する。
        const dataPath = 'https://docs.google.com/spreadsheets/d/1LdAUVyOJRMcW_daa5AbARPcgwStX6a5Mi3VTliyIV8k/gviz/tq?tqx=out:csv&sheet=候補者の回答';
 
-       //スプレッドシートをopen、load、send、配列に変換、「”」を削除   
+       //スプレッドシートを配列に変換したり等    
         let csv_row = csv_data_get(dataPath); 
 
         let kugiho = get_type(csv_row, TYPE_KUGI);
@@ -67,15 +98,14 @@
         let divList = draw_detail(kugiho, TYPE_KUGI);
 
         for(var i = 0; i < divList.length; i++){
-            document.getElementById('kucho').appendChild(divList[i]); 
+            document.getElementById('main_content').appendChild(divList[i]); 
         }
 
 
         //スプレッドシートトフッターをkuchoと同じdiv内の下へ移動する必要あり。gridレイアウトだと高さが0になってしまうため浮いてしまう。        
-        let elem_sheet = document.getElementById('spreadsheet');
+        
         let elem_footer = document.querySelector('.footer');
-        let elem_parent= document.getElementById('kucho');
-        elem_parent.insertBefore(elem_sheet,null);         
+        let elem_parent= document.getElementById('main_content');      
         elem_parent.insertBefore(elem_footer,null); 
         
     </script>
