@@ -4,18 +4,31 @@
     font-family:'Hiragino Sans','Yu Gothic UI','Meiryo UI',sans-serif; 
     line-height: 2em;
 }
+.nav_menu,.footer-menu2{
+    display:flex;
+    list-style: none;
+    padding: 1em 2em;
+    background-color: #666;
+}
+a,a:link,a:visited{
+    color:#fff
+}
+
+
+
+
 @media screen and (min-width:768px){/*スマホ以外のレイアウト*/
     #kucho{
         position:absolute;
         display:grid;
-        grid-template-columns: 1fr 1fr;
+        grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
         column-gap: 1em;
         row-gap:0.2em;
         grid-template-areas:
-          "main main"
-          "main main"
-          "iframe iframe"
-          "footer footer";
+          "main main main main main"
+          "main main main main main "
+          "iframe iframe iframe iframe iframe"
+          "footer footer footer footer footer";
 }
 .footer{
     grid-area: footer;
@@ -82,51 +95,6 @@ h1.style-2{
 
 
 
-/*アコーディオン*/
-.acd-check, .acd-check0,.acd-check1,.acd-check2,.acd-check3.mycol-11{
-    display: none;
-}
-.acd-label{
-    background: #eee;
-    color: #000;
-    display: block;
-
-}
-.acd-content,.acd-content1,.acd-content2,.acd-content3,.acd-content4{
-    height: 0;
-    opacity: 0;
-    transition: .5s;
-    visibility: hidden;
-}
-.acd-check0:checked + .acd-label + .acd-content{    
-    opacity: 1;
-    visibility: visible;
-    height:fit-content
-}
-.acd-check1:checked + .acd-label + .acd-content{
-    opacity: 1;
-    visibility: visible;
-    height:fit-content
-}
-.acd-check2:checked + .acd-label + .acd-content{
-    opacity: 1;
-    visibility: visible;
-    height:fit-content
-}
-.acd-check3:checked + .acd-label + .acd-content{
-    opacity: 1;
-    visibility: visible;
-    height:fit-content
-}
-.acd-check4:checked + .acd-label + .acd-content{
-    opacity: 1;
-    visibility: visible;
-    height:fit-content
-}
-
-/*アコーディオン終わり*/
-
-
 
 
 
@@ -142,40 +110,11 @@ div.mycol-1{ /*名前*/
     font-size:x-large;    
 }
 
-div.mycol-3,div.mycol-5,div.mycol-7,div.mycol-9,div.mycol-10,div.mycol-12,div.mycol-13{/*質問*/
+div.mycol-3,div.mycol-5,div.mycol-7,div.mycol-9,div.mycol-10,div.mycol-12,div.mycol-13,div.mycol-16,div.mycol-19{/*質問*/
     background-color:#eee;
     font-weight: bold;
 }
-/*
-div.mycol-11{
-    background-color:#eee;
-    font-size: small;
-}
-*/
 
 
 
 
-/* 
-div.jimin{
-    position:relative;
-    border: 2px solid;
-    border-color: #aaa;
-    text-align: center;
-    border-radius: 1em;
-}
-div.minshu{
-    position:relative;
-    border: 2px solid;
-    border-color: #aaa;
-    text-align: center;
-    border-radius: 1em;
-}
-div.kyosan{
-    position: relative;
-    border: 2px solid;
-    border-color: #aaa;
-    text-align: center;
-    border-radius: 1em;
-}
-*/
