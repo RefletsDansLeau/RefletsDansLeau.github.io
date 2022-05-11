@@ -1,6 +1,5 @@
 @charset "UTF-8";
 *{
-    font-size: 1em;
     font-family:'Hiragino Sans','Yu Gothic UI','Meiryo UI',sans-serif; 
     line-height: 2em;
 }
@@ -15,6 +14,7 @@ a,a:link,a:visited{
 }
 a:hover{
     font-weight: bold;
+    color:#333
 }
 
 
@@ -38,12 +38,13 @@ a:hover{
 }
 #spreadsheet{
     grid-area:iframe;
-    width: 100vw;
-    height:1200vh
+    width: 99vw;
+    height:1200vh;
+    margin:0 1em
 }
 iframe{
-    width:100vw;
-    height:1200vh
+    width:99vw;
+    height:1200vh;
 }
 }
 @media screen and (max-width:768px){
@@ -58,7 +59,7 @@ iframe{
 }
 }
 
-div.top{
+div.top_image{
     background-image: url(../pic/top.png);
     height: 30vh;
     background-size: 100% auto;
@@ -67,7 +68,7 @@ div.top{
     background-repeat: no-repeat;
 }
 @media screen and (max-width:768px){
-	div.top{
+	div.top_image{
 		background-image: url(../pic/top-sumaho.png);
 		height: 30vh;
 		background-size: 100% auto;
@@ -98,7 +99,9 @@ h1.style-2{
 	font-size: x-large;
 }
 
-
+h3{
+    font-size: medium;
+}
 
 
 
