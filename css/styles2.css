@@ -1,7 +1,8 @@
-a{
-	line-height: 1.3em;
-}
 
+a{
+	line-height: 1.5em;
+	font-size: small;
+}
 .img-fluid{
 	clip-path:ellipse(40% 50% at 50% 50%);
     width:20vh
@@ -10,6 +11,24 @@ a{
 	margin:0 auto;
 	max-width: fit-content;
 }
+#kugi {
+	display: grid;
+	grid-template-columns: 15vw 15vw 15vw 15vw 15vw;
+	gap:1vw
+  }
+#kucho{
+	display: grid;
+	grid-template-columns: 30vw 30vw;
+	gap: 10vw;
+}
+.kouho{
+    position:relative;
+    border: 2px solid;
+    border-color: #aaa;
+    text-align: center;
+    border-radius: 1em;
+}
+
 img{
     width:20vw
 }
