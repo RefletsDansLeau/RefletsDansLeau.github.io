@@ -91,7 +91,7 @@ function draw_top(kouho, type){
 
     for (var i = 0; i < kouho.length; i++) { 
         var divList = document.createElement('div'); 
-        divList.setAttribute('class', "col-md-6"); 
+        divList.setAttribute('class', "kouho"); 
         divList.textContent = kouho[i][COL_NO_NAME];
         //var name_string = cat_dc(kouho[i][COL_NO_NAME]);
         //divList.textContent = name_string;
