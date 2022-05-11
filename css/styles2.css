@@ -15,12 +15,21 @@ a{
 	display: grid;
 	grid-template-columns: 15vw 15vw 15vw 15vw 15vw;
 	gap:1vw
-  }
+}
 #kucho{
 	display: grid;
 	grid-template-columns: 30vw 30vw;
 	gap: 10vw;
 }
+@media screen and (max-width:768px){/*スマホ画面*/
+#kugi,#kucho{
+	display: grid;
+	grid-template-columns: 46vw 46vw;
+	gap:5vw
+}
+
+}
+
 .kouho{
     position:relative;
     border: 2px solid;
@@ -45,7 +54,7 @@ img{
     border-radius: 1em;
 	margin: 2em;
 }
-@media screen and (max-width:768px){
+@media screen and (max-width:768px){/*スマホ画面 そのうち消すこと！*/ 
 	.col-md-6{
 		max-width: 80%;
 		flex:0 0 80%;
