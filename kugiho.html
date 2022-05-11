@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta name="robots" content="noindex">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="中野区長選挙｜子育て世代による市民アンケート"> 
+    <meta name="keywords" content="中野区長選挙,子育て環境向上委員会,アンケート">
+    <link rel="icon" href="pic/favicon.ico">
+    <link rel="stylesheet" href="css/style_senkyo2.css">
+    <script src="csv_data_get.js"></script>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+    <script src="csv_road.js"></script>
+
+</head>
+<title>中野区長選挙2022｜市民アンケート</title>
+
+
+<body>
+<div class="wrap">
+    <div class="top"></div><!--top画像表示-->
+    
+    <h1 class="style-2">中野区長選挙 2022 候補予定者公開アンケート結果</h1>
+
+    <nav class="navbar navbar-expand-sm navbar-dark bg-dark mt-3 mb-3">
+        <a class="navbar-brand" href="index.html">Menu</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+            <ul class="navbar-nav">
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="kucho.html" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        区長選挙
+                    </a>
+                    <!--<div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                        <a class="dropdown-item" href="kucho.html#かまど　たんじろう">酒井直人</a>
+                        <a class="dropdown-item" href="kucho.html#かまど　ねづこ">いながきじゅん子</a>
+                    </div>-->
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="kugiho.html" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        区議補欠選挙
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                        <a class="dropdown-item" href="kugiho.html#">候補予定者A</a>
+                        <a class="dropdown-item" href="kugiho.html#">候補予定者B</a>
+                    </div>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link about" href="kosodate.html" id="navbarDropdownMenuLink" role="button" aria-haspopup="true" aria-expanded="false">
+                        About
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <div id="kucho">       
+        <!--<div id="spreadsheet">
+            <iframe src="https://docs.google.com/spreadsheets/d/e/2PACX-1vSwD_ZtsLHEZYeovIuV-5QX_ixZwjPwiQsQlJw5EX9y02uyjN59kccTUj6svwM_7S4wvG94OtKTDIA1/pubhtml?gid=1008084121&amp;single=true&amp;widget=true&amp;headers=false"></iframe>
+        </div>-->
+        <div class="footer" id="footer">
+            <div class="container">
+                <ul class="footer-menu">
+                <li><a href="index.html">home</a> ｜</li>
+                <li><a href="kucho.html">区長選</a> ｜</li>
+                <li><a href="kugiho.html">区議補選</a> ｜</li>
+                <li><a href="kosodate.html">About</a></li>
+               </ul>
+            <p class="text-muted">© All rights reserved by 子育て環境向上委員会@中野</p>
+            </div>
+        </div>
+    </div><!--end of kucho-->
+
+    
+
+    
+    
+    
+
+    <script>
+        function draw_kucho(kouho, type){
+        let divListList = [];
+
+        for (var i = 0; i < kouho.length; i++) { 
+            var divList = document.createElement('div'); 
+            divList.setAttribute('class', "col-md-60"); 
+
+        //名前
+            let divItem_1 = document.createElement('div');
+            divItem_1.setAttribute('class',"mycol-1");  
+            divItem_1.setAttribute('id', kouho[i][COL_NO_NAME]);  
+            var newtext_1=document.createTextNode(kouho[i][COL_NO_NAME]);
+            
+            
+        //イメージ作成
+            let image = document.createElement('img');
+                if(type == TYPE_KUCHO){
+                    image.src = 'pic/kucho' + i + ".jpg";
+                } else {
+                image.src = 'pic/kugi' + i + ".jpg";
+            }
+            image.setAttribute('class', 'mycircle');
+        
+        //党 divItem_2
+            let divItem_2=document.createElement('div');
+            divItem_2.setAttribute('class', "mycol-2");
+            var newtext_2 =  document.createTextNode(kouho[i][COL_NO_TOU]);    
+
+        //Q1 質問　divItem_3
+            let divItem_3= document.createElement('div');
+            divItem_3.setAttribute('class', "mycol-3");
+            var newtext_3=document.createTextNode('質問１. 子育て世代へアピールしたいことは何ですか？')
+
+        //Q1　回答 divItem_4
+            let divItem_4 = document.createElement('div');
+            divItem_4.setAttribute('class', "mycol-4");
+            var newtext_4 =  document.createTextNode(kouho[i][COL_NO_Q_1]);
+
+        //Q2 質問　divItem_5
+            let divItem_5= document.createElement('div');
+            divItem_5.setAttribute('class', "mycol-5");
+            var newtext_5=document.createTextNode('質問２．ご自身が小学生の頃、どこで何をして遊んでいましたか？')
+
+        //Q2　回答 divItem_6
+            let divItem_6 = document.createElement('div');
+            divItem_6.setAttribute('class', "mycol-6");
+            var newtext_6 =  document.createTextNode(kouho[i][COL_NO_Q_2]);
+
+        //Q3 質問　divItem_7
+            let divItem_7= document.createElement('div');
+            divItem_7.setAttribute('class', "mycol-7");
+            var newtext_7=document.createTextNode('質問３．中野区の子育て支援で、何に一番力を入れたいですか？')
+
+        //Q3　回答 divItem_8
+            let divItem_8 = document.createElement('div');
+            divItem_8.setAttribute('class', "mycol-8");
+            var newtext_8 =  document.createTextNode(kouho[i][COL_NO_Q_3]);
+
+        
+        //appendChild     
+            divList.appendChild(divItem_1).appendChild(newtext_1);
+            divList.appendChild(image);
+            divList.appendChild(divItem_2).appendChild(newtext_2);
+            divList.appendChild(divItem_3).appendChild(newtext_3);
+            divList.appendChild(divItem_4).appendChild(newtext_4);
+            divList.appendChild(divItem_5).appendChild(newtext_5);
+            divList.appendChild(divItem_6).appendChild(newtext_6);
+            divList.appendChild(divItem_7).appendChild(newtext_7);
+            divList.appendChild(divItem_8).appendChild(newtext_8);       
+            
+        divListList.push(divList);
+        }
+    return divListList;
+    }
+    </script>
+
+
+
+    <script>
+
+       //Googleスプレッドシートのcsvのパスを記載する。
+       const dataPath = 'https://docs.google.com/spreadsheets/d/1LdAUVyOJRMcW_daa5AbARPcgwStX6a5Mi3VTliyIV8k/gviz/tq?tqx=out:csv&sheet=候補者の回答';
+
+       //スプレッドシートをopen、load、send、配列に変換、「”」を削除   
+        let csv_row = csv_data_get(dataPath); 
+
+        let kucho = get_type(csv_row, TYPE_KUGI);
+
+        let divList = draw_kucho(kucho, TYPE_KUGI);
+
+        for(var i = 0; i < divList.length; i++){
+            document.getElementById('kucho').appendChild(divList[i]); 
+        }
+
+
+        //スプレッドシートトフッターをkuchoと同じdiv内の下へ移動する必要あり。gridレイアウトだと高さが0になってしまうため浮いてしまう。        
+        let elem_sheet = document.getElementById('spreadsheet');
+        let elem_footer = document.querySelector('.footer');
+        let elem_parent= document.getElementById('kucho');
+        elem_parent.insertBefore(elem_sheet,null);         
+        elem_parent.insertBefore(elem_footer,null); 
+        
+    </script>
+
+</div><!--End wrap-->
+
+    
+</body>
+
+</html>
