@@ -11,6 +11,9 @@ const COL_NO_Q_4 = 8;
 const COL_NO_Q_ANS = 9;
 const COL_NO_FREE = 10;
 const COL_NO_TYPE = 11;
+const COL_NO_URL = 26;
+const COL_NO_TWITTER = 27;
+
 
 const TYPE_KUCHO = '中野区長選挙';
 const TYPE_KUGI = '中野区議会議員補欠選挙';
@@ -96,7 +99,24 @@ function draw_top(kouho, type){
             image.src = 'pic/kugi' + i + ".jpg";
         }
         image.setAttribute('class', 'img-fluid');
-        divItem.appendChild(image); 
+        divItem.appendChild(image);
+        divItem.appendChild( document.createElement( 'br' ) );
+        
+        //候補者のウェブサイトURL追加
+        let websiteURL = document.createElement("a");
+        websiteURL.setAttribute("href",kouho[i][COL_NO_URL]);
+        let URLtext = document.createTextNode(kouho[i][COL_NO_URL]);
+        divItem.appendChild(websiteURL).appendChild(URLtext);
+        divItem.appendChild( document.createElement( 'br' ) );
+
+        //候補者のツイッターアカウント追加
+        let twitterID = document.createElement("a");
+        twitterID.setAttribute("href",kouho[i][COL_NO_TWITTER]);
+        let TwitterText = document.createTextNode(kouho[i][COL_NO_TWITTER]);
+        divItem.appendChild(twitterID).appendChild(TwitterText);
+
+        
+
 
         // a 要素の作成と属性の指定
         var newAnchor = document.createElement("a");
