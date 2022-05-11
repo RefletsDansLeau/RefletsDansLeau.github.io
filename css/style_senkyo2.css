@@ -113,6 +113,13 @@ h3{
     text-align: center;
     border-radius: 1em;
 }
+.kouho{
+    position:relative;
+    border: 2px solid;
+    border-color: #aaa;
+    text-align: center;
+    border-radius: 1em;
+}
 
 div.mycol-1{ /*名前*/
     font-size:x-large;    
