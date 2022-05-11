@@ -3,6 +3,14 @@
     font-family:'Hiragino Sans','Yu Gothic UI','Meiryo UI',sans-serif; 
     line-height: 2em;
 }
+h3.medium{
+    font-size: medium;
+    font-weight: bold;
+    padding-top: 1em;
+}
+h1{
+    font-size: x-large;
+}
 .nav_menu,.footer-menu2{
     display:flex;
     list-style: none;
@@ -47,6 +55,7 @@ iframe{
     height:1200vh;
 }
 }
+
 @media screen and (max-width:768px){
 #kucho{ /*スマホ*/
     position:absolute;
@@ -91,17 +100,13 @@ ul.footer-menu{ /*フッターの表示*/
     padding-top: 1em;
 }
 
-h1{
-    font-size: x-large;
-}
+
 h1.style-2{
 	font-family:"Hiragino Maru Gothic Pro", "メイリオ", sans-serif;
 	font-size: x-large;
 }
 
-h3{
-    font-size: medium;
-}
+
 
 
 
