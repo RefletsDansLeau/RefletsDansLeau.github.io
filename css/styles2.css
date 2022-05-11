@@ -193,6 +193,7 @@ ul.menu li ul.sub li:first-child{
 	font-size: x-large;
 	line-height: 2em;
 	padding-left: 1em;
+	padding-top: 1em;
 	color: #666;
 }
  
@@ -210,7 +211,6 @@ p{
 .container {
   width: auto;
   max-width: 900px;
-  padding: 0 1em;
 }
 .container .text-muted {
   margin: 3px 0;
