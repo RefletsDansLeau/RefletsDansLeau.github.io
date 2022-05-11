@@ -46,6 +46,16 @@ a:hover{
     border-radius: 1em;
 	font-size: x-large;
 }
+@media screen and (max-width:768px){/*スマホ画面*/
+	.kouho{
+		position:relative;
+		border: 2px solid;
+		border-color: #aaa;
+		text-align: center;
+		border-radius: 1em;
+		font-size: large;
+	}
+	
 
 img{
     width:20vw;
