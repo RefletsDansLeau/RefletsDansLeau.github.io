@@ -3,6 +3,23 @@
     font-family:'Hiragino Sans','Yu Gothic UI','Meiryo UI',sans-serif; 
     line-height: 2em;
 }
+td{
+    width:35vw;
+}
+table {
+    border-collapse: collapse;
+}
+th {
+    border: solid 1px #666666;
+    color: #000000;
+    background-color: #ccc;
+}
+td {
+    border: solid 1px #666666;
+    color: #000000;
+    background-color: #ffffff;
+}
+
 h3.medium{
     font-size: medium;
     font-weight: bold;
@@ -46,13 +63,7 @@ a:hover{
 }
 #spreadsheet{
     grid-area:iframe;
-    width: 99vw;
-    height:1200vh;
     margin:0 1em
-}
-iframe{
-    width:99vw;
-    height:1200vh;
 }
 }
 
@@ -62,9 +73,6 @@ iframe{
     display:grid;
     column-gap: 1em;
     row-gap:0.2em;
-}
-#spreadsheet{
-    display: none;
 }
 }
 
@@ -95,7 +103,7 @@ img.mycircle{/*候補者の顔を切り取る図形*/
 }
 
 ul.footer-menu{ /*フッターの表示*/
-    display:grid;
+    display:flex;
     list-style: none;
     padding-top: 1em;
 }
@@ -104,7 +112,6 @@ ul.footer-menu{ /*フッターの表示*/
 h1.style-2{
 	font-family:"Hiragino Maru Gothic Pro", "メイリオ", sans-serif;
 	font-size: x-large;
-	padding-top: 1em;
 }
 
 
