@@ -95,7 +95,7 @@ img.mycircle{/*候補者の顔を切り取る図形*/
 }
 
 ul.footer-menu{ /*フッターの表示*/
-    display:flex;
+    display:grid;
     list-style: none;
     padding-top: 1em;
 }
