@@ -111,7 +111,8 @@ ul.footer-menu{ /*フッターの表示*/
 
 h1.style-2{
 	font-family:"Hiragino Maru Gothic Pro", "メイリオ", sans-serif;
-	font-size: x-large;
+	font-size: large;
+    	padding-top: 0.6em;
 }
 
 
