@@ -9,7 +9,7 @@ a:hover{
 	text-decoration: none;
 	font-size: medium;
 }
-h2{
+.home_h2{
     font-family:'Hiragino Sans','Yu Gothic UI','Meiryo UI',sans-serif; 
 	border-bottom:solid #5169A8;
 	font-size: x-large;
