@@ -87,7 +87,7 @@ img{
 	}
 }
 
-div.top{
+div.top_image{
     background-image: url(../pic/top.png);
     height: 30vh;
     background-size: 100% auto;
@@ -95,7 +95,7 @@ div.top{
     background-repeat: no-repeat;
 }
 @media screen and (max-width:768px){ /*スマホ画面*/
-	div.top{
+	div.top_image{
 		background-image: url(../pic/top-sumaho.png);
 		/*height: 30vh;*/
 		background-size: 100% auto;
@@ -226,4 +226,3 @@ ul.footer-menu li {
 	bottom: 0; /*下に固定*/
 	font-size: small;
 }
-
