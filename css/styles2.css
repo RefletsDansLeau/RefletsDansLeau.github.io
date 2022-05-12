@@ -188,8 +188,8 @@ ul.menu:after { /*Clearfix*/
   }
   .style-1{
 	  background-color: rgb(191, 208, 237);
-	  padding: 30px;
-	  margin: 30px;
+	  padding: 0.5em;
+	  margin: 2em;
   }
   .style-2{
 	padding: 0.6em;
