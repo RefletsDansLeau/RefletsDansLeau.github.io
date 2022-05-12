@@ -1,4 +1,3 @@
-
 a{
 	line-height: 2em;
 	font-size: small;
@@ -10,7 +9,15 @@ a:hover{
 	text-decoration: none;
 	font-size: medium;
 }
-
+h2{
+    font-family:'Hiragino Sans','Yu Gothic UI','Meiryo UI',sans-serif; 
+	border-bottom:solid #5169A8;
+	font-size: x-large;
+	line-height: 2em;
+	padding-left: 1em;
+	padding-top: 1em;
+	color: #666;
+}
 .img-fluid{
 	clip-path:ellipse(40% 50% at 50% 50%);
     width:20vh
@@ -35,7 +42,6 @@ a:hover{
 	grid-template-columns: 46vw 46vw;
 	gap:5vw
 }
-
 }
 
 .kouho{
@@ -55,7 +61,7 @@ a:hover{
 		border-radius: 1em;
 		font-size: large;
 	}
-	
+}	
 
 img{
     width:20vw;
@@ -135,36 +141,36 @@ ul.menu li:hover ul.sub {
 ul.menu li ul.sub li:first-child{
 	border-top: 1px solid #1C2973; /*最初の要素のみボーダートップを指定*/
 }
-  ul.menu li ul.sub li {
+ul.menu li ul.sub li {
 	border: 1px solid #1C2973;  /*ボーダーの指定*/
 	border-top: none;  /*ボーダートップは重なって太くなるので解除*/
   }
-  ul.menu {
+ul.menu {
    zoom:1; /*Clearfix IE6-7 対応*/
   }
-  ul.menu:after { /*Clearfix*/
+ul.menu:after { /*Clearfix*/
 	height:0;
 	visibility:hidden;
 	content:".";
 	display:block;
 	clear:both;
-  }
-  html{
+	}
+ html{
   	position: relative;
   	min-height: 100%;
   }
-  body{
+ body{
 	padding: 0;
 	margin: 0;
 	/*margin-bottom: 60px;　⇐2022/5/7削除*/
   }
 
-  .h1-title{
+ .h1-title{
 	  background-color: #5169A8;
 	  margin:0em;
 	  padding:0em
   }
-  .h1-title>h1{
+ .h1-title>h1{
 	  color:#fff;
 	  font-size:x-large	  
   }
@@ -187,15 +193,7 @@ ul.menu li ul.sub li:first-child{
 	 font-size: xx-large;
  }
 
- h2{
-    font-family:'Hiragino Sans','Yu Gothic UI','Meiryo UI',sans-serif; 
-	border-bottom:solid #5169A8;
-	font-size: x-large;
-	line-height: 2em;
-	padding-left: 1em;
-	padding-top: 1em;
-	color: #666;
-}
+ 
  
 p{
 	 font-family: "Hiragino Maru Gothic Pro", "メイリオ", sans-serif;
