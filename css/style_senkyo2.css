@@ -3,9 +3,6 @@
     font-family:'Hiragino Sans','Yu Gothic UI','Meiryo UI',sans-serif; 
     line-height: 2em;
 }
-td{
-    width:35vw;
-}
 table {
     border-collapse: collapse;
 }
@@ -18,6 +15,7 @@ td {
     border: solid 1px #666666;
     color: #000000;
     background-color: #ffffff;
+    width:35vw;
 }
 
 h3.medium{
@@ -27,6 +25,7 @@ h3.medium{
 }
 h1{
     font-size: x-large;
+    padding-top:0.5em;
 }
 .footer-menu2{
     display:flex;
