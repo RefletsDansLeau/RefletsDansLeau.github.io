@@ -18,6 +18,14 @@ a:hover{
 	padding-top: 1em;
 	color: #666;
 }
+h2{
+    font-family:'Hiragino Sans','Yu Gothic UI','Meiryo UI',sans-serif; 
+	border-bottom:solid #5169A8;
+	font-size: x-large;
+	line-height: 2em;
+	padding-left: 1em;
+	color: #666;
+}
 .style-1{
 	margin:0 1em;
 	padding:0 0
