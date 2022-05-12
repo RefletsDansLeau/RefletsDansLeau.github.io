@@ -18,6 +18,10 @@ h2{
 	padding-top: 1em;
 	color: #666;
 }
+.style-1{
+	margin:0 1em;
+	padding:0 0
+}
 .img-fluid{
 	clip-path:ellipse(40% 50% at 50% 50%);
     width:20vh
