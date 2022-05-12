@@ -388,6 +388,18 @@ function cat_dc(string){
             setDivList(divList, divItem_20, kouho[i][COL_NO_Q_4_4_ANS]);
         }
        
+        //自由記述　
+        if(kouho[i][COL_NO_FREE] != null){
+            let divItem_7= document.createElement('div');
+            divItem_7.setAttribute('class', "mycol-7");
+            var newtext_7=document.createTextNode('自由記述欄')
+            divList.appendChild(divItem_7).appendChild(newtext_7);
+
+        //自由記述-回答 
+            let divItem_8 = document.createElement('div');
+            divItem_8.setAttribute('class', "mycol-8");
+            setDivList(divList, divItem_8, kouho[i][COL_NO_FREE]);
+        }
             divListList.push(divList);
         }
         return divListList;
@@ -451,7 +463,6 @@ function cat_dc(string){
             divItem_8.setAttribute('class', "mycol-8");
             var newtext_8 =  document.createTextNode(kouho[i][COL_NO_Q_3]);
 
-        
         //appendChild     
             divList.appendChild(divItem_1).appendChild(newtext_1);
             divList.appendChild(image);
@@ -461,7 +472,22 @@ function cat_dc(string){
             divList.appendChild(divItem_5).appendChild(newtext_5);
             divList.appendChild(divItem_6).appendChild(newtext_6);
             divList.appendChild(divItem_7).appendChild(newtext_7);
-            divList.appendChild(divItem_8).appendChild(newtext_8);       
+            divList.appendChild(divItem_8).appendChild(newtext_8); 
+            //自由記述　divItem_9
+            if(kouho[i][COL_NO_FREE] != null){
+                let divItem_9= document.createElement('div');
+                divItem_9.setAttribute('class', "mycol-9");
+                var newtext_9=document.createTextNode('自由記述欄')
+                
+            //自由記述-回答 divItem_10
+                let divItem_10 = document.createElement('div');
+                divItem_10.setAttribute('class', "mycol-10");
+                //var newtext_10 =  document.createTextNode(kouho[i][COL_NO_FREE]);
+
+                divList.appendChild(divItem_9).appendChild(newtext_9); 
+                setDivList(divList, divItem_10, kouho[i][COL_NO_FREE]);
+            } 
+                
             
         divListList.push(divList);
         }
