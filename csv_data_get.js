@@ -304,7 +304,7 @@ function cat_dc(string){
         //質問１　            
             let divItem_3= document.createElement('div');
             divItem_3.setAttribute('class', "mycol-3");
-            var newtext_3=document.createTextNode('質問１. 子育て世代へアピールしたいことは何ですか？')
+            var newtext_3=document.createTextNode('質問１. 子育て世代へアピールしたいことは何ですか？');
             divList.appendChild(divItem_3).appendChild(newtext_3);
 
         //質問１-回答 
@@ -316,7 +316,7 @@ function cat_dc(string){
         //質問２　
             let divItem_5= document.createElement('div');
             divItem_5.setAttribute('class', "mycol-5");
-            var newtext_5=document.createTextNode('質問２．ご自身が小学生の頃、どこで何をして遊んでいましたか？')
+            var newtext_5=document.createTextNode('質問２．ご自身が小学生の頃、どこで何をして遊んでいましたか？');
             divList.appendChild(divItem_5).appendChild(newtext_5);
 
         //質問２-回答 
@@ -328,7 +328,7 @@ function cat_dc(string){
         //質問３　
             let divItem_7= document.createElement('div');
             divItem_7.setAttribute('class', "mycol-7");
-            var newtext_7=document.createTextNode('質問３．中野区の子育て支援で、何に一番力を入れたいですか？')
+            var newtext_7=document.createTextNode('質問３．中野区の子育て支援で、何に一番力を入れたいですか？');
             divList.appendChild(divItem_7).appendChild(newtext_7);
 
         //質問３-回答 
@@ -436,7 +436,7 @@ function cat_dc(string){
         //Q1 質問　divItem_3
             let divItem_3= document.createElement('div');
             divItem_3.setAttribute('class', "mycol-3");
-            var newtext_3=document.createTextNode('質問１. 子育て世代へアピールしたいことは何ですか？')
+            var newtext_3=document.createTextNode('質問１. 子育て世代へアピールしたいことは何ですか？');
 
         //Q1　回答 divItem_4
             let divItem_4 = document.createElement('div');
@@ -446,7 +446,7 @@ function cat_dc(string){
         //Q2 質問　divItem_5
             let divItem_5= document.createElement('div');
             divItem_5.setAttribute('class', "mycol-5");
-            var newtext_5=document.createTextNode('質問２．ご自身が小学生の頃、どこで何をして遊んでいましたか？')
+            var newtext_5=document.createTextNode('質問２．ご自身が小学生の頃、どこで何をして遊んでいましたか？');
 
         //Q2　回答 divItem_6
             let divItem_6 = document.createElement('div');
@@ -456,7 +456,7 @@ function cat_dc(string){
         //Q3 質問　divItem_7
             let divItem_7= document.createElement('div');
             divItem_7.setAttribute('class', "mycol-7");
-            var newtext_7=document.createTextNode('質問３．中野区の子育て支援で、何に一番力を入れたいですか？')
+            var newtext_7=document.createTextNode('質問３．中野区の子育て支援で、何に一番力を入れたいですか？');
 
         //Q3　回答 divItem_8
             let divItem_8 = document.createElement('div');
@@ -477,7 +477,7 @@ function cat_dc(string){
             if(kouho[i][COL_NO_FREE] != null){
                 let divItem_9= document.createElement('div');
                 divItem_9.setAttribute('class', "mycol-9");
-                var newtext_9=document.createTextNode('自由記述欄')
+                var newtext_9=document.createTextNode('自由記述欄');
                 
             //自由記述-回答 divItem_10
                 let divItem_10 = document.createElement('div');
