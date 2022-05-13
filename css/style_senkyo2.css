@@ -145,16 +145,16 @@ img.mycircle{/*候補者の顔を切り取る図形*/
 }
 
 ul.footer-menu{ /*フッターの表示*/
-    display:flex;
+    display: flex;
     list-style: none;
-    padding-top: 1em;
+    padding-left:1em    
 }
 
 
 h1.style-2{
 	font-family:"Hiragino Maru Gothic Pro", "メイリオ", sans-serif;
 	font-size: large;
-    	padding-top: 0.6em;
+    padding-top: 0.6em;
 }
 
 
@@ -185,6 +185,11 @@ div.mycol-3,div.mycol-5,div.mycol-7,div.mycol-9,div.mycol-10,div.mycol-12,div.my
     background-color:#eee;
     font-weight: bold;
 }
+p.text-muted {
+    font-size: x-small;
+    text-align: center;
+}
+
 
 
 
