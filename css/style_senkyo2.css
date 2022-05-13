@@ -3,8 +3,11 @@
     font-family:'Hiragino Sans','Yu Gothic UI','Meiryo UI',sans-serif; 
     line-height: 2em;
 }
+
+@media screen and (min-width:768px){
 table {
-    border-collapse: collapse;
+    border-collapse: collapse;/*セルの境界線を共有*/
+    display: block-size;
 }
 th {
     border: solid 1px #666666;
@@ -15,7 +18,42 @@ td {
     border: solid 1px #666666;
     color: #000000;
     background-color: #ffffff;
-    width:35vw;
+    width:35vw
+}}
+@media screen and (max-width:768px){/*スマホ画面*/
+    table{
+        border-collapse: separate; 
+        display: block;
+        width: 100vw;
+    }
+    table>tbody>tr.row1>th.col2{
+        font-size:small;
+        width:20vw;
+        vertical-align: top;
+    }
+    td{
+        word-break: break-all;
+        vertical-align: top;
+    }
+    td.td-1{
+        width:35vw
+    }
+    td.td-2{
+        width:35vw
+    }
+    th {
+        border: solid 0.5vw #666666;
+        color: #000000;
+        background-color: #ccc;
+    }
+    td {
+        border: solid 0.5vw #666666;
+        color: #000000;
+        background-color: #ffffff;
+    }
+    #text{
+        font-size: small;
+    }    
 }
 
 h3.medium{
@@ -60,7 +98,7 @@ a:hover{
     grid-area: footer;
     margin:auto    
 }
-#spreadsheet{
+#sheet{
     grid-area:iframe;
     margin:0 1em
 }
@@ -72,6 +110,9 @@ a:hover{
     display:grid;
     column-gap: 1em;
     row-gap:0.2em;
+}
+#sheet{
+    width:100vw
 }
 }
 
@@ -142,7 +183,6 @@ div.mycol-3,div.mycol-5,div.mycol-7,div.mycol-9,div.mycol-10,div.mycol-12,div.my
     background-color:#eee;
     font-weight: bold;
 }
-
 
 
 
