@@ -13,12 +13,14 @@ th {
     border: solid 1px #666666;
     color: #000000;
     background-color: #ccc;
+    vertical-align: top;
 }
 td {
     border: solid 1px #666666;
     color: #000000;
     background-color: #ffffff;
-    width:35vw
+    width:35vw;
+    vertical-align: top;
 }}
 @media screen and (max-width:768px){/*スマホ画面*/
     table{
