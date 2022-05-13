@@ -134,7 +134,7 @@ div.top_image{
 @media screen and (max-width:768px){ /*スマホ画面*/
 	div.top_image{
 		background-image: url(../pic/top-sumaho.png);
-		/*height: 30vh;*/
+		height: 20vh;
 		background-size: 100% auto;
 		background-position: bottom;
 		background-repeat: no-repeat;
