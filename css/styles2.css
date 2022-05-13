@@ -1,3 +1,28 @@
+
+#calender{
+    width:40vw
+}
+.container{
+    width: 100vw;
+    padding-right: 2vw;
+    padding-left: 2vw;
+    margin: 0;   
+}
+iframe{
+    width:50em;
+    height:25em;
+}
+@media screen and (max-width:768px){/*スマホ画面*/
+    iframe{
+        height:50vh;
+        width:94vw;
+        padding-left: 2vw;
+    }
+    #calender{
+        width:94vw
+    }
+
+}
 a{
 	line-height: 2em;
 	font-size: small;
@@ -174,6 +199,8 @@ ul.menu:after { /*Clearfix*/
  body{
 	padding: 0;
 	margin: 0;
+    width:100vw;
+    font-size: medium;
 	/*margin-bottom: 60px;　⇐2022/5/7削除*/
   }
 
@@ -218,12 +245,10 @@ p{
 -------------------------------------------------- */
 /* Not required for template or sticky footer method. */
  
-.container {
-  width: auto;
-  max-width: 900px;
-}
+
 .container .text-muted {
   margin: 3px 0;
+  font-size: small;
 }
 ul.footer-menu li {
 	display: inline;
@@ -237,4 +262,8 @@ ul.footer-menu li {
 	/*position: absolute;←絶対位置*/
 	bottom: 0; /*下に固定*/
 	font-size: small;
+}
+
+div.style-1>ul>li>a{
+    font-size: medium;
 }
