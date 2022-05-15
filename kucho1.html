@@ -42,7 +42,28 @@
     row-gap:0.2em;
 }
 }
-
+@media screen and (max-width:768px){/*スマホ画面*/
+    table{
+        border-collapse: separate; 
+        display: block;
+        width: 100vw;
+    }
+    table>tbody>tr.row1>th.col2{
+        font-size:small;
+        width:20vw;
+        vertical-align: top;
+    }
+    td{
+        word-break: break-all;
+        vertical-align: top;
+    }
+    td.td-1{
+        width:60vw
+    }
+    td.td-2{
+        width:60vw
+    }
+}
 </style>
 
 
