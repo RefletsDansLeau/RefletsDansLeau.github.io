@@ -336,6 +336,13 @@ function cat_dc(string){
             divItem_8.setAttribute('class', "mycol-8");
             setDivList(divList, divItem_8, kouho[i][COL_NO_Q_3]);
 
+        //質問４ 質問前提
+            let divItem_9 = document.createElement('div');
+            divItem_9.setAttribute('class', "mycol-9");
+            divItem_9.innerHTML = '質問4. 子育て世代の有権者からたくさんの質問が届いております。<a href="https://bit.ly/38q9Yra" title="https://bit.ly/38q9Yra">質問一覧</a>のなかから、一つ以上お選びいただき回答ください。';
+            divList.appendChild(divItem_9);
+            //divList.appendChild(divItem_9).appendChild(newtext_9);
+
         //質問４ 質問番号 
             let divItem_10 = document.createElement('div');
             divItem_10.setAttribute('class', "mycol-10");
