@@ -21,6 +21,7 @@ td {
     background-color: #ffffff;
     width:35vw;
     vertical-align: top;
+　　word-break: break-all;
 }}
 @media screen and (max-width:768px){/*スマホ画面*/
     table{
