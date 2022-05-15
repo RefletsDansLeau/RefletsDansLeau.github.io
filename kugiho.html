@@ -89,15 +89,20 @@
 
         //Googleスプレッドシートのcsvのパスを記載する。
         const dataPath = 'https://docs.google.com/spreadsheets/d/1c73plRh0CbcWj37a79vE2zVFYZc1Y0mVmmEybtzRMNs/gviz/tq?tqx=out:csv&sheet=Sheet1';// csvのパス
-        // アンケート結果そのものへのパス
-        //const dataPath = 'https://docs.google.com/spreadsheets/d/1LdAUVyOJRMcW_daa5AbARPcgwStX6a5Mi3VTliyIV8k/gviz/tq?tqx=out:csv&sheet=候補者の回答';
+        // 質問４の質問シートへのパス
+        const Q4_dataPath = 'https://docs.google.com/spreadsheets/d/1c73plRh0CbcWj37a79vE2zVFYZc1Y0mVmmEybtzRMNs/gviz/tq?tqx=out:csv&sheet=Questions';
        
         //スプレッドシートを配列に変換したり等    
         let csv_row = csv_data_get(dataPath); 
 
         let kugiho = get_type(csv_row, TYPE_KUGI);
 
-        let divList = draw_detail(kugiho, TYPE_KUGI);
+        // Q4のデータを配列化
+        let q4_csv_row = csv_data_get(Q4_dataPath);
+        // 質問項目のみ抽出
+        let q4_questions = get_questions(q4_csv_row);
+
+        let divList = draw_detail(kugiho, TYPE_KUGI, q4_questions);
 
         for(var i = 0; i < divList.length; i++){
             document.getElementById('main_content').appendChild(divList[i]); 
