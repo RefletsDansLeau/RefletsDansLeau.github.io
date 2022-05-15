@@ -270,7 +270,8 @@ function cat_dc(string){
 
 
     // 詳細画面生成用
-    function draw_detail(kouho, type){
+    // kouho = 質問, type = 立候補種別, q4_list = 有権者からの質問リスト
+    function draw_detail(kouho, type, q4_list){
         let divListList = [];
 
         for (var i = 0; i < kouho.length; i++) { 
@@ -346,7 +347,10 @@ function cat_dc(string){
         //質問４ 質問番号 
             let divItem_10 = document.createElement('div');
             divItem_10.setAttribute('class', "mycol-10");
-            var newtext_10 =  document.createTextNode('有権者からの質問'+kouho[i][COL_NO_Q_4]+'番への答え');
+            //var newtext_10 =  document.createTextNode('有権者からの質問'+kouho[i][COL_NO_Q_4]+'番への答え');
+            // q4_list から質問を引っ張ってくる
+            var q_no = kouho[i][COL_NO_Q_4];
+            var newtext_10 =  document.createTextNode('質問['+ q_no + '] ' + q4_list[q_no]);
             divList.appendChild(divItem_10).appendChild(newtext_10);
 
         //質問４の回答 
@@ -359,7 +363,10 @@ function cat_dc(string){
         if(kouho[i][COL_NO_Q_4_2] != null){
             let divItem_13 = document.createElement('div');
             divItem_13.setAttribute('class', "mycol-13");
-            var newtext_13 =  document.createTextNode('有権者からの質問'+kouho[i][COL_NO_Q_4_2]+'番への答え');
+            //var newtext_13 =  document.createTextNode('有権者からの質問'+kouho[i][COL_NO_Q_4_2]+'番への答え');
+            // q4_list から質問を引っ張ってくる
+            var q_no = kouho[i][COL_NO_Q_4_2];
+            var newtext_13 =  document.createTextNode('質問['+ q_no + '] ' + q4_list[q_no]);
             divList.appendChild(divItem_13).appendChild(newtext_13);
 
         //質問４ー２　回答 
@@ -373,7 +380,10 @@ function cat_dc(string){
         if(kouho[i][COL_NO_Q_4_3] != null){
             let divItem_16 = document.createElement('div');
             divItem_16.setAttribute('class', "mycol-16");
-            var newtext_16 =  document.createTextNode('有権者からの質問'+kouho[i][COL_NO_Q_4_3]+'番への答え');
+            //var newtext_16 =  document.createTextNode('有権者からの質問'+kouho[i][COL_NO_Q_4_3]+'番への答え');
+            // q4_list から質問を引っ張ってくる
+            var q_no = kouho[i][COL_NO_Q_4_3];
+            var newtext_16 =  document.createTextNode('質問['+ q_no + '] ' + q4_list[q_no]);
             divList.appendChild(divItem_16).appendChild(newtext_16);
 
         //質問４-３　回答
@@ -385,7 +395,10 @@ function cat_dc(string){
         if(kouho[i][COL_NO_Q_4_4] != null){
             let divItem_19 = document.createElement('div');
             divItem_19.setAttribute('class', "mycol-19");
-            var newtext_19 =  document.createTextNode('有権者からの質問'+kouho[i][COL_NO_Q_4_4]+'番への答え');
+            //var newtext_19 =  document.createTextNode('有権者からの質問'+kouho[i][COL_NO_Q_4_4]+'番への答え');
+            // q4_list から質問を引っ張ってくる
+            var q_no = kouho[i][COL_NO_Q_4_4];
+            var newtext_19 =  document.createTextNode('質問['+ q_no + '] ' + q4_list[q_no]);
             divList.appendChild(divItem_19).appendChild(newtext_19);
 
         //質問４ー４　回答 
@@ -499,4 +512,19 @@ function cat_dc(string){
         divListList.push(divList);
         }
     return divListList;
+    }
+
+
+    // Q4の質問項目のみ抽出してリスト化
+    function get_questions(q_csv_list){
+        // 配列を用意
+        let csletr = [];
+        for (var i = 0; i < q_csv_list.length; i++) { 
+            let data = q_csv_list[i];
+            csletr.push(data[2]);
+
+            console.log(data[2]);
+        }
+
+        return csletr;
     }
