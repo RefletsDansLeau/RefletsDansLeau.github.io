@@ -344,14 +344,24 @@ function cat_dc(string){
             divList.appendChild(divItem_9);
             //divList.appendChild(divItem_9).appendChild(newtext_9);
 
-        //質問４ 質問番号 
+        //質問４ 質問番号＆アコーディオン
             let divItem_10 = document.createElement('div');
-            divItem_10.setAttribute('class', "mycol-10");
-            //var newtext_10 =  document.createTextNode('有権者からの質問'+kouho[i][COL_NO_Q_4]+'番への答え');
-            // q4_list から質問を引っ張ってくる
+            divItem_10.setAttribute('class', "accordion");
             var q_no = kouho[i][COL_NO_Q_4];
-            var newtext_10 =  document.createTextNode('質問['+ q_no + '] ' + q4_list[q_no]);
-            divList.appendChild(divItem_10).appendChild(newtext_10);
+            var newtext_10 =  document.createTextNode('質問['+ q_no + ']');
+            divList.appendChild(divItem_10).appendChild(newtext_10);           
+            let span = document.createElement('span');
+            span.setAttribute('class',"font-small");
+            divItem_10.appendChild(span);
+            var newtext_10_2 = document.createTextNode('⇒ここをクリックして全文表示');
+            span.appendChild(newtext_10_2);           
+            
+
+            let divItem_12 = document.createElement('div');
+            divItem_12.setAttribute('class', "accordion_contents");
+            // q4_list から質問を引っ張ってくる            
+            var newtext_12 =  document.createTextNode(q4_list[q_no]);
+            divList.appendChild(divItem_12).appendChild(newtext_12);
 
         //質問４の回答 
             let divItem_11 = document.createElement('div');
@@ -361,13 +371,23 @@ function cat_dc(string){
 
         //質問４ー２
         if(kouho[i][COL_NO_Q_4_2] != null){
-            let divItem_13 = document.createElement('div');
-            divItem_13.setAttribute('class', "mycol-13");
-            //var newtext_13 =  document.createTextNode('有権者からの質問'+kouho[i][COL_NO_Q_4_2]+'番への答え');
+            let divItem_4_2 = document.createElement('div');
+            divItem_4_2 .setAttribute('class', "accordion");
             // q4_list から質問を引っ張ってくる
             var q_no = kouho[i][COL_NO_Q_4_2];
-            var newtext_13 =  document.createTextNode('質問['+ q_no + '] ' + q4_list[q_no]);
-            divList.appendChild(divItem_13).appendChild(newtext_13);
+            var newtext_4_2 =  document.createTextNode('質問['+ q_no + ']');
+            divList.appendChild(divItem_4_2).appendChild(newtext_4_2);           
+            let span = document.createElement('span');
+            span.setAttribute('class',"font-small");
+            divItem_4_2.appendChild(span);
+            var newtext_4_2_k = document.createTextNode('⇒ここをクリックして全文表示');
+            span.appendChild(newtext_4_2_k);           
+            
+
+            let divItem_4_2_ac = document.createElement('div');
+            divItem_4_2_ac.setAttribute('class', "accordion_contents");            
+            var newtext_4_2_ac =  document.createTextNode(q4_list[q_no]);
+            divList.appendChild(divItem_4_2_ac).appendChild(newtext_4_2_ac);
 
         //質問４ー２　回答 
             let divItem_14 = document.createElement('div');
@@ -378,13 +398,23 @@ function cat_dc(string){
 
         //質問４ー３ 
         if(kouho[i][COL_NO_Q_4_3] != null){
-            let divItem_16 = document.createElement('div');
-            divItem_16.setAttribute('class', "mycol-16");
-            //var newtext_16 =  document.createTextNode('有権者からの質問'+kouho[i][COL_NO_Q_4_3]+'番への答え');
+            let divItem_4_3 = document.createElement('div');
+            divItem_4_3 .setAttribute('class', "accordion");
             // q4_list から質問を引っ張ってくる
             var q_no = kouho[i][COL_NO_Q_4_3];
-            var newtext_16 =  document.createTextNode('質問['+ q_no + '] ' + q4_list[q_no]);
-            divList.appendChild(divItem_16).appendChild(newtext_16);
+            var newtext_4_3 =  document.createTextNode('質問['+ q_no + ']');
+            divList.appendChild(divItem_4_3).appendChild(newtext_4_3);           
+            let span = document.createElement('span');
+            span.setAttribute('class',"font-small");
+            divItem_4_3.appendChild(span);
+            var newtext_4_3_k = document.createTextNode('⇒ここをクリックして全文表示');
+            span.appendChild(newtext_4_3_k);           
+            
+
+            let divItem_4_3_ac = document.createElement('div');
+            divItem_4_3_ac.setAttribute('class', "accordion_contents");            
+            var newtext_4_3_ac =  document.createTextNode(q4_list[q_no]);
+            divList.appendChild(divItem_4_3_ac).appendChild(newtext_4_3_ac);
 
         //質問４-３　回答
             let divItem_17 = document.createElement('div');
@@ -393,13 +423,23 @@ function cat_dc(string){
         }
         //質問４-４ 質問番号
         if(kouho[i][COL_NO_Q_4_4] != null){
-            let divItem_19 = document.createElement('div');
-            divItem_19.setAttribute('class', "mycol-19");
-            //var newtext_19 =  document.createTextNode('有権者からの質問'+kouho[i][COL_NO_Q_4_4]+'番への答え');
+            let divItem_4_4 = document.createElement('div');
+            divItem_4_4 .setAttribute('class', "accordion");
             // q4_list から質問を引っ張ってくる
             var q_no = kouho[i][COL_NO_Q_4_4];
-            var newtext_19 =  document.createTextNode('質問['+ q_no + '] ' + q4_list[q_no]);
-            divList.appendChild(divItem_19).appendChild(newtext_19);
+            var newtext_4_4 =  document.createTextNode('質問['+ q_no + ']');
+            divList.appendChild(divItem_4_4).appendChild(newtext_4_4);           
+            let span = document.createElement('span');
+            span.setAttribute('class',"font-small");
+            divItem_4_4.appendChild(span);
+            var newtext_4_4_k = document.createTextNode('⇒ここをクリックして全文表示');
+            span.appendChild(newtext_4_4_k);           
+            
+
+            let divItem_4_4_ac = document.createElement('div');
+            divItem_4_4_ac.setAttribute('class', "accordion_contents");            
+            var newtext_4_4_ac =  document.createTextNode(q4_list[q_no]);
+            divList.appendChild(divItem_4_4_ac).appendChild(newtext_4_4_ac);
 
         //質問４ー４　回答 
             let divItem_20 = document.createElement('div');
