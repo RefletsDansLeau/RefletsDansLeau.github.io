@@ -189,7 +189,17 @@ p.text-muted {
     font-size: x-small;
     text-align: center;
 }
-
-
-
+.accordion{
+    background-color: #eee;
+    font-weight: bold;
+}
+.accordion_contents{
+    display:none;
+    background-color: cornsilk;
+    font-size: small;
+}
+.font-small{
+    font-size: small;
+    color:blue
+ }
 
