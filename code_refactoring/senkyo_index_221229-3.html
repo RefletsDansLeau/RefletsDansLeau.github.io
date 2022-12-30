@@ -1,0 +1,201 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="中野区長選挙2022｜子育て世代による市民アンケート"> 
+    <meta name="keywords" content="中野区,選挙,子育て環境向上委員会,アンケート">
+    <link rel="icon" href="pic/favicon.png">
+    <meta property="og:image" content="pic/top_sumaho.png">
+    <link rel="stylesheet" href="css/style_senkyo2023.css">
+
+    
+</head>
+<body>
+    <header id="header">
+        <!--headerメニューを呼び出す関数に変更すること -->
+        <h1>2023年 中野区 区議選 立候補予定者 公開アンケート結果</h1>    
+        <div id="header_image"></div>
+        <nav class="header_menu">
+            <a href="XXXX.html" class="menu_item"><span>候補者</span><span>一覧</span></a>               
+            <a href="XXXXX.html" class="menu_item"><span>期日前</span><span>投票について</span></a>
+            <a href="XXXX.html" class="menu_item"><span>投票所</span><span>について</span></a>            
+            <a href="XXXXX.html" class="menu_item">About us</a>
+        </nav>
+    
+    </header>
+    <main>
+    <div id="candidate_profile"></div>
+    </main>
+    <script>
+   
+        
+
+        //アンケート結果が記載されたGoogleスプレッドシートを読み込む。セキュリティの設定を変更し、URLをCSVのものに修正したものを下記に記する。
+        const CSV_dataPath = 'https://docs.google.com/spreadsheets/d/1jcLZ4O03c38yji9oBFbZoOBpK7WmQi5lUSyWR764YNE/gviz/tq?tqx=out:csv&sheet=Sheet1';
+
+        
+
+        CANDIDATE_NAME = 2; //スプレッドシートの何列目に相当するか。(一番左の列は0番目)
+        
+        get_CSV_convert_to_array(CSV_dataPath);//スプレッドシートのcsvデータをArrayに変換（変数名：ARRAY）
+        
+        create_candidate_profile(SURVAY_RESULT_ARRAY);
+
+
+
+
+
+
+
+        function create_candidate_profile(SURVAY_RESULT_ARRAY){
+        for (let i = 1; i < SURVAY_RESULT_ARRAY.length; i++) {
+	        let div = document.createElement('div');
+            div.textContent = SURVAY_RESULT_ARRAY[i][CANDIDATE_NAME];
+            let parent = document.getElementById('candidate_profile'); 
+            parent.appendChild(div);
+            }
+        }
+        
+        
+        
+
+        
+        
+
+
+
+
+
+
+
+        //以下、jsファイルとして分離すること！！
+
+        function get_CSV_convert_to_array(CSV_dataPath) {
+        // CSVファイルを文字列として取得
+        let srt = new XMLHttpRequest();//サーバーと対話
+        
+        srt.open("GET", CSV_dataPath, false);//スプレッドシート(CSV版)を読み込む。値が false の場合、 send() メソッドはレスポンスを受信するまで戻りません。
+            try {
+                srt.send(null);
+                SURVAY_RESULT_ARRAY = CSVToArray( srt.responseText, ',' );//グローバル変数
+                console.log(SURVAY_RESULT_ARRAY); 
+            } catch (err) {
+            console.log(err);
+            }
+        }
+
+        
+        
+        
+        
+        // This will parse a delimited string into an array of
+	    // arrays. The default delimiter is the comma, but this
+	    // can be overriden in the second argument.
+	    function CSVToArray( strData, strDelimiter ){//注「\r\n」などは処理できないので、DOMの際に処理する必要がある。
+		
+        // Check to see if the delimiter is defined. If not,
+		// then default to comma.
+		strDelimiter = (strDelimiter || ",");//論理和 (||) 演算子 (論理的分割) をオペランドの組み合わせに対して使用すると、オペランドのうち 1 つ以上が true である場合に true になります。
+
+		// Create a regular expression to parse the CSV values.
+		var objPattern = new RegExp(//RegExp オブジェクトは、テキストをパターンと照合するために使用します。
+			(
+				// Delimiters.
+				"(\\" + strDelimiter + "|\\r?\\n|\\r|^)" +
+
+				// Quoted fields.
+				"(?:\"([^\"]*(?:\"\"[^\"]*)*)\"|" +
+
+				// Standard fields.
+				"([^\"\\" + strDelimiter + "\\r\\n]*))"
+			),
+			"gi"
+			);
+
+
+		// Create an array to hold our data. Give the array
+		// a default empty first row.
+		let arrData = [[]];//空の配列を用意
+        //console.log(arrData);
+
+		// Create an array to hold our individual pattern
+		// matching groups.
+		var arrMatches = null;
+
+		// Keep looping over the regular expression matches
+		// until we can no longer find a match.
+		while (arrMatches = objPattern.exec( strData )){//exec() メソッドは、指定された文字列内で一致するものの検索を実行
+
+			// Get the delimiter that was found.
+			var strMatchedDelimiter = arrMatches[ 1 ];
+
+			// Check to see if the given delimiter has a length
+			// (is not the start of string) and if it matches
+			// field delimiter. If id does not, then we know
+			// that this delimiter is a row delimiter.
+			if (
+				strMatchedDelimiter.length &&
+				(strMatchedDelimiter != strDelimiter)
+				){
+
+				// Since we have reached a new row of data,
+				// add an empty row to our data array.
+				arrData.push( [] );
+			}
+
+			// Now that we have our delimiter out of the way,
+			// let's check to see which kind of value we
+			// captured (quoted or unquoted).
+			if (arrMatches[ 2 ]){
+				// We found a quoted value. When we capture
+				// this value, unescape any double quotes.
+				var strMatchedValue = arrMatches[ 2 ].replace(
+					new RegExp( "\"\"", "g" ),
+					"\""
+					);
+
+			} else {
+
+				// We found a non-quoted value.
+				var strMatchedValue = arrMatches[ 3 ];
+			}
+
+			// Now that we have our value string, let's add
+			// it to the data array.
+			arrData[ arrData.length - 1 ].push( strMatchedValue );
+		    }
+
+		    // Return the parsed data.
+		    return( arrData );
+	        }
+        
+        
+         
+    
+    
+
+    
+    </script>
+
+
+ 
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+   
+
+    <footer>
+        <nav class="header_menu">
+            <a href="XXXX.html" class="menu_item"><span>候補者</span><span>一覧</span></a>               
+            <a href="XXXXX.html" class="menu_item"><span>期日前</span><span>投票について</span></a>
+            <a href="XXXX.html" class="menu_item"><span>投票所</span><span>について</span></a>            
+            <a href="XXXXX.html" class="menu_item">About us</a>
+        </nav>
+            <p class="text-muted">© All rights reserved by 子育て環境向上委員会@中野</p>
+    </footer>
+</body>
+
+</html>
