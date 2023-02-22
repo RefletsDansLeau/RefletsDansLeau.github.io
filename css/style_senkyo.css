@@ -1,0 +1,813 @@
+*{
+	box-sizing: border-box;
+    margin:0px;
+    text-align: center;
+}
+
+html{scroll-behavior: smooth;}
+
+
+body{
+	display:grid;
+	grid-template-areas: 
+    "header"
+    "main"
+    "footer";
+}
+p{
+    font-size: midium;
+    font-family:"A1明朝","A1 Mincho","游明朝体", "Yu Mincho", YuMincho, "ヒラギノ明朝 ProN W3", "Hiragino Mincho ProN", "メイリオ", Meiryo, serif;
+    /* 'Hiragino Sans','Yu Gothic UI','Meiryo UI',sans-serif; */ 
+}
+
+section{
+    height:minmax(100vh, auto);
+    width:100%;
+}
+a{
+    color:#333;
+    text-decoration: none;
+}
+a:hover{
+    text-decoration: underline;
+}
+footer a span:hover{
+    text-decoration: underline;
+}
+span{
+    display: inline-block;
+}
+nav a{
+    text-decoration: none;
+    display: inline-block; /* aのdisplayはinline-block */
+    color:aliceblue;
+}
+nav a::after {
+	content: "";
+	display: block;
+	width: 0; /* ホバーしていないときは幅0 */
+	height: 2px;
+	transition: all 0.5s ease;
+}
+nav a:hover::after {
+	width: 100%; /* ホバーしているときは幅100% */
+	height: 1px;
+	background-color:aliceblue;
+	transition: all 0.5s ease;
+}
+
+li{
+    list-style-type: none;
+}
+h3{
+    color:#191970;
+    margin-bottom: 0.5em;
+}
+#header{
+    width:100%;
+    background-color: #9090aa;
+    text-align:left;
+}
+div#header_image{
+    position: relative;
+    height:100px;
+    width:100%;
+    background-color: #9090aa;
+    background-image: url(../pic/haikei.png);
+    background-size: 100vw 150px;
+    background-position:middle;
+    background-repeat: no-repeat;
+
+}
+div#header_image h1{
+    position:absolute;
+    top:35%;
+    left:40%;
+}
+div#header_image p{
+    position:absolute;
+    top:20%;
+    left:25%;
+}
+.header_menu{
+    display: flex;
+    width: 100%;
+    color: black;
+    font-family: 'Hiragino Sans'/*Mac*/,'Yu Gothic UI'/*Windows*/,'Meiryo UI',sans-serif;
+    letter-spacing: 0.1em;
+    padding-left: 2em;
+}
+header h1{
+    font-size: min(3.5vw, 27px);
+}
+.menu_item{
+    font-size: small;
+    padding-top:0.5em;
+    padding-left: 2em;
+}
+#kouhosha_list{
+    height:60vh;
+    background-color:#333;
+}
+div#candidate_profile{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    height:auto;
+}
+div#candidate_profile img{
+    width:8vw;
+}
+#candidate_profile > div{
+    border:solid #666;
+    border-width: 1px;
+    border-radius:10px;
+}
+#candidate_profile > div > div{
+    margin: 0 0 1em 0;
+    font-weight: 600;
+    line-height: 0.9em;
+}
+#candidate_profile > div > div a{
+    font-size: small;
+    font-weight: 300;
+}
+
+
+footer{
+    width:100vw;
+    background-color: #666;
+    color:#fff;
+    display:grid;
+    line-height: 2em;
+    grid-template-areas: 
+      "top"
+      "menu"
+      "copyright";
+    text-align: center;
+    height: min-content;
+}
+.footer_top{
+    grid-area:top;
+    line-height: 2em;
+    background-color: #333;
+}
+h4{ /*footerメニュー*/
+    color: #ccc;
+    line-height: 2.5em;
+}
+.footer_menu a{
+    line-height: 1em;
+    padding:0.5em 0em 0.2em 0em;
+}
+div.footer_copyright{
+    grid-area: copyright;
+}
+div.footer_menu{
+    grid-area: menu;
+    display:grid;
+    grid-template-areas: 
+        "K L M N O";
+    grid-template-columns:repeat(5,1fr);
+    font-size: small;
+}
+div.f_index{
+    grid-area:K;
+}
+div.f_about_us{
+    grid-area:L;
+    display: grid;
+}
+.f_hinshu{
+    grid-area:M;
+}
+.f_blog{
+    grid-area:N;
+}
+.f_contact_us{
+    grid-area:O;
+}
+@media screen and (max-width:380px){
+    div.footer_menu{
+        grid-area: menu;
+        display:grid;
+        grid-template-columns: none;
+        grid-template-areas: 
+            "Q R" 
+            "S R"
+            "T R"
+            "U R";
+        /*grid-template-columns:repeat(5,1fr);*/
+        font-size: small;
+    }
+    div.f_index{
+        grid-area:Q;
+    }
+    div.f_about_us{
+        grid-area:R;
+        display: grid;
+    }
+    div.f_about_us a{
+        text-align: center;
+        font-size: smaller;
+        line-height: 0em;
+    }
+    .footer_menu a{
+        padding:0em;
+    }
+    .f_hinshu{
+        grid-area:S;
+    }
+    .f_blog{
+        grid-area:T;
+    }
+    .f_contact_us{
+        grid-area:U;
+    }
+}
+
+
+#top_image {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+    background: url(pic/top_image4.JPG);
+    background-size: cover;
+    background-position:bottom;
+    background-repeat: no-repeat;
+}
+@media screen and (max-width:860px){
+    #top_image{
+    background-position:left}
+}
+.top_message h2{
+    position: absolute;
+    bottom:-10%;
+    right: 0;
+    width:50%;
+    color: aliceblue;
+    opacity: 0.4;
+    font-size: 8em;
+    font-family:'Hiragino Sans'/*Mac*/,'Yu Gothic UI'/*Windows*/,'Meiryo UI',sans-serif; 
+}
+.top_message p{
+    position: absolute;
+    top:35%;
+    right: 0;
+    width:60%;
+    color: aliceblue;
+    text-shadow: 0.2em 0.1em 0.5em #000;
+    font-size:larger;
+    font-family:"A1明朝","A1 Mincho","游明朝体", "Yu Mincho", YuMincho, "ヒラギノ明朝 ProN W3", "Hiragino Mincho ProN", "メイリオ", Meiryo, serif;
+}
+@media screen and (max-width:400px){
+    .top_message p{
+        top:30vh;
+        width:95%;
+        font-size:medium;
+    }
+}
+#top_menu{
+    position:relative;
+    padding:5vw;
+    display:grid;
+    grid-template-columns: 1fr 1fr;    
+    row-gap: 5vh;
+    column-gap: 10vw;
+}
+@media screen and (max-width:400px){
+    #top_menu{
+        grid-template-columns: 1fr;
+    }
+}
+#top_menu div{
+    position: relative;
+    height:38vh;
+    width:38vw;
+    margin:5px;
+    padding-top:0em;
+    text-align: center;
+    line-height: 1em;
+    z-index: 0;
+}
+
+
+@media screen and (max-width:400px){
+    #top_menu div{
+        width:80vw;
+    }
+}
+#top_menu div::before{
+    background: repeating-linear-gradient(-45deg, #e0e794,#e0e794 5px, #fff 0, #fff 10px); /* ストライプの色 */
+	content: '';
+	position: absolute;
+	top: 0px;
+	bottom: 0px;
+	left: 0px;
+	right: 0px;
+	z-index: -2;
+}
+#top_menu div::after{
+    background: #fff; /* 背景色 */
+	content: '';
+	position: absolute;
+	top: 10px;	/* ストライプ部分の太さ・上 */
+	bottom: 10px;	/* ストライプ部分の太さ・下 */
+	left: 10px;	/* ストライプ部分の太さ・左 */
+	right: 10px;	/* ストライプ部分の太さ・右 */
+	z-index: -1;
+}
+
+
+
+.top_menu_item a{
+    display:block;
+    color:#333;
+    font-size: large;
+    line-height: 1em;
+}
+.top_menu_item a:hover{
+    font-size:x-large;    
+}
+.top_menu_item img{
+    width:calc(38vw - 5px);
+    padding:10px;
+    height:30vh;
+    object-fit: cover;
+}
+@media screen and (max-width:400px){
+    .top_menu_item img{
+        width:80vw;
+    }
+}
+
+
+
+#about_me{
+    width: 100%;
+    overflow: hidden;
+    background: url(pic/michi.jpg);
+    background-size: cover;
+    background-position: bottom;
+    background-repeat: no-repeat;
+    animation-name: move; 
+    animation-duration:2s;
+    animation-fill-mode: forwards;   
+}
+@keyframes move{
+    from{
+        background-position: 0 0, 0 0, 0 0;
+    }
+    to{
+        background-position: 0 20px, 0 20px, 0 20px;
+    }
+}
+h2.about_me_tagline{
+    font-size: xxx-large;
+    position: absolute;
+    top:35vh;
+    color:#e0e794;
+    text-shadow: 0.2em 0.1em 0.5em #000;
+    font-family:'Zen Old Mincho',"A1明朝","A1 Mincho","游明朝体", "Yu Mincho", YuMincho, "ヒラギノ明朝 ProN W3", "Hiragino Mincho ProN", "メイリオ", Meiryo, serif;    
+    animation-name: fadeUpAnime; 
+    animation-duration:2s;
+    animation-fill-mode: forwards;
+    opacity:0;
+}
+@keyframes fadeUpAnime{
+    from{
+        opacity:0;
+        left:0vw;
+    }
+    to{
+        opacity:1;
+        left:10vw;
+    }
+}
+
+@media screen and (max-width:910px){
+    h2.about_me_tagline{
+        top:max(30vh,50px);
+    }
+}
+@media screen and (max-width:470px){
+    h2.about_me_tagline{
+        top:23vh;
+        line-height: 1em;
+    }
+}
+.about_me_tagline h2{        
+    font-size:xxx-large;
+    margin:0;
+}
+@media screen and (max-width:530px){
+    .about_me_tagline h2{
+        font-size:xx-large;
+    }
+}
+.about_me_tagline p{      
+    font-size:large;
+    font-weight: 500;
+    margin:0;
+}
+.about_me_text p{
+    position: absolute;
+    top: 37vh;
+    right: 5vw;
+    color: #333;
+    text-shadow: 0.2em 0.1em 0.5em #fff;
+    font-size:large;
+    font-weight: 700;
+    font-family:"A1明朝","A1 Mincho","游明朝体", "Yu Mincho", YuMincho, "ヒラギノ明朝 ProN W3", "Hiragino Mincho ProN", "メイリオ", Meiryo, serif;
+}
+@media screen and (max-width:1000px){
+    .about_me_text p{
+        top:44vh;
+        right:1em;
+        font-size: large;
+        padding-left: 1em;
+    }
+}
+#culti_policy{
+    position: relative;
+    height:100vh;
+    width: 100%;
+    background:linear-gradient(#9090aa,#eee);   
+}
+
+.culti_policy_tagline{
+    position: absolute;
+    top:5vh;
+    right:20vh;
+    color:#e0e794;
+    text-shadow: 0.2em 0.1em 0.5em #000;
+    font-family:'Zen Old Mincho',"A1明朝","A1 Mincho","游明朝体", "Yu Mincho", YuMincho, "ヒラギノ明朝 ProN W3", "Hiragino Mincho ProN", "メイリオ", Meiryo, serif;    
+}
+@media screen and (max-width:910px){
+    .culti_policy_tagline{
+        top:max(8vh,40px);
+        right:1em;
+        text-align: right;
+    }
+}
+.culti_policy_tagline h2{        
+    font-size:xxx-large;
+    margin:0;
+}
+@media screen and (max-width:600px){
+    .culti_policy_tagline h2{
+        font-size: XXX-large;
+    }
+}
+.culti_policy_tagline p{      
+    font-size:large;
+    font-weight: 500;
+    margin:0;
+}
+@media screen and (max-width:910px){
+    .culti_policy_text{
+        text-align: right;
+        padding-right: 1em;
+    }
+}
+.culti_policy_text p{
+    position: absolute;
+    top: 35vh;
+    left: 50vw;
+    color: #333;
+    text-shadow: 0.2em 0.1em 0.5em #fff;
+    font-size:large;
+    line-height: 2em;
+    font-family:"A1明朝","A1 Mincho","游明朝体", "Yu Mincho", YuMincho, "ヒラギノ明朝 ProN W3", "Hiragino Mincho ProN", "メイリオ", Meiryo, serif;
+}
+@media screen and (max-width:910px){
+    .culti_policy_text p{  
+        position:unset;
+        padding-top:35vh;             
+        line-height: 1.3em;
+        z-index: 1;
+        /*width:75vw;*/
+    }
+}
+@media screen and (max-width:510px){
+    .culti_policy_text p{
+        left:12vw;        
+        font-size: large;
+    }
+}
+#culti_policy img{
+    position:absolute;
+    top: 2.5vw;
+    left: -5vw;
+    width: 50vw;
+    z-index: 0;
+}
+@media screen and (max-width:800px){
+    #culti_policy img{
+        width: 70vw;
+        left:-20vw;
+    }
+}
+@media screen and (max-width:610px){
+    #culti_policy img{
+        position:absolute;
+        top: 10vw;
+        left: -52vw;
+        width: 100vw;
+        z-index: 0;
+    }
+}
+#location{
+    position: relative;
+    width:100%;
+    height:100vh;
+    background-image: url(pic/oasayama.jfif);
+    background-size: cover;
+    background-position:center;
+    background-repeat: no-repeat;
+}
+
+.location_tagline{
+    position: absolute;
+    top:1em;
+    right:15vw;    
+    color:#e0e794;
+    text-shadow: 0.2em 0.1em 0.5em #000;
+    font-weight: 500;
+    font-family:'Zen Old Mincho',"A1明朝","A1 Mincho","游明朝体", "Yu Mincho", YuMincho, "ヒラギノ明朝 ProN W3", "Hiragino Mincho ProN", "メイリオ", Meiryo, serif;
+    margin: 0em;
+    line-height: 1em;
+}
+.location_tagline h2{
+    font-size: 3em;
+}
+.location_tagline p{
+    font-size: large;
+    padding: 1.5em;
+}
+.location_text{
+    color:#fff;
+    position:absolute;
+    top: 20vh;
+    left: 0vw;
+    line-height: 2em;
+    padding-left: 2em;
+    font-size:large;
+    text-shadow:0.2em 0.1em 0.5em #000;
+}
+#seasonal_change{ /*農園の四季*/
+    position:relative;
+    width:100vw;    
+}
+#seasonal_change h2{
+    font-size:xxx-large;
+    position:absolute;
+    color:#e0e794;
+    top:0.5em;
+    padding-left:1em;
+    text-shadow: 0.2em 0.1em 0.5em #000;
+    font-family:'Zen Old Mincho',"A1明朝","A1 Mincho","游明朝体", "Yu Mincho", YuMincho, "ヒラギノ明朝 ProN W3", "Hiragino Mincho ProN", "メイリオ", Meiryo, serif;
+    margin: 0em;
+}
+svg.layer_3{
+    position:relative;
+}
+.seasonal_change_contents{
+    position:relative;
+    top:1em;
+    display:grid;
+    grid-template-columns:1fr 1fr 1fr;
+    width:95%;
+    color:#333;
+}
+@media screen and (max-width:810px){
+    .seasonal_change_contents{
+        grid-template-columns: 1fr 1fr;
+    }
+}
+@media screen and (max-width:510px){
+    .seasonal_change_contents{
+        grid-template-columns: 1fr;
+    }
+}
+.seasonal_change_contents div{
+    position:relative;   
+}
+.seasonal_change_contents img{
+    position:relative;
+    margin-top: 3em;
+    width:90%
+}
+.seasonal_change_contents h3{
+    position:absolute;
+    top: 0.5em;
+    padding-left:1em;
+    color:#333;
+    opacity: 0.85;
+    font-size: 4.5vw;
+    font-family:'Zen Old Mincho',"A1明朝","A1 Mincho","游明朝体", "Yu Mincho", YuMincho, "ヒラギノ明朝 ProN W3", "Hiragino Mincho ProN", "メイリオ", Meiryo, serif; 
+    text-shadow: #fff 1px 0 10px; 
+}
+@media screen and (max-width:610px){
+    .seasonal_change_contents h3{
+        left: -0.5em;
+        font-size: xxx-large;
+    }
+}
+.seasonal_change_contents p{
+    position:relative;
+    padding:1em 1em 1em 2em;
+}
+
+#hinshu,#contact{
+    width: 100%;
+    height: 60vh;
+    overflow: hidden;
+    background: url(pic/top_image4.JPG);
+    background-size: cover;
+    background-position:top;
+    background-repeat: no-repeat;
+}
+@media screen and (max-width:640px){
+    #contact{
+        height:80vh
+    }
+}
+
+#blog{
+    width: 100%;
+    height: 80vh;
+    overflow: hidden;
+    background: url(pic/oasayama.jfif);
+    background-size: cover;
+    background-position:top;
+    background-repeat: no-repeat;
+}
+.blog_contents{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    top: 60vh;
+    left: 0;
+    width:95%;
+    color:#333;
+    /*background-color: darkcyan;*/
+}
+@media screen and (max-width:640px){
+    .blog_contents{
+        grid-template-columns: 1fr;
+        top:60vh;
+    }
+}
+
+.hinshu_tagline,.contact_tagline,.blog_tagline{
+    position:absolute;
+    top:25vh;
+    width:100vw;
+}
+
+@media screen and (max-width:640px){
+.blog_tagline{
+    position:absolute;
+    top:20vh;
+    width:100vw;
+}
+}
+.hinshu_tagline h2,.contact_tagline h2,.blog_tagline h2{
+    color:#e0e794;
+    padding-left:1em;
+    text-shadow: 0.2em 0.1em 0.5em #000;
+    font-size:xxx-large;
+    font-family:'Zen Old Mincho',"A1明朝","A1 Mincho","游明朝体", "Yu Mincho", YuMincho, "ヒラギノ明朝 ProN W3", "Hiragino Mincho ProN", "メイリオ", Meiryo, serif;
+    margin: 0em;
+}
+.hinshu_tagline p,.contact_tagline p,.blog_tagline p{
+    position:absolute;
+    top:2em;
+    left:40vw;
+    color: aliceblue;
+    text-shadow: 0.2em 0.1em 0.5em #000;
+    font-size:large;
+    line-height: 2em;
+    font-family:"A1明朝","A1 Mincho","游明朝体", "Yu Mincho", YuMincho, "ヒラギノ明朝 ProN W3", "Hiragino Mincho ProN", "メイリオ", Meiryo, serif;
+}
+@media screen and (max-width:810px){
+    .hinshu_tagline p,.contact_tagline p,.blog_tagline p{
+        position: unset;
+        padding-left: 1em;
+        text-align: left;
+        line-height: 1.5em;
+    }
+}
+#hinshu_kobetu{/*梨の種類*/
+    display:grid;
+    grid-template-columns:1fr 1fr 1fr;
+    column-gap: 1em;
+    color:#333;
+}
+@media screen and (max-width:840px){
+    #hinshu_kobetu{
+        grid-template-columns: 1fr 1fr;
+        margin-top:0em;
+    }
+}
+@media screen and (max-width:430px){
+    #hinshu_kobetu{
+        grid-template-columns: 1fr;
+        margin-top: 0em;
+    }
+}
+#hinshu_kobetu div{
+    position:relative;
+    text-align: left;
+    margin-bottom: 1em;   
+}
+#hinshu_kobetu img{
+    display:block;
+    margin:0 auto;
+    width:90%
+}
+@media screen and (max-width:630px){
+    #hinshu_kobetu img{
+        width:40vh;
+    }
+}
+@media screen and (max-width:630px){
+    #hinshu_kobetu img{
+        width:50vh;
+    }
+}
+#hinshu_kobetu h5{
+    position:absolute;
+    top: -0.5em;
+    left:0.5em;
+    color:#222;
+    opacity: 0.85;
+    font-size: calc(1.5rem + 3vw);
+    font-family:'Zen Old Mincho',"A1明朝","A1 Mincho","游明朝体", "Yu Mincho", YuMincho, "ヒラギノ明朝 ProN W3", "Hiragino Mincho ProN", "メイリオ", Meiryo, serif; 
+    text-shadow: #fff 1px 0 10px; 
+}
+@media screen and (max-width:430px){
+    #hinshu_kobetu h5{
+        margin-top:0em;
+        padding-left: 8vw;
+        font-size: xxx-large;
+    }
+}
+#hinshu_kobetu p{
+    padding-left: 1em;
+    color:#000;
+    font-size: 1em;
+    font-family:"A1明朝","A1 Mincho","游明朝体", "Yu Mincho", YuMincho, "ヒラギノ明朝 ProN W3", "Hiragino Mincho ProN", "メイリオ", Meiryo, serif; 
+    text-shadow: #fff 1px 0 10px; 
+}
+@media screen and (max-width:630px){
+    #hinshu_kobetu p{
+        margin-top:0em;
+        padding-left:1em;
+        padding-bottom: 2em;
+    }
+}
+
+#twitter_link{
+    position: relative;
+}
+
+
+
+.circle{
+    clip-path:circle(40%);
+}
+.curve{
+    position: absolute;
+    bottom: 37vh;
+    left: 0;
+    width: 100%;
+    overflow: hidden;
+    line-height: 0;
+    transform: rotate(180deg);
+}
+.curve_2{
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    overflow: hidden;
+    line-height: 0;
+    transform: rotate(180deg);
+}
+.arrow{
+    position:absolute;
+    bottom:20px;
+    left:0;
+    width:100%;
+    overflow: hidden;
+    line-height: 0;
+    transform: rotate(180deg);
+}
+.arrow_text{
+    position:absolute;
+    bottom:0;
+    right:0;
+    padding-right: 1em;
+    color:aliceblue;
+}
