@@ -7,15 +7,22 @@
     <meta name="keywords" content="中野区,選挙,子育て環境向上委員会,アンケート">
     <link rel="icon" href="pic/favicon.png">
     <meta property="og:image" content="pic/top_sumaho.png">
-    <link rel="stylesheet" href="css/style_senkyo2023.css">
+    <link rel="stylesheet" href="css/style_senkyo.css">
 
     
 </head>
 <body>
     <header id="header">
         <!--headerメニューを呼び出す関数に変更すること -->
-        <h1>2023年 中野区 区議選 立候補予定者 公開アンケート結果</h1>    
-        <div id="header_image"></div>
+           
+        <div id="header_image">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="100%" height="100%" preserveAspectRatio="none">
+                <path d="M 20 50 C 20 0, 95 0, 95 50 C 95 100, 20 100, 20 50" fill="#eee"></path>
+                <path d="M 15 80 L 28 60 L45 65 Z" fill="#eee"></path>            
+            </svg>
+            <p>2023年 中野区 区議選</p>
+            <h1>子育て政策、聞いてみた！</h1> 
+        </div>
         <nav class="header_menu">
             <a href="XXXX.html" class="menu_item"><span>候補者</span><span>一覧</span></a>               
             <a href="XXXXX.html" class="menu_item"><span>期日前</span><span>投票について</span></a>
@@ -25,7 +32,13 @@
     
     </header>
     <main>
-    <div id="candidate_profile"></div>
+    <div id="candidate_profile">
+        <div id="jimin"><h3>自民党</h3></div>
+        <div id="kyosan"><h3>共産党</h3></div>
+        <div id="rikken"><h3>立憲民主党</h3></div>
+        <div id="tofa"><h3>都民ファースト</h3></div>
+        <div id="other"><h3>その他</h3></div>
+    </div>
     </main>
     <script>
    
@@ -35,8 +48,11 @@
         const CSV_dataPath = 'https://docs.google.com/spreadsheets/d/1jcLZ4O03c38yji9oBFbZoOBpK7WmQi5lUSyWR764YNE/gviz/tq?tqx=out:csv&sheet=Sheet1';
 
         
-
-        CANDIDATE_NAME = 2; //スプレッドシートの何列目に相当するか。(一番左の列は0番目)
+        //スプレッドシートの列を指定
+        CANDIDATE_NAME = 2; //候補者名前（スプレッドシートのC列）(一番左の列は0番目)
+        PARTY = 4;//政党 
+        WEBSIATE = 27;//各候補者のウェブサイト
+        TWITTER = 28;//各候補者のTwitter
         
         get_CSV_convert_to_array(CSV_dataPath);//スプレッドシートのcsvデータをArrayに変換（変数名：ARRAY）
         
@@ -51,9 +67,36 @@
         function create_candidate_profile(SURVAY_RESULT_ARRAY){
         for (let i = 1; i < SURVAY_RESULT_ARRAY.length; i++) {
 	        let div = document.createElement('div');
+            let anchor = document.createElement('a');
+            //候補者の名前
             div.textContent = SURVAY_RESULT_ARRAY[i][CANDIDATE_NAME];
-            let parent = document.getElementById('candidate_profile'); 
+            div.appendChild( document.createElement( 'br' ) );
+           
+            //候補者の写真
+            let image = document.createElement('img');
+            image.src = 'pic/kugi' + i + ".jpg";
+            div.appendChild(image);
+            div.appendChild( document.createElement( 'br' ) );
+
+            //公式ウェブサイト
+            let websiteURL = document.createElement("a");
+            websiteURL.setAttribute("href",SURVAY_RESULT_ARRAY[i][WEBSIATE]);
+            let URLtext = document.createTextNode('公式ウェブサイト');
+            div.appendChild(websiteURL).appendChild(URLtext);
+            div.appendChild( document.createElement( 'br' ) );
+
+            //公式twitter
+            let twitterURL = document.createElement("a");
+            twitterURL.setAttribute("href",SURVAY_RESULT_ARRAY[i][TWITTER]);
+            let twitterText = document.createTextNode('公式Twitter');
+            div.appendChild(twitterURL).appendChild(twitterText);
+            div.appendChild( document.createElement( 'br' ) );
+
+            //各政党毎に並べる
+            let parent = document.getElementById(SURVAY_RESULT_ARRAY[i][PARTY]); 
             parent.appendChild(div);
+
+            let br = document.createElement('br');
             }
         }
         
