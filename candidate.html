@@ -32,13 +32,10 @@
     
     </header>
     <main>
-    <div id="candidate_profile">
-        <div id="jimin"><h3>自民党</h3></div>
-        <div id="kyosan"><h3>共産党</h3></div>
-        <div id="rikken"><h3>立憲民主党</h3></div>
-        <div id="tofa"><h3>都民ファースト</h3></div>
-        <div id="other"><h3>その他</h3></div>
-    </div>
+    <!--ここに選択した候補者の名前を出力-->
+    <div id="id_selected_candidate">中野　●●</div>
+    <!--ここに選択した候補者Noを出力-->
+    <div id="id_selected_candidate_no">0</div>
     </main>
     <script>
    
@@ -49,24 +46,37 @@
 
         
         //スプレッドシートの列を指定
-        CANDIDATE_NAME = 2; //候補者名前（スプレッドシートのC列）(一番左の列は0番目)
+        
         PARTY = 4;//政党 
         WEBSIATE = 27;//各候補者のウェブサイト
         TWITTER = 28;//各候補者のTwitter
-        CANDIDATE_NO = 0;//候補者No
         
         get_CSV_convert_to_array(CSV_dataPath);//スプレッドシートのcsvデータをArrayに変換（変数名：ARRAY）
         
-        create_candidate_profile(SURVAY_RESULT_ARRAY);
+        create_candidate_profile_details(SURVAY_RESULT_ARRAY);
 
-        page_transition();  //明日はif文を使って書いてみる！
+        
+         
+        function create_candidate_profile_details(SURVAY_RESULT_ARRAY){
+
+        
+        let selected_candidate_no = document.getElementById("id_selected_candidate_no");
+        let candidate_no = selected_candidate_no.textContent; 
+        console.log(candidate_no);
+
+        
+        //候補者の写真
+        let image = document.createElement('img');
+        image.src = 'pic/kugi' + candidate_no + ".jpg";
+        selected_candidate.appendChild(image);
+        
+        }
 
 
 
 
-
-
-        function create_candidate_profile(SURVAY_RESULT_ARRAY){
+       /*    
+        function create_candidate_profile_details(SURVAY_RESULT_ARRAY){
         for (let i = 1; i < SURVAY_RESULT_ARRAY.length; i++) {
 	        let div = document.createElement('div');
             let anchor = document.createElement('a');
@@ -74,29 +84,12 @@
             div.textContent = SURVAY_RESULT_ARRAY[i][CANDIDATE_NAME];
             div.appendChild( document.createElement( 'br' ) );
            
-            //質問１の回答　これから記載する
-
             //候補者の写真
             let image = document.createElement('img');
             image.src = 'pic/kugi' + i + ".jpg";
             div.appendChild(image);
             div.appendChild( document.createElement( 'br' ) );
 
-            //質問２以降を見る　クリックすると各候補者の詳細ぺージへ飛ぶｘ
-            let read_more = document.createElement("input");
-            read_more.setAttribute("type","button");
-            read_more.setAttribute("class","read_more");
-            read_more.setAttribute("value",'質問２以降を見る');
-            let name_to_send = SURVAY_RESULT_ARRAY[i][CANDIDATE_NAME];//別ぺージへ送りたい情報①。候補者の名前。
-            let no_to_send = SURVAY_RESULT_ARRAY[i][CANDIDATE_NO];//別ぺージへ送りたい情報②。候補者のNo。
-            let new_url = "candidate.html";//保持データの送り先のURL
-            let query = "?name=" + name_to_send + "&no=" + no_to_send;
-            let url = new_url + query; //開くファイルのURL
-            read_more.addEventListener('click',function(){
-                window.open(url);});
-            div.appendChild(read_more);
-            div.appendChild( document.createElement( 'br' ) );
-            
             //公式ウェブサイト
             let websiteURL = document.createElement("a");
             websiteURL.setAttribute("href",SURVAY_RESULT_ARRAY[i][WEBSIATE]);
@@ -118,12 +111,10 @@
             let br = document.createElement('br');
             }
         }
-        
-    
+        */
         
         
 
-        
         
         
 
@@ -244,8 +235,12 @@
 
 
  
-    
-    
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+   
 
     <footer>
         <nav class="header_menu">
