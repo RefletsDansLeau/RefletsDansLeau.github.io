@@ -8,8 +8,10 @@
     <link rel="icon" href="pic/favicon.png">
     <meta property="og:image" content="pic/top_sumaho.png">
     <link rel="stylesheet" href="css/style_senkyo.css">
-
-    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Sawarabi+Gothic&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic&display=swap" rel="stylesheet">
 </head>
 <body>
     <header id="header">
@@ -54,13 +56,14 @@
         WEBSIATE = 5;//各候補者のウェブサイト
         TWITTER = 6;//各候補者のTwitter
         CANDIDATE_NO = 0;//候補者No
+        Q1 = 8;//質問１
+        A1 = 9;//質問１の答え
         
         get_CSV_convert_to_array(CSV_dataPath);//スプレッドシートのcsvデータをArrayに変換（変数名：ARRAY）
         
         create_candidate_profile(SURVAY_RESULT_ARRAY);
 
-        page_transition();  //明日はif文を使って書いてみる！
-
+        
 
 
 
@@ -70,11 +73,17 @@
         for (let i = 1; i < SURVAY_RESULT_ARRAY.length; i++) {
 	        let div = document.createElement('div');
             let anchor = document.createElement('a');
-            //候補者の名前
-            div.textContent = SURVAY_RESULT_ARRAY[i][CANDIDATE_NAME];
-            div.appendChild( document.createElement( 'br' ) );
+            let p =document.createElement("p");
+            p.setAttribute("class","name");
+            
+            
            
             //質問１の回答　これから記載する
+            let Q1 = document.createElement('div');
+            Q1.setAttribute("class","Q1");
+            let A1_text = document.createTextNode(SURVAY_RESULT_ARRAY[i][A1]);
+            div.appendChild(Q1).appendChild(A1_text);
+            
 
             //候補者の写真
             let image = document.createElement('img');
@@ -82,6 +91,10 @@
             div.appendChild(image);
             div.appendChild( document.createElement( 'br' ) );
 
+            //候補者の名前
+            let name = document.createTextNode(SURVAY_RESULT_ARRAY[i][CANDIDATE_NAME]);
+            div.appendChild(p).appendChild(name);
+            
             //質問２以降を見る　クリックすると各候補者の詳細ぺージへ飛ぶｘ
             let read_more = document.createElement("input");
             read_more.setAttribute("type","button");
@@ -254,7 +267,7 @@
             <a href="XXXX.html" class="menu_item"><span>投票所</span><span>について</span></a>            
             <a href="XXXXX.html" class="menu_item">About us</a>
         </nav>
-            <p class="text-muted">© All rights reserved by 子育て環境向上委員会@中野</p>
+            <p class="copyright">© All rights reserved by 子育て環境向上委員会@中野</p>
     </footer>
 </body>
 
