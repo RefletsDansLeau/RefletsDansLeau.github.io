@@ -29,10 +29,10 @@ a{
     text-decoration: none;
 }
 a:hover{
-    text-decoration: underline;
+    font-weight: bold;
 }
 footer a span:hover{
-    text-decoration: underline;
+    font-weight: bold;
 }
 span{
     display: inline-block;
@@ -42,19 +42,19 @@ nav a{
     display: inline-block; /* aのdisplayはinline-block */
     color:aliceblue;
 }
-nav a::after {
+/*nav a::after {
 	content: "";
 	display: block;
-	width: 0; /* ホバーしていないときは幅0 */
-	height: 2px;
+    height: 2px;
+	width: 0; /* ホバーしていないときは幅0	
 	transition: all 0.5s ease;
-}
-nav a:hover::after {
-	width: 100%; /* ホバーしているときは幅100% */
+}*/
+/*nav a:hover::after {
+	width: 100%; /* ホバーしているときは幅100% 
 	height: 1px;
 	background-color:aliceblue;
 	transition: all 0.5s ease;
-}
+}*/
 
 li{
     list-style-type: none;
@@ -82,7 +82,7 @@ div#header_image{
 div#header_image h1{
     position:absolute;
     top:35%;
-    left:40%;
+    left:25%;
 }
 div#header_image p{
     position:absolute;
@@ -96,9 +96,10 @@ div#header_image p{
     font-family: 'Hiragino Sans'/*Mac*/,'Yu Gothic UI'/*Windows*/,'Meiryo UI',sans-serif;
     letter-spacing: 0.1em;
     padding-left: 2em;
+    justify-content: center;
 }
 header h1{
-    font-size: min(3.5vw, 27px);
+    font-size: min(6vw, 2em);
 }
 .menu_item{
     font-size: small;
@@ -131,14 +132,19 @@ div#candidate_profile img{
     font-size: small;
     font-weight: 300;
 }
+div#contents > img{
+    width:50vw;
+}
 
+.style_8, .style_10, .style_12, .style_13, .style_15, .style_16, .style_17, .style_19{
+    background-color: #eee;
+}
 
 footer{
     width:100vw;
     background-color: #666;
     color:#fff;
     display:grid;
-    line-height: 2em;
     grid-template-areas: 
       "top"
       "menu"
