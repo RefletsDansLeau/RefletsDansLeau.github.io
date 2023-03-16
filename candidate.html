@@ -33,9 +33,10 @@
     </header>
     <main>
     <!--ここに選択した候補者の名前を出力-->
-    <div id="id_selected_candidate">中野　●●</div>
+    <div id="contents">
+    <h2 id="selected_candidate_name">中野　●●</h2>
     <!--ここに選択した候補者Noを出力-->
-    <div id="id_selected_candidate_no">0</div>
+    </div>
     </main>
     <script>
    
@@ -48,8 +49,12 @@
         //スプレッドシートの列を指定
         
         PARTY = 4;//政党 
-        WEBSIATE = 27;//各候補者のウェブサイト
-        TWITTER = 28;//各候補者のTwitter
+        WEBSIATE = 5;//各候補者のウェブサイト
+        TWITTER = 6;//各候補者のTwitter
+        Q1 = 8;
+        A1 = 9;
+
+
         
         get_CSV_convert_to_array(CSV_dataPath);//スプレッドシートのcsvデータをArrayに変換（変数名：ARRAY）
         
@@ -59,9 +64,37 @@
          
         function create_candidate_profile_details(SURVAY_RESULT_ARRAY){
 
-        
-        let selected_candidate_no = document.getElementById("id_selected_candidate_no");
-        let candidate_no = selected_candidate_no.textContent; 
+            //URLのクエリー文字列から候補者の名前、Noのパラメータを取得
+            let query_params = new URLSearchParams(document.location.search.substring(1));
+            let q_name = query_params.get("name"); // 
+            let q_no = parseInt(query_params.get("no"), 10); //
+
+            //候補者名前
+            let h2 =document.getElementById("selected_candidate_name");
+            h2.textContent=q_name;
+
+            //顔写真
+            let image = document.createElement('img');
+            image.src = 'pic/kugi' + q_no + ".jpg";
+            let div =document.getElementById("contents");
+            div.appendChild(image);
+            div.appendChild( document.createElement( 'br' ) );
+
+            for(let i = 8; i < 21; i++){
+                let p = document.createElement("p");
+                p.setAttribute("class","style_"+ [i]);
+                p.textContent=(SURVAY_RESULT_ARRAY[q_no][i]);
+                div.appendChild(p);
+            }
+            
+        }
+
+            /*
+            let div_selected_candidate_no = document.getElementById("div_selected_candidate_no");
+            
+            
+            
+            let candidate_no = selected_candidate_no.textContent; 
         console.log(candidate_no);
 
         
@@ -235,12 +268,7 @@
 
 
  
-    <!-- Optional JavaScript -->
-    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
-   
+    
 
     <footer>
         <nav class="header_menu">
