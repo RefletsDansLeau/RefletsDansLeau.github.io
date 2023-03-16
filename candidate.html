@@ -81,10 +81,11 @@
             div.appendChild( document.createElement( 'br' ) );
 
             for(let i = 8; i < 21; i++){
-                let p = document.createElement("p");
-                p.setAttribute("class","style_"+ [i]);
+                let div_2 =document.createElement("div");
+                div_2.setAttribute("class","style_"+ [i]);
+                let p = document.createElement("p");                
                 p.textContent=(SURVAY_RESULT_ARRAY[q_no][i]);
-                div.appendChild(p);
+                div.appendChild(div_2).appendChild(p);
             }
             
         }
