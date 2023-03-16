@@ -113,7 +113,7 @@ header h1{
 }
 div#candidate_profile{
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
     height:auto;
 }
 p.name{
