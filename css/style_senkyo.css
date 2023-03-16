@@ -1,11 +1,10 @@
 *{
 	box-sizing: border-box;
-    margin:0px;
+    margin:0;
     text-align: center;
 }
 
 html{scroll-behavior: smooth;}
-
 
 body{
 	display:grid;
@@ -132,12 +131,22 @@ div#candidate_profile img{
     font-size: small;
     font-weight: 300;
 }
+
+
 div#contents > img{
-    width:50vw;
+    height: 30vh;
 }
 
-.style_8, .style_10, .style_12, .style_13, .style_15, .style_16, .style_17, .style_19{
+.style_8, .style_10, .style_12, .style_13, .style_15, .style_16, .style_17, .style_18, .style_20{
     background-color: #eee;
+}
+div#contents > div {
+    min-height: 2em;    
+    text-align: left;
+}
+div#contents p{
+    display:inline-block;
+    padding-left: 5vw;
 }
 
 footer{
