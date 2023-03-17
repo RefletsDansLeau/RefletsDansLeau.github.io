@@ -30,18 +30,19 @@
             <a href="early_voting_map.html" class="menu_item"><span>期日前</span><span>投票について</span></a>
             <a href="early_voting_map.html" class="menu_item"><span>投票所</span><span>について</span></a>            
             <a href="XXXXX.html" class="menu_item">About us</a>
-            <a href="compare.html" class="menu_item">質問ごとに比較する</a>
             
         </nav>
     
     </header>
     <main>
         <div id="introduction">
-        <p>こんにちは。子育て環境向上委員会@中野 です。
-            私たちは、子育て世代の声を区政や議員の皆様へ届ける活動などをしている団体で、主に子育て中の母親で構成され、超党派で活動しています。<br>
-            当団体では、1人でも多くの有権者に区政へ関心を持っていただくこと、また子育て世代の有権者がどのようなことに関心を持っているのかを議員の皆様に知っていただくことを目的に、公開アンケートを実施しました。</p>
-        </div>
-            <h2>質問１. 子育て世代へアピールしたいことは何ですか？（回答は２０文字以内）</h2>
+            <select name="compare" id="compare">
+                <option value="">質問ごとに比較する</option>
+                <option value="12">質問２</option> <!--valueの数値はスプレッドシートの対応する列の数値を入力すること-->
+                <option value="15">質問３</option>
+                <option value="20">質問４</option>
+            </select></div>
+            <h2>質問２．ご自身が小学生の頃、どこで何をして遊んでいましたか？</h2>
     <div id="candidate_profile">
         <div id="jimin"><h3>自民党</h3></div>
         <div id="koumei"><h3>公明党</h3></div>
@@ -62,11 +63,11 @@
         //スプレッドシートの列を指定
         CANDIDATE_NAME = 2; //候補者名前（スプレッドシートのC列）(一番左の列は0番目)
         PARTY = 4;//政党 
-        WEBSIATE = 5;//各候補者のウェブサイト
-        TWITTER = 6;//各候補者のTwitter
+        WEBSIATE = 6;//各候補者のウェブサイト
+        TWITTER = 7;//各候補者のTwitter
         CANDIDATE_NO = 0;//候補者No
-        Q1 = 8;//質問１
-        A1 = 9;//質問１の答え
+        Q1 = 10//質問１
+        A1 = 11;//質問１の答え
         
         get_CSV_convert_to_array(CSV_dataPath);//スプレッドシートのcsvデータをArrayに変換（変数名：ARRAY）
         
@@ -79,19 +80,26 @@
 
 
         function create_candidate_profile(SURVAY_RESULT_ARRAY){
+
+        let selected_item = document.querySelector("select[name='compare']");//セレクトした質問
+        
+        selected_item.addEventListener('change', (event) => {
+        console.log(selected_item.value);
+        let selected_question_no = parseInt(selected_item.value,10);
+    
+        //今までのデータを消す。    
+                
+        
+        
+        
         for (let i = 1; i < SURVAY_RESULT_ARRAY.length; i++) {
-	        let div = document.createElement('div');
-            let anchor = document.createElement('a');
-            let p =document.createElement("p");
-            p.setAttribute("class","name");
-            
+	        let div = document.createElement('div');           
             
            
-            //質問１の回答　これから記載する
-            let Q1 = document.createElement('div');
-            Q1.setAttribute("class","Q1");
-            let A1_text = document.createTextNode(SURVAY_RESULT_ARRAY[i][A1]);
-            div.appendChild(Q1).appendChild(A1_text);
+            //質問の回答　
+            let div2 = document.createElement('div');  //getElemntbyId　textContentにできればOK
+            let Answer_text = document.createTextNode(SURVAY_RESULT_ARRAY[i][selected_question_no]);
+            div.appendChild(div2).appendChild(Answer_text);
             
 
             //候補者の写真
@@ -102,43 +110,18 @@
 
             //候補者の名前
             let name = document.createTextNode(SURVAY_RESULT_ARRAY[i][CANDIDATE_NAME]);
+            let p =document.createElement("p");
+            p.setAttribute("class","name");
             div.appendChild(p).appendChild(name);
             
-            //質問２以降を見る　クリックすると各候補者の詳細ぺージへ飛ぶ
-            let read_more = document.createElement("input");
-            read_more.setAttribute("type","button");
-            read_more.setAttribute("class","read_more");
-            read_more.setAttribute("value",'質問２以降を見る');
-            let name_to_send = SURVAY_RESULT_ARRAY[i][CANDIDATE_NAME];//別ぺージへ送りたい情報①。候補者の名前。
-            let no_to_send = SURVAY_RESULT_ARRAY[i][CANDIDATE_NO];//別ぺージへ送りたい情報②。候補者のNo。
-            let new_url = "candidate.html";//保持データの送り先のURL
-            let query = "?name=" + name_to_send + "&no=" + no_to_send;
-            let url = new_url + query; //開くファイルのURL
-            read_more.addEventListener('click',function(){
-                window.open(url);});
-            div.appendChild(read_more);
-            div.appendChild( document.createElement( 'br' ) );
             
-            //公式ウェブサイト
-            let websiteURL = document.createElement("a");
-            websiteURL.setAttribute("href",SURVAY_RESULT_ARRAY[i][WEBSIATE]);
-            let URLtext = document.createTextNode('公式ウェブサイト');
-            div.appendChild(websiteURL).appendChild(URLtext);
-            div.appendChild( document.createElement( 'br' ) );
-
-            //公式twitter
-            let twitterURL = document.createElement("a");
-            twitterURL.setAttribute("href",SURVAY_RESULT_ARRAY[i][TWITTER]);
-            let twitterText = document.createTextNode('公式Twitter');
-            div.appendChild(twitterURL).appendChild(twitterText);
-            div.appendChild( document.createElement( 'br' ) );
-
             //各政党毎に並べる
             let parent = document.getElementById(SURVAY_RESULT_ARRAY[i][PARTY]); 
             parent.appendChild(div);
 
             let br = document.createElement('br');
             }
+        });
         }
         
         

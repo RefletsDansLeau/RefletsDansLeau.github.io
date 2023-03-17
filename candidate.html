@@ -47,13 +47,13 @@
 
         
         //スプレッドシートの列を指定
-        
+        CANDIDATE_NAME = 2; //候補者名前（スプレッドシートのC列）(一番左の列は0番目)
         PARTY = 4;//政党 
-        WEBSIATE = 5;//各候補者のウェブサイト
-        TWITTER = 6;//各候補者のTwitter
-        Q1 = 8;
-        A1 = 9;
-
+        WEBSIATE = 6;//各候補者のウェブサイト
+        TWITTER = 7;//各候補者のTwitter
+        CANDIDATE_NO = 0;//候補者No
+        Q1 = 10//質問１
+        A1 = 11;//質問１の答え
 
         
         get_CSV_convert_to_array(CSV_dataPath);//スプレッドシートのcsvデータをArrayに変換（変数名：ARRAY）
@@ -80,11 +80,11 @@
             div.appendChild(image);
             div.appendChild( document.createElement( 'br' ) );
 
-            for(let i = 8; i < 21; i++){
+            for(let i = 9; i < 22; i++){
                 let div_2 =document.createElement("div");
                 div_2.setAttribute("class","style_"+ [i]);
                 let p = document.createElement("p");                
-                p.textContent=(SURVAY_RESULT_ARRAY[q_no][i]);
+                p.innerText=(SURVAY_RESULT_ARRAY[q_no][i]);
                 div.appendChild(div_2).appendChild(p);
             }
             
