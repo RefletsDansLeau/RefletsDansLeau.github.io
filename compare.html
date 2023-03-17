@@ -38,12 +38,12 @@
         <div id="introduction">
             <select name="compare" id="compare">
                 <option value="">質問ごとに比較する</option>
-                <option value="12">質問２</option> <!--valueの数値はスプレッドシートの対応する列の数値を入力すること-->
-                <option value="15">質問３</option>
-                <option value="20">質問４</option>
+                <option value="12">質問２．ご自身が小学生の頃、どこで何をして遊んでいましたか？</option> <!--valueの数値はスプレッドシートの対応する列の数値をValueに入力すること-->
+                <option value="15">質問３．中野区の子育て支援で、何に一番力を入れたいですか？</option>
+                <option value="20">質問４．子育て世代の有権者からたくさんの質問が届いております。下記URLの質問一覧表の中から、ひとつお選びいただき回答ください。</option>
             </select></div>
-            <h2>質問２．ご自身が小学生の頃、どこで何をして遊んでいましたか？</h2>
-    <div id="candidate_profile">
+            <h2 id="question"></h2>
+    <div id="comparison_lists">
         <div id="jimin"><h3>自民党</h3></div>
         <div id="koumei"><h3>公明党</h3></div>
         <div id="kyosan"><h3>共産党</h3></div>
@@ -68,60 +68,78 @@
         CANDIDATE_NO = 0;//候補者No
         Q1 = 10//質問１
         A1 = 11;//質問１の答え
-        
-        get_CSV_convert_to_array(CSV_dataPath);//スプレッドシートのcsvデータをArrayに変換（変数名：ARRAY）
-        
-        create_candidate_profile(SURVAY_RESULT_ARRAY);
-
+        voter_Q_no = 18; //回答する番号（有権者からの質問一覧）
         
 
-
-
-
-
-        function create_candidate_profile(SURVAY_RESULT_ARRAY){
-
-        let selected_item = document.querySelector("select[name='compare']");//セレクトした質問
+        get_CSV_convert_to_array(CSV_dataPath);//スプレッドシートのcsvデータをArrayに変換
         
-        selected_item.addEventListener('change', (event) => {
-        console.log(selected_item.value);
-        let selected_question_no = parseInt(selected_item.value,10);
-    
-        //今までのデータを消す。    
+        create_comparison_list(SURVAY_RESULT_ARRAY);//セレクトボックスで選択した質問の答えだけを表示する関数
+
+        
+
+
+
+
+
+        function create_comparison_list(SURVAY_RESULT_ARRAY){
+
+        let selected_item = document.querySelector("select[name='compare']");//select boxで選択した質問
+        
+        selected_item.addEventListener('change', (event) => {//発火
+            console.log(selected_item.value);
+            let selected_question_no = parseInt(selected_item.value,10);//数値データとして取得
+        
+
+
+        //今までのデータを消す。
+            let previous_data = document.querySelectorAll("div#comparison_lists > div");
+            previous_data.forEach((element) => {
+            element.innerHTML = '';
+            });
+        
+        
+            //各候補分ループ
+            for (let i = 1; i < SURVAY_RESULT_ARRAY.length; i++) {
+	            let div = document.createElement('div');           
+
+                //候補者の写真
+                let image = document.createElement('img');
+                image.src = 'pic/kugi' + i + ".jpg";
+                div.appendChild(image);
+                div.appendChild( document.createElement( 'br' ) );
+
+                //候補者の名前
+                let name = document.createTextNode(SURVAY_RESULT_ARRAY[i][CANDIDATE_NAME]);
+                let p =document.createElement("p");
+                p.setAttribute("class","name");
+                div.appendChild(p).appendChild(name);
                 
-        
-        
-        
-        for (let i = 1; i < SURVAY_RESULT_ARRAY.length; i++) {
-	        let div = document.createElement('div');           
-            
-           
-            //質問の回答　
-            let div2 = document.createElement('div');  //getElemntbyId　textContentにできればOK
-            let Answer_text = document.createTextNode(SURVAY_RESULT_ARRAY[i][selected_question_no]);
-            div.appendChild(div2).appendChild(Answer_text);
-            
+                //質問の回答　
+                let div2 = document.createElement('div');
+                
+                    //質問4の場合は、有権者からの質問文を追加
+                    if (selected_question_no == 20){//スプレッドシートの20列目
+                        let voter_questions_no = document.createTextNode(SURVAY_RESULT_ARRAY[i][18]);
+                        let voter_questions_text = document.createTextNode(SURVAY_RESULT_ARRAY[i][19]);
+                        let Answer_text = document.createTextNode(SURVAY_RESULT_ARRAY[i][selected_question_no]);
+                    div.appendChild(div2).appendChild(voter_questions_no);
+                    div.appendChild(div2).appendChild(voter_questions_text);
+                    div.appendChild(div2).appendChild(Answer_text);
+                    }else{
 
-            //候補者の写真
-            let image = document.createElement('img');
-            image.src = 'pic/kugi' + i + ".jpg";
-            div.appendChild(image);
-            div.appendChild( document.createElement( 'br' ) );
-
-            //候補者の名前
-            let name = document.createTextNode(SURVAY_RESULT_ARRAY[i][CANDIDATE_NAME]);
-            let p =document.createElement("p");
-            p.setAttribute("class","name");
-            div.appendChild(p).appendChild(name);
+                let Answer_text = document.createTextNode(SURVAY_RESULT_ARRAY[i][selected_question_no]);
+                div.appendChild(div2).appendChild(Answer_text);
+                    }                
             
-            
-            //各政党毎に並べる
-            let parent = document.getElementById(SURVAY_RESULT_ARRAY[i][PARTY]); 
-            parent.appendChild(div);
+                
+                //各政党毎に並べる
+                let parent = document.getElementById(SURVAY_RESULT_ARRAY[i][PARTY]); 
+                parent.appendChild(div);
 
-            let br = document.createElement('br');
-            }
-        });
+                let br = document.createElement('br');
+            }}
+
+        );
         }
         
         
