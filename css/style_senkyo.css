@@ -107,6 +107,15 @@ header h1{
     padding-top:0.5em;
     padding-left: 2em;
 }
+#introduction{    
+    font-family: 'Zen Maru Gothic', sans-serif;
+    width: min(95vw,1050px);
+    display: inline-block;
+}
+#introduction >p{
+    text-align: left;
+}
+
 #kouhosha_list{
     height:60vh;
     background-color:#333;
@@ -161,18 +170,18 @@ div#contents > div {
     text-indent: 1em;
 }
 
-div#contents >.style_8, div#contents >.style_10, div#contents >.style_12, div#contents >.style_13, div#contents >.style_15, div#contents >.style_16, div#contents >.style_17, div#contents >.style_18, div#contents >.style_20{
+div#contents >.style_9, div#contents >.style_11, div#contents >.style_13, div#contents >.style_14, div#contents >.style_16, div#contents >.style_17, div#contents >.style_18, div#contents >.style_19, div#contents >.style_21{
     /*background: #eee;*/    
     color: #191970;
     font-weight: bold;
     text-indent: 0em;
     /*clip-path: polygon(100% 0, 100% 100%, 4% 100%, 4% 88%, 0 82%, 4% 69%, 4% 0);*/
 }
-div#contents >.style_13,div#contents >.style_18{
+div#contents >.style_14,div#contents >.style_19{
     font-size: smaller;
     font-weight: lighter;
 }
-div#contents >.style_16,div#contents >.style_17{
+div#contents >.style_17,div#contents >.style_18{
     display: inline;
 }
 
@@ -181,6 +190,7 @@ div#contents >.style_16,div#contents >.style_17{
 div#contents p{
     display:inline-block;
     padding-left: 5vw;
+    text-align: left;
 }
 
 footer{
