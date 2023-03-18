@@ -120,7 +120,7 @@ header h1{
     height:60vh;
     background-color:#333;
 }
-div#candidate_profile{
+div#candidate_profile, div#comparison_lists{
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
     height:auto;
@@ -129,11 +129,11 @@ p.name{
     font-size: min(2.8vw,1.1em);
     padding-bottom: 2px;
 }
-div#candidate_profile img{
+div#candidate_profile img, div#comparison_lists img{
     width:8vw;
     clip-path: circle();
 }
-#candidate_profile > div{
+#candidate_profile , #comparison_lists> div{
     border:solid #666;
     border-width: 1px;
     border-radius:10px;
