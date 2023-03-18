@@ -24,18 +24,19 @@
             <h1>子育て政策、聞いてみた！</h1> 
         </div>
         <nav class="header_menu">
-            <a href="XXXX.html" class="menu_item"><span>候補者</span><span>一覧</span></a>               
-            <a href="XXXXX.html" class="menu_item"><span>期日前</span><span>投票について</span></a>
-            <a href="XXXX.html" class="menu_item"><span>投票所</span><span>について</span></a>            
-            <a href="XXXXX.html" class="menu_item">About us</a>
+            <a href="index.html" class="menu_item"><span>候補者</span><span>一覧</span></a>               
+            <a href="early_voting_map.html" class="menu_item"><span>期日前</span><span>投票について</span></a>
+            <a href="" class="menu_item"><span>投票所</span><span>について</span></a>            
+            <a href="kosodate.html" class="menu_item">About us</a>
+            <a href="compare.html" class="menu_item">質問ごとに比較する</a>            
         </nav>
     
     </header>
     <main>
-    <!--ここに選択した候補者の名前を出力-->
+    
     <div id="contents">
-    <h2 id="selected_candidate_name"></h2>
-    <!--ここに選択した候補者Noを出力-->
+    <h2 id="selected_candidate_name"><!--ここに選択した候補者の名前を出力--></h2>
+
     </div>
     </main>
     <script>
@@ -46,7 +47,7 @@
         const CSV_dataPath = 'https://docs.google.com/spreadsheets/d/1jcLZ4O03c38yji9oBFbZoOBpK7WmQi5lUSyWR764YNE/gviz/tq?tqx=out:csv&sheet=Sheet1';
 
         
-        //スプレッドシートの列を指定
+        //スプレッドシートの列を指定(一番左の列を0番目として数える)
         CANDIDATE_NAME = 2; //候補者名前（スプレッドシートのC列）(一番左の列は0番目)
         PARTY = 4;//政党 
         WEBSIATE = 6;//各候補者のウェブサイト
@@ -56,7 +57,7 @@
         A1 = 11;//質問１の答え
 
         
-        get_CSV_convert_to_array(CSV_dataPath);//スプレッドシートのcsvデータをArrayに変換（変数名：ARRAY）
+        get_CSV_convert_to_array(CSV_dataPath);//スプレッドシートのcsvデータをArrayに変換⇒吐き出したArrayは「SURVAY_RESULT_ARRAY」
         
         create_candidate_profile_details(SURVAY_RESULT_ARRAY);
 
@@ -80,6 +81,7 @@
             div.appendChild(image);
             div.appendChild( document.createElement( 'br' ) );
 
+            //残りの質問＆回答
             for(let i = 9; i < 22; i++){
                 let div_2 =document.createElement("div");
                 div_2.setAttribute("class","style_"+ [i]);
@@ -87,74 +89,9 @@
                 p.innerText=(SURVAY_RESULT_ARRAY[q_no][i]);
                 div.appendChild(div_2).appendChild(p);
             }
-            
         }
 
-            /*
-            let div_selected_candidate_no = document.getElementById("div_selected_candidate_no");
-            
-            
-            
-            let candidate_no = selected_candidate_no.textContent; 
-        console.log(candidate_no);
-
-        
-        //候補者の写真
-        let image = document.createElement('img');
-        image.src = 'pic/kugi' + candidate_no + ".jpg";
-        selected_candidate.appendChild(image);
-        
-        }
-
-
-
-
-       /*    
-        function create_candidate_profile_details(SURVAY_RESULT_ARRAY){
-        for (let i = 1; i < SURVAY_RESULT_ARRAY.length; i++) {
-	        let div = document.createElement('div');
-            let anchor = document.createElement('a');
-            //候補者の名前
-            div.textContent = SURVAY_RESULT_ARRAY[i][CANDIDATE_NAME];
-            div.appendChild( document.createElement( 'br' ) );
-           
-            //候補者の写真
-            let image = document.createElement('img');
-            image.src = 'pic/kugi' + i + ".jpg";
-            div.appendChild(image);
-            div.appendChild( document.createElement( 'br' ) );
-
-            //公式ウェブサイト
-            let websiteURL = document.createElement("a");
-            websiteURL.setAttribute("href",SURVAY_RESULT_ARRAY[i][WEBSIATE]);
-            let URLtext = document.createTextNode('公式ウェブサイト');
-            div.appendChild(websiteURL).appendChild(URLtext);
-            div.appendChild( document.createElement( 'br' ) );
-
-            //公式twitter
-            let twitterURL = document.createElement("a");
-            twitterURL.setAttribute("href",SURVAY_RESULT_ARRAY[i][TWITTER]);
-            let twitterText = document.createTextNode('公式Twitter');
-            div.appendChild(twitterURL).appendChild(twitterText);
-            div.appendChild( document.createElement( 'br' ) );
-
-            //各政党毎に並べる
-            let parent = document.getElementById(SURVAY_RESULT_ARRAY[i][PARTY]); 
-            parent.appendChild(div);
-
-            let br = document.createElement('br');
-            }
-        }
-        */
-        
-        
-
-        
-        
-
-
-
-
+         
 
 
 

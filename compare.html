@@ -28,9 +28,9 @@
         <nav class="header_menu">
             <a href="index.html" class="menu_item"><span>候補者</span><span>一覧</span></a>               
             <a href="early_voting_map.html" class="menu_item"><span>期日前</span><span>投票について</span></a>
-            <a href="early_voting_map.html" class="menu_item"><span>投票所</span><span>について</span></a>            
-            <a href="XXXXX.html" class="menu_item">About us</a>
-            
+            <a href="" class="menu_item"><span>投票所</span><span>について</span></a>            
+            <a href="kosodate.html" class="menu_item">About us</a>
+            <a href="compare.html" class="menu_item">質問ごとに比較する</a>            
         </nav>
     
     </header>
@@ -44,12 +44,12 @@
             </select></div>
             <h2 id="question"></h2>
     <div id="comparison_lists">
-        <div id="jimin"><h3>自民党</h3></div>
-        <div id="koumei"><h3>公明党</h3></div>
-        <div id="kyosan"><h3>共産党</h3></div>
-        <div id="rikken"><h3>立憲民主党</h3></div>
-        <div id="tofa"><h3>都民ファースト</h3></div>
-        <div id="other"><h3>その他</h3></div>
+        <div id="jimin"><h3></h3></div>
+        <div id="koumei"><h3></h3></div>
+        <div id="kyosan"><h3></h3></div>
+        <div id="rikken"><h3></h3></div>
+        <div id="tofa"><h3></h3></div>
+        <div id="other"><h3></h3></div>
     </div>
     </main>
     <script>
@@ -60,7 +60,7 @@
         const CSV_dataPath = 'https://docs.google.com/spreadsheets/d/1jcLZ4O03c38yji9oBFbZoOBpK7WmQi5lUSyWR764YNE/gviz/tq?tqx=out:csv&sheet=Sheet1';
 
         
-        //スプレッドシートの列を指定
+        //スプレッドシートの列を指定(一番左の列を0番目として数える)
         CANDIDATE_NAME = 2; //候補者名前（スプレッドシートのC列）(一番左の列は0番目)
         PARTY = 4;//政党 
         WEBSIATE = 6;//各候補者のウェブサイト
@@ -75,11 +75,7 @@
         
         create_comparison_list(SURVAY_RESULT_ARRAY);//セレクトボックスで選択した質問の答えだけを表示する関数
 
-        
-
-
-
-
+    
 
         function create_comparison_list(SURVAY_RESULT_ARRAY){
 
@@ -89,8 +85,6 @@
             console.log(selected_item.value);
             let selected_question_no = parseInt(selected_item.value,10);//数値データとして取得
         
-
-
         //今までのデータを消す。
             let previous_data = document.querySelectorAll("div#comparison_lists > div");
             previous_data.forEach((element) => {
