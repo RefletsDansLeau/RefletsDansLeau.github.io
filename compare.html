@@ -71,13 +71,13 @@
         voter_Q_no = 18; //回答する番号（有権者からの質問一覧）
         
 
-        get_CSV_convert_to_array(CSV_dataPath);//スプレッドシートのcsvデータをArrayに変換
+        getCSVDataAndConvertToArray(CSV_dataPath);//スプレッドシートのcsvデータをArrayに変換
         
-        create_comparison_list(SURVAY_RESULT_ARRAY);//セレクトボックスで選択した質問の答えだけを表示する関数
+        createComparisonList(SURVAY_RESULT_ARRAY);//セレクトボックスで選択した質問の答えだけを表示する関数
 
     
 
-        function create_comparison_list(SURVAY_RESULT_ARRAY){
+        function createComparisonList(SURVAY_RESULT_ARRAY){
 
         let selected_item = document.querySelector("select[name='compare']");//select boxで選択した質問
         
@@ -94,40 +94,37 @@
         
             //各候補分ループ
             for (let i = 1; i < SURVAY_RESULT_ARRAY.length; i++) {
-	            let div = document.createElement('div');           
+	            const div = document.createElement('div');           
 
                 //候補者の写真
-                let image = document.createElement('img');
-                image.src = 'pic/kugi' + i + ".jpg";
+                const image = document.createElement('img');
+                image.src = `pic/kugi${i}.jpg`;
                 div.appendChild(image);
                 div.appendChild( document.createElement( 'br' ) );
 
                 //候補者の名前
-                let name = document.createTextNode(SURVAY_RESULT_ARRAY[i][CANDIDATE_NAME]);
-                let p =document.createElement("p");
+                const name = document.createTextNode(SURVAY_RESULT_ARRAY[i][CANDIDATE_NAME]);
+                const p =document.createElement("p");
                 p.setAttribute("class","name");
                 div.appendChild(p).appendChild(name);
+                const Answer_text = document.createTextNode(SURVAY_RESULT_ARRAY[i][selected_question_no]);
                 
                 //質問の回答　
-                let div2 = document.createElement('div');
+                const div2 = document.createElement('div');
                 
                     //質問4の場合は、有権者からの質問文を追加
                     if (selected_question_no == 20){//スプレッドシートの20列目
-                        let voter_questions_no = document.createTextNode(SURVAY_RESULT_ARRAY[i][18]);
-                        let voter_questions_text = document.createTextNode(SURVAY_RESULT_ARRAY[i][19]);
-                        let Answer_text = document.createTextNode(SURVAY_RESULT_ARRAY[i][selected_question_no]);
-                    div.appendChild(div2).appendChild(voter_questions_no);
-                    div.appendChild(div2).appendChild(voter_questions_text);
-                    div.appendChild(div2).appendChild(Answer_text);
-                    }else{
+                        const voter_questions_no = document.createTextNode(SURVAY_RESULT_ARRAY[i][18]);
+                        const voter_questions_text = document.createTextNode(SURVAY_RESULT_ARRAY[i][19]);
 
-                let Answer_text = document.createTextNode(SURVAY_RESULT_ARRAY[i][selected_question_no]);
-                div.appendChild(div2).appendChild(Answer_text);
+                        div2.appendChild(voter_questions_no,voter_questions_text,Answer_text)
+                    }else{
+                    div2.appendChild(Answer_text);
                     }                
-            
-                
+                div.appendChild(div2);
+                    
                 //各政党毎に並べる
-                let parent = document.getElementById(SURVAY_RESULT_ARRAY[i][PARTY]); 
+                const parent = document.getElementById(SURVAY_RESULT_ARRAY[i][PARTY]); 
                 parent.appendChild(div);
 
                 let br = document.createElement('br');
@@ -150,14 +147,14 @@
 
         //以下、jsファイルとして分離すること！！
 
-        function get_CSV_convert_to_array(CSV_dataPath) {
+        function getCSVDataAndConvertToArray(CSV_dataPath) {
         // CSVファイルを文字列として取得
-        let srt = new XMLHttpRequest();//サーバーと対話
+        const request = new XMLHttpRequest();//サーバーと対話
         
-        srt.open("GET", CSV_dataPath, false);//スプレッドシート(CSV版)を読み込む。値が false の場合、 send() メソッドはレスポンスを受信するまで戻りません。
+        request.open("GET", CSV_dataPath, false);//スプレッドシート(CSV版)を読み込む。値が false の場合、 send() メソッドはレスポンスを受信するまで戻りません。
             try {
-                srt.send(null);
-                SURVAY_RESULT_ARRAY = CSVToArray( srt.responseText, ',' );//グローバル変数
+                request.send(null);
+                SURVAY_RESULT_ARRAY = CSVToArray( request.responseText, ',' );//グローバル変数
                 console.log(SURVAY_RESULT_ARRAY); 
             } catch (err) {
             console.log(err);
