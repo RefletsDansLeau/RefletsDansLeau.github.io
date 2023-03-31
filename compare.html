@@ -68,8 +68,8 @@
         CANDIDATE_NO = 0;//候補者No
         Q1 = 9//質問１
         A1 = 10;//質問１の答え
-        voter_Q_no = 18; //回答する番号（有権者からの質問一覧）
-        
+        voter_Q_no = 18;//回答する番号（有権者からの質問一覧）
+        IMG_SRC = 23;//写真
 
         getCSVDataAndConvertToArray(CSV_dataPath);//スプレッドシートのcsvデータをArrayに変換
         
@@ -98,7 +98,8 @@
 
                 //候補者の写真
                 const image = document.createElement('img');
-                image.src = `pic/kugi${i}.jpg`;
+                image.src = 'pic/' + SURVAY_RESULT_ARRAY[i][IMG_SRC];
+                //image.src = `pic/kugi${i}.jpg`;
                 div.appendChild(image);
                 div.appendChild( document.createElement( 'br' ) );
 

@@ -66,6 +66,7 @@
         CANDIDATE_NO = 0;//候補者No
         Q1 = 9;//質問１
         A1 = 10;//質問１の答え
+        IMG_SRC = 23;//写真
         
         get_CSV_convert_to_array(CSV_dataPath);//スプレッドシートのcsvデータをArrayに変換⇒吐き出したArrayは「SURVAY_RESULT_ARRAY」
         
@@ -87,7 +88,7 @@
             
             //候補者の写真
             let image = document.createElement('img');
-            image.src = 'pic/kugi' + i + ".jpg";
+            image.src = 'pic/' + SURVAY_RESULT_ARRAY[i][IMG_SRC];
             div.appendChild(image);
             div.appendChild( document.createElement( 'br' ) );
 
@@ -101,7 +102,7 @@
             read_more.setAttribute("class","read_more");
             read_more.setAttribute("value",'質問２以降を見る');
             let name_to_send = SURVAY_RESULT_ARRAY[i][CANDIDATE_NAME];//別ぺージへ送りたい情報①。候補者の名前。
-            let no_to_send = SURVAY_RESULT_ARRAY[i][CANDIDATE_NO];//別ぺージへ送りたい情報②。候補者のNo。
+            let no_to_send = SURVAY_RESULT_ARRAY[i][CANDIDATE_NO];//別ぺージへ送りたい情報②。データベースの何行目か。
             let new_url = "candidate.html";//保持データの送り先のURL
             let query = "?name=" + name_to_send + "&no=" + no_to_send;
             let url = new_url + query; //開くファイルのURL

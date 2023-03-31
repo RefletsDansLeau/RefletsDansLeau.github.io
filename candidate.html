@@ -55,6 +55,7 @@
         CANDIDATE_NO = 0;//候補者No
         Q1 = 9//質問１
         A1 = 10;//質問１の答え
+        IMG_SRC = 23;//写真
 
         
         get_CSV_convert_to_array(CSV_dataPath);//スプレッドシートのcsvデータをArrayに変換⇒吐き出したArrayは「SURVAY_RESULT_ARRAY」
@@ -65,10 +66,10 @@
          
         function create_candidate_profile_details(SURVAY_RESULT_ARRAY){
 
-            //URLのクエリー文字列から候補者の名前、候補者Noのパラメータを取得
+            //URLのクエリー文字列から候補者の名前、候補者No(データベースの何行目か)のパラメータを取得
             let query_params = new URLSearchParams(document.location.search.substring(1));
             let q_name = query_params.get("name"); // 
-            let q_no = parseInt(query_params.get("no"), 10); //
+            let q_no = parseInt(query_params.get("no"), 10); //10進数で数値を取得
 
             //候補者名前
             let h2 =document.getElementById("selected_candidate_name");
@@ -76,7 +77,8 @@
 
             //顔写真
             let image = document.createElement('img');
-            image.src = 'pic/kugi' + q_no + ".jpg";
+            image.src = 'pic/' + SURVAY_RESULT_ARRAY[q_no][IMG_SRC];
+            //image.src = 'pic/kugi' + q_no + ".jpg";
             let div =document.getElementById("contents");
             div.appendChild(image);
             div.appendChild( document.createElement( 'br' ) );
