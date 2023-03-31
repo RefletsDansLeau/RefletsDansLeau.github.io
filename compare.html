@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="中野区長選挙2022｜子育て世代による市民アンケート"> 
+    <meta name="description" content="中野区議会議員選挙2023｜子育て世代による市民アンケート"> 
     <meta name="keywords" content="中野区,選挙,子育て環境向上委員会,アンケート">
     <link rel="icon" href="pic/favicon.png">
     <meta property="og:image" content="pic/top_sumaho.png">
@@ -45,7 +45,7 @@
             <h2 id="question"></h2>
     <div id="comparison_lists">
         <div id="jimin"><h3></h3></div>
-        <div id="koumei"><h3></h3></div>
+        <div id="komei"><h3></h3></div>
         <div id="kyosan"><h3></h3></div>
         <div id="rikken"><h3></h3></div>
         <div id="tofa"><h3></h3></div>
@@ -66,8 +66,8 @@
         WEBSIATE = 6;//各候補者のウェブサイト
         TWITTER = 7;//各候補者のTwitter
         CANDIDATE_NO = 0;//候補者No
-        Q1 = 10//質問１
-        A1 = 11;//質問１の答え
+        Q1 = 9//質問１
+        A1 = 10;//質問１の答え
         voter_Q_no = 18; //回答する番号（有権者からの質問一覧）
         
 
@@ -114,10 +114,14 @@
                 
                     //質問4の場合は、有権者からの質問文を追加
                     if (selected_question_no == 20){//スプレッドシートの20列目
+                        const selected_no_discription = document.createTextNode("回答いただける番号");
                         const voter_questions_no = document.createTextNode(SURVAY_RESULT_ARRAY[i][18]);
                         const voter_questions_text = document.createTextNode(SURVAY_RESULT_ARRAY[i][19]);
-
-                        div2.appendChild(voter_questions_no,voter_questions_text,Answer_text)
+                        div2.appendChild(selected_no_discription);
+                        div2.appendChild(voter_questions_no);
+                        div2.appendChild(document.createElement('br'));
+                        div2.appendChild(voter_questions_text);
+                        div2.appendChild(Answer_text);
                     }else{
                     div2.appendChild(Answer_text);
                     }                

@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="中野区長選挙2022｜子育て世代による市民アンケート"> 
+    <meta name="description" content="中野区議会議員選挙2023｜子育て世代による市民アンケート"> 
     <meta name="keywords" content="中野区,選挙,子育て環境向上委員会,アンケート">
     <link rel="icon" href="pic/favicon.png">
     <meta property="og:image" content="pic/top_sumaho.png">
@@ -53,8 +53,8 @@
         WEBSIATE = 6;//各候補者のウェブサイト
         TWITTER = 7;//各候補者のTwitter
         CANDIDATE_NO = 0;//候補者No
-        Q1 = 10//質問１
-        A1 = 11;//質問１の答え
+        Q1 = 9//質問１
+        A1 = 10;//質問１の答え
 
         
         get_CSV_convert_to_array(CSV_dataPath);//スプレッドシートのcsvデータをArrayに変換⇒吐き出したArrayは「SURVAY_RESULT_ARRAY」
@@ -82,7 +82,7 @@
             div.appendChild( document.createElement( 'br' ) );
 
             //残りの質問＆回答
-            for(let i = 9; i < 22; i++){
+            for(let i = 11; i < 23; i++){
                 let div_2 =document.createElement("div");
                 div_2.setAttribute("class","style_"+ [i]);
                 let p = document.createElement("p");                
