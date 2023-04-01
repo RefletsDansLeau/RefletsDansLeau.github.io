@@ -115,14 +115,19 @@
                 
                     //質問4の場合は、有権者からの質問文を追加
                     if (selected_question_no == 20){//スプレッドシートの20列目
-                        const selected_no_discription = document.createTextNode("回答いただける番号");
+                        const div3 = document.createElement('div');
+                        div3.setAttribute("class",'no');
+                        const selected_no_discription = document.createTextNode("有権者からの質問 番号");
                         const voter_questions_no = document.createTextNode(SURVAY_RESULT_ARRAY[i][18]);
+                        const div4 =document.createElement('div');
+                        div4.setAttribute("class",'question');
                         const voter_questions_text = document.createTextNode(SURVAY_RESULT_ARRAY[i][19]);
-                        div2.appendChild(selected_no_discription);
-                        div2.appendChild(voter_questions_no);
-                        div2.appendChild(document.createElement('br'));
-                        div2.appendChild(voter_questions_text);
-                        div2.appendChild(Answer_text);
+                        const div5 =document.createElement('div');
+                        div5.setAttribute("class",'answer');
+                        div2.appendChild(div3).appendChild(selected_no_discription);
+                        div3.appendChild(voter_questions_no);
+                        div2.appendChild(div4).appendChild(voter_questions_text);
+                        div2.appendChild(div5).appendChild(Answer_text);
                     }else{
                     div2.appendChild(Answer_text);
                     }                
