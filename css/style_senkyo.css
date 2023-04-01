@@ -7,6 +7,7 @@
 
 html{scroll-behavior: smooth;}
 
+@media screen and (orientation: landscape) {
 body{
     width:100vw;
 	display:grid;
@@ -14,7 +15,17 @@ body{
     "header"
     "main"
     "footer";
-}
+}}
+@media screen and (orientation: portrait) {
+    body{
+        width:200vw;
+        display:grid;
+        grid-template-areas: 
+        "header"
+        "main"
+        "footer";
+    }}
+
 body#compare{
     width:200vw;
 }
@@ -175,7 +186,6 @@ header h1{
 @media screen and (orientation: portrait) {
     #introduction{    
         font-family: 'Zen Maru Gothic', sans-serif;
-        width: 98vw;
         display: inline-block;
         padding-bottom: 1em;
         font-size: small;
@@ -253,6 +263,11 @@ div.Q1{
     padding:0.2em 0 1em 0.5em;
     background-color: #9090aa;
 } 
+@media screen and (orientation: portrait) {
+    div.Q1{
+        font-size: 2.6vw;
+        width:28vw;
+}}
 
 input {
     font-size: min(2vw,1em);
