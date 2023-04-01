@@ -184,6 +184,14 @@ div#contents >.style_14,div#contents >.style_19{
 div#contents >.style_17,div#contents >.style_18{
     display: inline;
 }
+div.no{
+    font-size: small;
+    color:#191970;
+}
+div.question{
+    font-size: small;
+    color:#191970;
+}
 
 
 
@@ -205,7 +213,7 @@ footer{
     text-align: center;
     height: min-content;
 }
-.xfooter_top{
+.footer_top{
     grid-area:top;
     line-height: 2em;
     background-color: #333;
@@ -221,6 +229,8 @@ h4{ /*footerメニュー*/
 div.footer_copyright{
     grid-area: copyright;
 }
+
+
 
 
 
