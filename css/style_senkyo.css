@@ -167,6 +167,7 @@ div#candidate_profile, div#comparison_lists{
     grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
     height:auto;
     gap:1.5vw;
+    overflow: scroll; 
 }
 
 p.name{
