@@ -14,6 +14,16 @@ body{
     "main"
     "footer";
 }
+body#compare{
+    width:200vw;
+}
+select#compare{
+    height:4em;
+    width:max(90vw);
+}
+#compare_main{
+    min-height: 60vh;
+}
 p{
     font-size: min(2vw,midium);
    }
@@ -62,6 +72,13 @@ h3{
     font-size: small;
     margin-bottom: 0.5em;
 }
+label{
+    display: block;
+    text-align: left;
+}
+#select_box{
+    text-align: left;
+}
 #header{
     width:100%;
     background-color: #9090aa;
@@ -76,7 +93,6 @@ div#header_image{
     background-size: 100vw 150px;
     background-position:middle;
     background-repeat: no-repeat;
-
 }
 
 div#header_image p{
@@ -85,6 +101,23 @@ div#header_image p{
     left:25%;
     transform:rotate(355deg)
 }
+div#header_image_compare{
+    position: relative;
+    height:100px;
+    width:100%;
+    background-color: #9090aa;
+    background-image: url(../pic/haikei.png);
+    background-size: 100vw 150px;
+    background-position:middle;
+    background-repeat: repeat;
+}
+div#header_image_compare p{
+    position:absolute;
+    top:20px;
+    left:25%;
+    transform:rotate(355deg)
+}
+
 .header_menu{
     display: flex;
     font-size: large;
@@ -101,11 +134,20 @@ header h1{
     font-family: 'Zen Maru Gothic', sans-serif;
 }
 
+#next_page{
+    font-size: large;
+    padding-right: 10%;
+}
 
 .menu_item{
     font-size: small;
     padding-top:0.5em;
     padding-left: 2em;
+}
+.answer{
+    color:#000;
+    background-color: #ccc;
+    text-align: left;
 }
 #introduction{    
     font-family: 'Zen Maru Gothic', sans-serif;
@@ -124,7 +166,9 @@ div#candidate_profile, div#comparison_lists{
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
     height:auto;
+    gap:1.5vw;
 }
+
 p.name{
     font-size: min(2.8vw,1.1em);
     padding-bottom: 2px;
@@ -133,11 +177,14 @@ div#candidate_profile img, div#comparison_lists img{
     width:8vw;
     clip-path: circle();
 }
-#candidate_profile , #comparison_lists> div{
+/*
+#candidate_profile > div{
     border:solid #666;
     border-width: 1px;
     border-radius:10px;
-}
+}*/
+
+
 #candidate_profile > div > div{
     margin: 0 0 1em 0;
     font-weight: 600;
@@ -148,13 +195,14 @@ div#candidate_profile img, div#comparison_lists img{
     font-weight: 300;
 }
 div.Q1{
-    font-size: smaller;
+    font-size: 1.4vw;
+    text-align: left;
+    line-height: 1.1em;
     font-family: 'Zen Maru Gothic', sans-serif;
     clip-path: polygon(2% 0, 98% 0, 98% 84%, 85% 84%, 51% 100%, 64% 85%, 2% 84%);
     padding-bottom: 1em;
+    padding:0.2em 0 1em 0.5em;
     background-color: #9090aa;
-
-
 } 
 
 input {
@@ -187,10 +235,12 @@ div#contents >.style_17,div#contents >.style_18{
 div.no{
     font-size: small;
     color:#191970;
+    background-color: #eee;
 }
 div.question{
     font-size: small;
     color:#191970;
+    background-color: #eee;
 }
 
 
@@ -200,6 +250,11 @@ div#contents p{
     padding-left: 5vw;
     text-align: left;
 }
+h2#question{
+    text-align:left;
+    padding:1em;
+}
+
 
 footer{
     width:100vw;
