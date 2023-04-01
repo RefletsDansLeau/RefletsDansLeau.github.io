@@ -67,6 +67,9 @@ nav a{
 li{
     list-style-type: none;
 }
+h2{
+    text-align: left;
+}
 h3{
     color:#191970;
     font-size: small;
@@ -153,6 +156,9 @@ header h1{
     font-family: 'Zen Maru Gothic', sans-serif;
     width: min(95vw,1050px);
     display: inline-block;
+    padding-bottom: 1em;
+    font-size: small;
+    color: #161635;
 }
 #introduction >p{
     text-align: left;
@@ -210,6 +216,11 @@ input {
     font-size: min(2vw,1em);
   }
 
+  div#contents p{
+    display:inline-block;
+    padding-left: 5vw;
+    text-align: left;
+}
 div#contents > img{
     height: 30vh;
 }
@@ -218,20 +229,31 @@ div#contents > div {
     text-align: left;
     text-indent: 1em;
 }
+div#questions2_4 > p{
+    text-align: left;
+}
+div#contents > div > .style_12,div#contents > div > .style_15,div#contents > div > .style_20,div#contents > div > .style_22{
+    text-align: left;
+}
 
-div#contents >.style_9, div#contents >.style_11, div#contents >.style_13, div#contents >.style_14, div#contents >.style_16, div#contents >.style_17, div#contents >.style_18, div#contents >.style_19, div#contents >.style_21{
+div#contents >div>.style_9, div#contents >div>.style_11, div#contents >div>.style_13, div#contents >div>.style_14, div#contents >div>.style_16, div#contents >div>.style_17, div#contents >div>.style_18, div#contents >div>.style_19, div#contents >div>.style_21{
     /*background: #eee;*/    
     color: #191970;
     font-weight: bold;
     text-indent: 0em;
+    padding-top:2em;
+    text-align: left;
     /*clip-path: polygon(100% 0, 100% 100%, 4% 100%, 4% 88%, 0 82%, 4% 69%, 4% 0);*/
 }
-div#contents >.style_14,div#contents >.style_19{
+div#contents >div>.style_14,div#contents >div>.style_19{
     font-size: smaller;
     font-weight: lighter;
+    padding-top: 0em;
 }
-div#contents >.style_17,div#contents >.style_18{
+div#contents >div>div.style_17,div#contents >div>div.style_18{
     display: inline;
+    text-align: left;
+    font-size: small;
 }
 div.no{
     font-size: small;
@@ -246,14 +268,14 @@ div.question{
 
 
 
-div#contents p{
-    display:inline-block;
-    padding-left: 5vw;
-    text-align: left;
-}
+
 h2#question{
     text-align:left;
     padding:1em;
+}
+h2#selected_candidate_name{
+    text-align:center;
+    padding:1em;overflow-x: ;
 }
 
 
