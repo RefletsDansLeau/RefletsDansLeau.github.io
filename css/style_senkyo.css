@@ -8,6 +8,7 @@
 html{scroll-behavior: smooth;}
 
 body{
+    width:100vw;
 	display:grid;
 	grid-template-areas: 
     "header"
@@ -131,8 +132,14 @@ div#header_image_compare p{
     width: 100%;
     color: black;
     font-family: 'Hiragino Sans'/*Mac*/,'Yu Gothic UI'/*Windows*/,'Meiryo UI',sans-serif;
-    padding-left: 2em;
 }
+@media screen and(max-width:767px){
+    .header_menu{
+        padding-left:0em;
+        padding-right:0.3em;
+    }
+}
+
 header h1{
     font-size: min(6vw, 2em);
     position:absolute;
@@ -156,6 +163,7 @@ header h1{
     background-color: #ccc;
     text-align: left;
 }
+@media screen and (orientation: landscape) {
 #introduction{    
     font-family: 'Zen Maru Gothic', sans-serif;
     width: min(95vw,1050px);
@@ -163,20 +171,35 @@ header h1{
     padding-bottom: 1em;
     font-size: small;
     color: #161635;
-}
+}}
+@media screen and (orientation: portrait) {
+    #introduction{    
+        font-family: 'Zen Maru Gothic', sans-serif;
+        width: 98vw;
+        display: inline-block;
+        padding-bottom: 1em;
+        font-size: small;
+        color: #161635;
+    }}
 #introduction >p{
     text-align: left;
 }
-
+/*
 #kouhosha_list{
     height:60vh;
     background-color:#333;
+}*/
+div#comparison_lists > div > div{
+    margin: 1em;
+    border: solid #eee;
 }
+
+
 div#candidate_profile, div#comparison_lists{
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
     height:auto;
-    gap:1.5vw;
+    gap:1vw;
     overflow: scroll; 
 }
 
@@ -185,9 +208,14 @@ p.name{
     padding-bottom: 2px;
     line-height: 1.5em;
 }
-div#candidate_profile img, div#comparison_lists img{
+div#candidate_profile img{
     width:8vw;
     clip-path: circle();
+}
+div#comparison_lists img{
+    width:8vw;
+    clip-path: circle();
+    padding-top:1em;
 }
 /*
 #candidate_profile > div{
@@ -207,7 +235,8 @@ div#candidate_profile img, div#comparison_lists img{
     font-weight: 300;
 }
 div.Q1{
-    font-size: 1.4vw;
+    font-size: 1.3vw;
+    width:14vw;
     text-align: left;
     line-height: 1.1em;
     font-family: 'Zen Maru Gothic', sans-serif;
@@ -221,7 +250,11 @@ input {
     font-size: min(2vw,1em);
   }
 
-  div#contents p{
+div#contents{
+    width:90vw;
+}
+
+div#contents p{
     display:inline-block;
     padding-left: 5vw;
     text-align: left;
@@ -237,7 +270,7 @@ div#contents > div {
 div#questions2_4 > p{
     text-align: left;
 }
-div#contents > div > .style_12,div#contents > div > .style_15,div#contents > div > .style_20,div#contents > div > .style_22{
+div#contents > div > .style_10,div#contents > div > .style_12,div#contents > div > .style_15,div#contents > div > .style_20,div#contents > div > .style_22{
     text-align: left;
 }
 
