@@ -45,6 +45,10 @@ footer a span:hover{
 span{
     display: inline-block;
 }
+span.small{
+    display:inline;
+    font-size: small;
+}
 nav a{
     text-decoration: none;
     display: inline-block; /* aのdisplayはinline-block */
@@ -179,6 +183,7 @@ div#candidate_profile, div#comparison_lists{
 p.name{
     font-size: min(2.8vw,1.1em);
     padding-bottom: 2px;
+    line-height: 1.5em;
 }
 div#candidate_profile img, div#comparison_lists img{
     width:8vw;
@@ -275,7 +280,7 @@ h2#question{
 }
 h2#selected_candidate_name{
     text-align:center;
-    padding:1em;overflow-x: ;
+    padding:1em;
 }
 
 
