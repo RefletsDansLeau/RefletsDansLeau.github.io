@@ -195,13 +195,21 @@ div#comparison_lists > div > div{
 }
 
 
-div#candidate_profile, div#comparison_lists{
+div#candidate_profile{
     display: grid;
-    grid-template-columns: 30vw 30vw 30vw 30vw 30vw 30vw;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
     height:auto;
     gap:1vw;
     overflow: scroll; 
 }
+div#comparison_lists{
+    display: grid;
+    grid-template-columns: 30vw 30vw 30vw 30vw 30vw 30vw;
+    height:auto;
+    gap:1vw;
+    overflow: scroll;
+}
+
 
 p.name{
     font-size: min(2.8vw,1.1em);
