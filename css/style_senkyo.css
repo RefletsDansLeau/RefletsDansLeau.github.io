@@ -190,14 +190,14 @@ header h1{
     background-color:#333;
 }*/
 div#comparison_lists > div > div{
-    margin: 1em;
+    margin: 1vw;
     border: solid #eee;
 }
 
 
 div#candidate_profile, div#comparison_lists{
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+    grid-template-columns: 30vw 30vw 30vw 30vw 30vw 30vw;
     height:auto;
     gap:1vw;
     overflow: scroll; 
@@ -215,7 +215,7 @@ div#candidate_profile img{
 div#comparison_lists img{
     width:8vw;
     clip-path: circle();
-    padding-top:1em;
+    margin-top:1em;
 }
 /*
 #candidate_profile > div{
