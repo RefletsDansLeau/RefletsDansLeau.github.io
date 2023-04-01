@@ -13,17 +13,19 @@
     <link href="https://fonts.googleapis.com/css2?family=Sawarabi+Gothic&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic&display=swap" rel="stylesheet">
 </head>
-<body>
+<body id="compare">
+    
     <header id="header">
         <!--headerメニューを呼び出す関数に変更すること -->
            
-        <div id="header_image">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="100%" height="100%" preserveAspectRatio="none">
+        <div id="header_image_compare">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 100" width="100%" height="100%" preserveAspectRatio="none">
                 <path d="M 20 50 C 20 0, 95 0, 95 50 C 95 100, 20 100, 20 50" fill="#eee"></path>
                 <path d="M 15 80 L 28 60 L45 65 Z" fill="#eee"></path>            
             </svg>
             <p>2023年 中野区 区議選</p>
-            <h1>子育て政策、聞いてみた！</h1> 
+            <h1>子育て政策、聞いてみた！</h1>
+             
         </div>
         <nav class="header_menu">
             <a href="index.html" class="menu_item"><span>候補者</span><span>一覧</span></a>               
@@ -34,22 +36,27 @@
         </nav>
     
     </header>
-    <main>
-        <div id="introduction">
+    <main id="compare_main">
+        
+        <div id="select_box">            
+        <label for="compare">下記セレクトボタンから質問を選択してください。</label>
             <select name="compare" id="compare">
                 <option value="">質問ごとに比較する</option>
                 <option value="12">質問２．ご自身が小学生の頃、どこで何をして遊んでいましたか？</option> <!--valueの数値はスプレッドシートの対応する列の数値をValueに入力すること-->
                 <option value="15">質問３．中野区の子育て支援で、何に一番力を入れたいですか？</option>
-                <option value="20">質問４．子育て世代の有権者からたくさんの質問が届いております。下記URLの質問一覧表の中から、ひとつお選びいただき回答ください。</option>
-            </select></div>
-            <h2 id="question"></h2>
+                <option value="20">質問４．有権者の質問の中からひとつ回答ください。（質問４原文：子育て世代の有権者からたくさんの質問が届いております。下記URLの質問一覧表の中から、ひとつお選びいただき回答ください。）</option>
+            </select>            
+        </div>
+        <div id="next_page">⇒こちらにもページがあります</div>
+           
     <div id="comparison_lists">
-        <div id="jimin"><h3></h3></div>
-        <div id="komei"><h3></h3></div>
-        <div id="kyosan"><h3></h3></div>
-        <div id="rikken"><h3></h3></div>
-        <div id="tofa"><h3></h3></div>
-        <div id="other"><h3></h3></div>
+        
+        <div id="jimin"></div>
+        <div id="komei"></div>
+        <div id="kyosan"></div>
+        <div id="rikken"></div>
+        <div id="shoha"></div>
+        <div id="other"></div>
     </div>
     </main>
     <script>
@@ -112,6 +119,7 @@
                 
                 //質問の回答　
                 const div2 = document.createElement('div');
+                div2.setAttribute("class","answer");
                 
                     //質問4の場合は、有権者からの質問文を追加
                     if (selected_question_no == 20){//スプレッドシートの20列目
