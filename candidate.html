@@ -58,7 +58,7 @@
         IMG_SRC = 23;//写真
 
         
-        get_CSV_convert_to_array(CSV_dataPath);//スプレッドシートのcsvデータをArrayに変換⇒吐き出したArrayは「SURVAY_RESULT_ARRAY」
+        getCSVDataAndConvertToArray(CSV_dataPath);//スプレッドシートのcsvデータをArrayに変換⇒吐き出したArrayは「SURVAY_RESULT_ARRAY」
         
         create_candidate_profile_details(SURVAY_RESULT_ARRAY);
 
@@ -84,12 +84,16 @@
             div.appendChild( document.createElement( 'br' ) );
 
             //残りの質問＆回答
+            const div_3=document.createElement("div");
+            div_3.setAttribute("id","questions2_4");
+            div.appendChild(div_3);
+
             for(let i = 11; i < 23; i++){
                 let div_2 =document.createElement("div");
                 div_2.setAttribute("class","style_"+ [i]);
                 let p = document.createElement("p");                
                 p.innerText=(SURVAY_RESULT_ARRAY[q_no][i]);
-                div.appendChild(div_2).appendChild(p);
+                div_3.appendChild(div_2).appendChild(p);
             }
         }
 
@@ -99,7 +103,7 @@
 
         //以下、jsファイルとして分離すること！！
 
-        function get_CSV_convert_to_array(CSV_dataPath) {
+        function getCSVDataAndConvertToArray(CSV_dataPath) {
         // CSVファイルを文字列として取得
         let srt = new XMLHttpRequest();//サーバーと対話
         
