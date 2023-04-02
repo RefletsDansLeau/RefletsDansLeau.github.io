@@ -24,11 +24,17 @@ body{
         "header"
         "main"
         "footer";
-    }}
+    }
+    body#about_us{
+        width:100vw;
+    }
+
+}
 
 body#compare{
     width:200vw;
 }
+
 select#compare{
     height:4em;
     width:max(90vw);
@@ -239,6 +245,12 @@ div#candidate_profile img{
     width:8vw;
     clip-path: circle();
 }
+@media screen and (orientation: portrait) {
+    div#candidate_profile img{
+        width:18vw;
+        clip-path: circle();
+    }   
+}
 div#comparison_lists img{
     width:8vw;
     clip-path: circle();
@@ -267,7 +279,7 @@ div.Q1{
     text-align: left;
     line-height: 1.1em;
     font-family: 'Zen Maru Gothic', sans-serif;
-    clip-path: polygon(2% 0, 98% 0, 98% 84%, 85% 84%, 51% 100%, 64% 85%, 2% 84%);
+    clip-path: polygon(0% 0, 100% 0, 100% 84%, 85% 84%, 65% 100%, 70% 84%, 0% 84%);
     padding-bottom: 1em;
     padding:0.2em 0 1em 0.5em;
     background-color: #9090aa;
@@ -387,11 +399,11 @@ div.footer_copyright{
     grid-area: copyright;
 }
 
-#about_us {
+div#about_us {
     padding-left:2em;
     margin-bottom: 1em;
 }
-#about_us >p,.link>p{
+div#about_us >p,.link>p{
     text-align: left;
 }
 .link >ul >li{
