@@ -24,11 +24,11 @@
             <h1>子育て政策、聞いてみた！</h1> 
         </div>
         <nav class="header_menu">
-            <a href="index.html" class="menu_item"><span>候補者</span><span>一覧</span></a>               
-            <a href="early_voting_map.html" class="menu_item"><span>期日前</span><span>投票について</span></a>
-            <a href="" class="menu_item"><span>投票所</span><span>について</span></a>            
-            <a href="kosodate.html" class="menu_item">About us</a>
-            <a href="compare.html" class="menu_item">質問ごとに比較する</a>            
+            <a href="index.html" class="menu_item"><span>候補者</span><span>一覧</span></a>
+            <a href="compare.html" class="menu_item">質問ごとに比較する</a>               
+            <!--<a href="early_voting_map.html" class="menu_item"><span>期日前</span><span>投票について</span></a>
+            <a href="" class="menu_item"><span>投票所</span><span>について</span></a>-->            
+            <a href="about_us.html" class="menu_item">About us</a>                        
         </nav>
     
     </header>
@@ -56,8 +56,8 @@
         Q1 = 9//質問１
         A1 = 10;//質問１の答え
         IMG_SRC = 23;//写真
-
-        
+        SHEET = 25;//有権者からの質問への追加回答が記載されたスプレッドシートのURL
+           
         getCSVDataAndConvertToArray(CSV_dataPath);//スプレッドシートのcsvデータをArrayに変換⇒吐き出したArrayは「SURVAY_RESULT_ARRAY」
         
         create_candidate_profile_details(SURVAY_RESULT_ARRAY);
@@ -91,10 +91,23 @@
             for(let i = 9; i < 23; i++){
                 let div_2 =document.createElement("div");
                 div_2.setAttribute("class","style_"+ [i]);
+                div_2.setAttribute("id","style_"+ [i]);
                 let p = document.createElement("p");                
                 p.innerText=(SURVAY_RESULT_ARRAY[q_no][i]);
                 div_3.appendChild(div_2).appendChild(p);
             }
+
+            //有権者からの質問への追加回答（スプレッドシート）
+            if(SURVAY_RESULT_ARRAY[q_no][SHEET] != null){
+            const sheet = document.createElement('a');
+            sheet.setAttribute('href',SURVAY_RESULT_ARRAY[q_no][SHEET]);
+            sheet.setAttribute("target","_blank");
+            sheet.setAttribute("class","style_s");
+            const sheetText=document.createTextNode("👉有権者からの質問への追加回答はこちら（⇐クリックすると別のページが開きます）");
+            const parent = document.getElementById("questions2_4");
+            const reference =document.getElementById("style_21");
+            parent.insertBefore(sheet,reference);
+            sheet.appendChild(sheetText);}
         }
 
          
@@ -214,15 +227,16 @@
  
     
 
-    <footer>
-        <nav class="header_menu">
-            <a href="XXXX.html" class="menu_item"><span>候補者</span><span>一覧</span></a>               
-            <a href="XXXXX.html" class="menu_item"><span>期日前</span><span>投票について</span></a>
-            <a href="XXXX.html" class="menu_item"><span>投票所</span><span>について</span></a>            
-            <a href="XXXXX.html" class="menu_item">About us</a>
-        </nav>
-            <p  >© All rights reserved by 子育て環境向上委員会@中野</p>
-    </footer>
+<footer>
+    <nav class="header_menu">
+        <a href="index.html" class="menu_item"><span>候補者</span><span>一覧</span></a>
+        <a href="compare.html" class="menu_item">質問ごとに比較する</a>               
+        <!--<a href="early_voting_map.html" class="menu_item"><span>期日前</span><span>投票について</span></a>
+        <a href="" class="menu_item"><span>投票所</span><span>について</span></a>-->            
+        <a href="about_us.html" class="menu_item">About us</a>
+    </nav>
+    <p class="copyright">© All rights reserved by 子育て環境向上委員会@中野</p>
+</footer>
 </body>
 
 </html>
