@@ -83,9 +83,7 @@ nav a{
 li{
     list-style-type: none;
 }
-h2{
-    text-align: left;
-}
+
 h3{
     color:#191970;
     font-size: small;
@@ -150,13 +148,24 @@ div#header_image_compare p{
         padding-right:0.3em;
     }
 }
-
+h1{
+    text-align: left;
+    font-size: x-large;
+    color: #191970;
+    line-height: 2em;
+}
 header h1{
     font-size: min(6vw, 2em);
     position:absolute;
     top:36px;
     left:25vw;
     font-family: 'Zen Maru Gothic', sans-serif;
+}
+h2{
+    text-align: left;
+    color: #191970;
+    line-height: 2em;
+    font-size: x-large;
 }
 
 #next_page{
@@ -293,10 +302,18 @@ div#contents > div {
 div#questions2_4 > p{
     text-align: left;
 }
+div#questions2_4 > a{
+    display: block;
+    padding: 1em 0em 1em 4em;
+    text-align: left;
+    text-decoration-line: underline;
+}
+
+/*回答は黒字*/
 div#contents > div > .style_10,div#contents > div > .style_12,div#contents > div > .style_15,div#contents > div > .style_20,div#contents > div > .style_22{
     text-align: left;
 }
-
+/*質問は青字*/
 div#contents >div>.style_9, div#contents >div>.style_11, div#contents >div>.style_13, div#contents >div>.style_14, div#contents >div>.style_16, div#contents >div>.style_17, div#contents >div>.style_18, div#contents >div>.style_19, div#contents >div>.style_21{
     /*background: #eee;*/    
     color: #191970;
@@ -326,6 +343,7 @@ div.question{
     color:#191970;
     background-color: #eee;
 }
+
 
 
 
@@ -369,8 +387,23 @@ div.footer_copyright{
     grid-area: copyright;
 }
 
-
-
+#about_us {
+    padding-left:2em;
+    margin-bottom: 1em;
+}
+#about_us >p,.link>p{
+    text-align: left;
+}
+.link >ul >li{
+    text-align: left;
+    list-style-type:disc;
+}
+.link>h3{
+    font-size: large;
+    color:#191970;
+    margin: 1em 0 0 1em;
+    text-align: left;
+}
 
 
 .circle{
