@@ -345,6 +345,11 @@ div#contents >div>div.style_17,div#contents >div>div.style_18{
     text-align: left;
     font-size: small;
 }
+.style_xls_compare{
+    padding-top:1em;
+    font-size: small;
+}
+
 div.no{
     font-size: small;
     color:#191970;
