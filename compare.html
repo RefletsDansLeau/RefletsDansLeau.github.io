@@ -78,6 +78,7 @@
         A1 = 10;//質問１の答え
         voter_Q_no = 18;//回答する番号（有権者からの質問一覧）
         IMG_SRC = 23;//写真
+        SHEET = 25;//有権者からの質問への追加回答が記載されたスプレッドシートのURL
 
         getCSVDataAndConvertToArray(CSV_dataPath);//スプレッドシートのcsvデータをArrayに変換
         
@@ -139,6 +140,13 @@
                         div3.appendChild(voter_questions_no);
                         div2.appendChild(div4).appendChild(voter_questions_text);
                         div2.appendChild(div5).appendChild(Answer_text);
+                        if(SURVAY_RESULT_ARRAY[i][SHEET] != null){
+                            const sheet = document.createElement('a');
+                            sheet.setAttribute('href',SURVAY_RESULT_ARRAY[i][SHEET]);
+                            sheet.setAttribute("target","_blank");
+                            sheet.setAttribute("class","style_xls_compare");
+                            const sheetText=document.createTextNode("👉有権者からの質問への追加回答はこちら（⇐クリックすると別のページが開きます）");
+                            div2.appendChild(sheet).appendChild(sheetText);}
                     }else{
                     div2.appendChild(Answer_text);
                     }                
@@ -267,8 +275,7 @@
 		    return( arrData );
 	        }
         
-        
-         
+   
     
     
 
