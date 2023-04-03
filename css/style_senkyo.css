@@ -15,6 +15,9 @@ body{
     "header"
     "main"
     "footer";
+}
+.width_200vw{
+    display: none;
 }}
 @media screen and (orientation: portrait) {
     body{
@@ -115,7 +118,7 @@ div#header_image{
     background-image: url(../pic/haikei.png);
     background-size: 100vw 150px;
     background-position:middle;
-    background-repeat: no-repeat;
+    /*background-repeat: no-repeat;*/
 }
 
 div#header_image p{
@@ -171,7 +174,8 @@ h2{
     text-align: left;
     color: #191970;
     line-height: 2em;
-    font-size: x-large;
+    font-size: large;
+    width: 98vw;
 }
 
 #next_page{
@@ -199,9 +203,10 @@ h2{
     color: #161635;
 }}
 @media screen and (orientation: portrait) {
-    #introduction{    
+    #introduction{ 
+        display:block;
+        width:98vw;
         font-family: 'Zen Maru Gothic', sans-serif;
-        display: inline-block;
         padding-bottom: 1em;
         font-size: small;
         color: #161635;
@@ -400,8 +405,9 @@ h4{ /*footerメニュー*/
     line-height: 1em;
     padding:0.5em 0em 0.2em 0em;
 }
-div.footer_copyright{
+.copyright{
     grid-area: copyright;
+    font-size: x-small;
 }
 
 div#about_us {
