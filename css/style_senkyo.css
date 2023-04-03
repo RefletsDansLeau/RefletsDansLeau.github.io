@@ -411,8 +411,9 @@ h4{ /*footerメニュー*/
 }
 
 div#about_us {
-    padding-left:2em;
+    padding-left:2vw;
     margin-bottom: 1em;
+    width: 96vw;
 }
 div#about_us >p,.link>p{
     text-align: left;
@@ -420,6 +421,7 @@ div#about_us >p,.link>p{
 .link >ul >li{
     text-align: left;
     list-style-type:disc;
+    width:99vw;
 }
 .link>h3{
     font-size: large;
