@@ -57,6 +57,7 @@
         A1 = 10;//質問１の答え
         IMG_SRC = 23;//写真
         SHEET = 25;//有権者からの質問への追加回答が記載されたスプレッドシートのURL
+        ATTACHED_PIC = 26;
            
         getCSVDataAndConvertToArray(CSV_dataPath);//スプレッドシートのcsvデータをArrayに変換⇒吐き出したArrayは「SURVAY_RESULT_ARRAY」
         
@@ -89,12 +90,14 @@
             div.appendChild(div_3);
 
             for(let i = 9; i < 23; i++){
+                if(SURVAY_RESULT_ARRAY[q_no][i] != null){
                 let div_2 =document.createElement("div");
                 div_2.setAttribute("class","style_"+ [i]);
                 div_2.setAttribute("id","style_"+ [i]);
                 let p = document.createElement("p");                
                 p.innerText=(SURVAY_RESULT_ARRAY[q_no][i]);
                 div_3.appendChild(div_2).appendChild(p);
+                }
             }
 
             //有権者からの質問への追加回答（スプレッドシート）
@@ -103,11 +106,22 @@
             sheet.setAttribute('href',SURVAY_RESULT_ARRAY[q_no][SHEET]);
             sheet.setAttribute("target","_blank");
             sheet.setAttribute("class","style_s");
+            sheet.setAttribute("id","style_s");
             const sheetText=document.createTextNode("👉有権者からの質問への追加回答はこちら（⇐クリックすると別のページが開きます）");
             const parent = document.getElementById("questions2_4");
             const reference =document.getElementById("style_21");
             parent.insertBefore(sheet,reference);
             sheet.appendChild(sheetText);}
+
+            //添付画像追加
+            if(SURVAY_RESULT_ARRAY[q_no][ATTACHED_PIC] != null){
+            const attached_pic = document.createElement('img');
+            attached_pic.setAttribute('src','pic/'+ SURVAY_RESULT_ARRAY[q_no][ATTACHED_PIC]);
+            attached_pic.setAttribute("class","attached_pic");
+            const parent = document.getElementById("questions2_4");
+            const reference =document.getElementById("style_s");
+            parent.insertBefore(attached_pic,reference);
+            }
         }
 
          
