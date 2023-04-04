@@ -21,7 +21,7 @@ body{
 }}
 @media screen and (orientation: portrait) {
     body{
-        width:200vw;
+        width:180vw;
         display:grid;
         grid-template-areas: 
         "header"
