@@ -6,7 +6,7 @@
     <meta name="description" content="中野区議会議員選挙2023｜子育て世代による市民アンケート"> 
     <meta name="keywords" content="中野区,選挙,子育て環境向上委員会,アンケート">
     <link rel="icon" href="pic/favicon.png">
-    <meta property="og:image" content="pic/top_sumaho.png">
+    <meta property="og:image" content="pic/og-img.jpg">
     <link rel="stylesheet" href="css/style_senkyo.css">
 
     
@@ -25,7 +25,8 @@
         </div>
         <nav class="header_menu">
             <a href="index.html" class="menu_item"><span>候補者</span><span>一覧</span></a>
-            <a href="compare.html" class="menu_item">質問ごとに比較する</a>               
+            <a href="compare.html" class="menu_item">質問ごとに比較する</a>
+            <a href="questionnaire.html" class="menu_item">アンケートについて</a>               
             <!--<a href="early_voting_map.html" class="menu_item"><span>期日前</span><span>投票について</span></a>
             <a href="" class="menu_item"><span>投票所</span><span>について</span></a>-->            
             <a href="about_us.html" class="menu_item">About us</a>                        
@@ -61,9 +62,9 @@
            
         getCSVDataAndConvertToArray(CSV_dataPath);//スプレッドシートのcsvデータをArrayに変換⇒吐き出したArrayは「SURVAY_RESULT_ARRAY」
         
-        create_candidate_profile_details(SURVAY_RESULT_ARRAY);
+        let text = create_candidate_profile_details(SURVAY_RESULT_ARRAY);
 
-        
+        /*addLink(text);*/
          
         function create_candidate_profile_details(SURVAY_RESULT_ARRAY){
 
@@ -124,8 +125,17 @@
             }
         }
 
-         
-
+        /*  addLink()は完成せず
+        //回答文中のURLにリンクを追加
+         function addLink(text){
+            let regexp_url = /((https?|ftp):\/\/[^\s/$.?#].[^\s]*)/gi;
+            let url_string = regexp_url.toString(); 
+            console.log(this);
+            let add_link = function(all,url){
+        return '<a href="' + url + '">' + url + '</a>'; 
+        }     
+        return text.replace(url_string,add_link);
+        } */  
 
 
         //以下、jsファイルとして分離すること！！
@@ -228,12 +238,6 @@
 		    // Return the parsed data.
 		    return( arrData );
 	        }
-        
-        
-         
-    
-    
-
     
     </script>
 
