@@ -45,6 +45,7 @@ select#compare{
 #compare_main{
     min-height: 60vh;
 }
+
 p{
     font-size: min(2vw,midium);
    }
@@ -429,6 +430,71 @@ div#about_us >p,.link>p{
     margin: 1em 0 0 1em;
     text-align: left;
 }
+
+#main_questionnaire{
+    display:grid;
+    grid-template-columns: 1fr 1fr;
+
+}
+
+@media screen and (orientation: landscape) {
+section.questionnaire{
+    width:40vw;
+    border: solid #666 1px;
+    margin: 1em auto 1em 4vw;
+    background: linear-gradient(120deg, #eee 0%, #fff 90%);
+    text-align: left;
+    padding:1vw;
+}
+}
+@media screen and (orientation: portrait) {
+    section.questionnaire{
+        width:94vw;
+        border: solid #666 1px;
+        margin-left: 2vw;
+        background: linear-gradient(120deg, #eee 0%, #fff 90%);
+        text-align: left;
+        padding:1vw;
+    }
+    }
+
+section.questionnaire > h3{
+    margin-top: 1em;
+    text-align: left;
+    font-size: large;
+    display:inline-block;
+    overflow-wrap:normal;
+    margin-bottom:1em;
+}
+section.questionnaire a{
+    color:#191970;
+    text-decoration: underline;
+}
+section.questionnaire img{
+    width:38vw;
+}
+    
+.answer_box{
+    height:2em;
+    width:30vw;
+    margin-left:5vw;
+    border:solid #333 1px;
+    border-radius: 1em 1em;
+    background-color: #fff;
+}
+section.questionnaire > h4{
+    color: #191970;
+    padding-top: 2em;
+    text-align: left;
+    font-size: medium;
+    display: block;
+    text-align: left;
+}
+section.questionnaire > p{
+    text-align: left;
+    font-size: small;
+}
+
 
 
 .circle{
