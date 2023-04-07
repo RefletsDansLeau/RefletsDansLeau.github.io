@@ -126,8 +126,8 @@ div#header_image{
 div#header_image p{
     position:absolute;
     top:20px;
-    left:25%;
-    transform:rotate(355deg)
+    left:25vw;
+    transform:rotate(358deg)
 }
 div#header_image_compare{
     position: relative;
