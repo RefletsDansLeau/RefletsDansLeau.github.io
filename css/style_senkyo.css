@@ -15,6 +15,7 @@ body{
     "header"
     "main"
     "footer";
+    overflow-y: scroll;
 }
 .width_200vw{
     display: none;
@@ -517,10 +518,26 @@ section.questionnaire > p{
     font-size: small;
 }
 
-
-
+.font_sawarabi{
+    font-family: 'Sawarabi Gothic', sans-serif;
+}
+.small{
+    font-size:small
+}
 .circle{
     clip-path:circle(40%);
+}
+.our_comments{
+    background-color: #eee;
+    border-radius: 2em 2em;
+    padding:0.5em 1em 0.5em 1em;
+    font-family: 'Sawarabi Gothic', sans-serif;
+}
+.gray{
+    color:gray;
+}
+.left{
+    text-align: left;
 }
 .curve{
     position: absolute;
