@@ -75,6 +75,7 @@
         PARTY = 4;//政党 
         WEBSIATE = 6;//各候補者のウェブサイト
         TWITTER = 7;//各候補者のTwitter
+        FACEBOOK = 27;//各候補者のFacebook
         CANDIDATE_NO = 0;//候補者No
         Q1 = 9;//質問１
         A1 = 10;//質問１の答え
@@ -140,6 +141,16 @@
             twitter.setAttribute("target","_blank");
             let twitterText = document.createTextNode('公式Twitter');
             div.appendChild(twitter).appendChild(twitterText);
+            div.appendChild( document.createElement( 'br' ) );
+            }
+
+            //公式Facebook
+            if(SURVAY_RESULT_ARRAY[i][FACEBOOK] != null){
+            let facebook = document.createElement("a");
+            facebook.setAttribute("href",SURVAY_RESULT_ARRAY[i][FACEBOOK]);
+            facebook.setAttribute("target","_blank");
+            let facebookText = document.createTextNode('公式Facebook');
+            div.appendChild(facebook).appendChild(facebookText);
             div.appendChild( document.createElement( 'br' ) );
             }
 
