@@ -329,6 +329,7 @@ div#contents p{
     }
     div#contents{
         width:100vw;
+        padding-bottom: 2em;
     }
     h2#selected_candidate_name{
         text-align:center;
@@ -555,6 +556,7 @@ section.questionnaire > p{
     border-radius: 2em 2em;
     padding:0.5em 1em 0.5em 1em;
     font-family: 'Sawarabi Gothic', sans-serif;
+    width: 100vw;
 }
 .gray{
     color:gray;
