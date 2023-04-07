@@ -477,6 +477,9 @@ section.questionnaire img{
         text-align: left;
         padding:1vw;
     }
+    section.questionnaire img{
+        width:90vw;
+    }
     }
 
 section.questionnaire > h3{
@@ -491,9 +494,7 @@ section.questionnaire a{
     color:#191970;
     text-decoration: underline;
 }
-section.questionnaire img{
-    width:98vw;
-}
+
     
 .answer_box{
     height:2em;
