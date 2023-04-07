@@ -436,11 +436,22 @@ div#about_us >p,.link>p{
     text-align: left;
 }
 
-#main_questionnaire{
-    display:grid;
-    grid-template-columns: 1fr 1fr;
 
+@media screen and (orientation: landscape){
+    #main_questionnaire{
+        display:grid;
+        grid-template-columns: 1fr 1fr;
+    
+    }
 }
+@media screen and (orientation: portrait){
+    #main_questionnaire{
+        display:grid;
+        grid-template-columns: 1fr;
+    
+    }
+}
+
 
 @media screen and (orientation: landscape) {
 section.questionnaire{
