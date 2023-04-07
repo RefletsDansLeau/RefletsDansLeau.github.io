@@ -289,7 +289,7 @@ div.Q1{
     clip-path: polygon(0% 0, 100% 0, 100% 84%, 85% 84%, 65% 100%, 70% 84%, 0% 84%);
     padding-bottom: 1em;
     padding:0.2em 0 1em 0.5em;
-    background-color: #9090aa;
+    background-color: #bdbdcd;
 } 
 @media screen and (orientation: portrait) {
     div.Q1{
@@ -301,18 +301,41 @@ input {
     font-size: min(2vw,1em);
   }
 
-div#contents{
-    width:90vw;
-}
+
 
 div#contents p{
     display:inline-block;
     padding-left: 5vw;
     text-align: left;
 }
-div#contents > img{
-    height: 30vh;
+
+@media screen and (orientation: landscape){
+    div#contents > img{
+    width: 20vw;
+    margin-left: 8vw;
 }
+    div#contents{
+    width:90vw;
+}
+    h2#selected_candidate_name{
+    text-align:center;
+    padding:1em;
+    font-size: x-large;
+}
+}
+@media screen and (orientation: portrait){
+    div#contents > img{
+        width: 60vw;
+    }
+    div#contents{
+        width:100vw;
+    }
+    h2#selected_candidate_name{
+        text-align:center;
+        padding:1em;
+    }
+}
+
 div#contents > div {
     min-height: 2em;    
     text-align: left;
