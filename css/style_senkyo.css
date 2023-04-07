@@ -148,7 +148,7 @@ div#header_image_compare p{
 .header_menu{
     display: flex;
     font-size: large;
-    width: 100%;
+    width: 90vw;
     color: black;
     font-family: 'Hiragino Sans'/*Mac*/,'Yu Gothic UI'/*Windows*/,'Meiryo UI',sans-serif;
 }
@@ -235,7 +235,7 @@ div#candidate_profile{
 }
 div#comparison_lists{
     display: grid;
-    grid-template-columns: 30vw 30vw 30vw 30vw 30vw 30vw;
+    grid-template-columns: 36vw 36vw 36vw 36vw 36vw 36vw;
     height:auto;
     gap:1vw;
     overflow: scroll;
@@ -451,6 +451,9 @@ section.questionnaire{
     text-align: left;
     padding:1vw;
 }
+section.questionnaire img{
+    width:38vw;
+}
 }
 @media screen and (orientation: portrait) {
     section.questionnaire{
@@ -476,7 +479,7 @@ section.questionnaire a{
     text-decoration: underline;
 }
 section.questionnaire img{
-    width:38vw;
+    width:98vw;
 }
     
 .answer_box{
@@ -522,20 +525,4 @@ section.questionnaire > p{
     overflow: hidden;
     line-height: 0;
     transform: rotate(180deg);
-}
-.arrow{
-    position:absolute;
-    bottom:20px;
-    left:0;
-    width:100%;
-    overflow: hidden;
-    line-height: 0;
-    transform: rotate(180deg);
-}
-.arrow_text{
-    position:absolute;
-    bottom:0;
-    right:0;
-    padding-right: 1em;
-    color:aliceblue;
 }
