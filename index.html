@@ -74,7 +74,8 @@
         
         //スプレッドシートの列を指定(一番左の列を0番目として数える)
         CANDIDATE_NAME = 2; //候補者名前（スプレッドシートのC列）
-        PARTY = 4;//政党 
+        PARTY = 4;//政党(getElementbyIDでの選別用)
+        PARTY_NAME =3;//政党(web表示用)
         WEBSIATE = 6;//各候補者のウェブサイト
         TWITTER = 7;//各候補者のTwitter
         FACEBOOK = 27;//各候補者のFacebook
@@ -111,6 +112,14 @@
             let name = document.createTextNode(SURVAY_RESULT_ARRAY[i][CANDIDATE_NAME]);
             div.appendChild(p).appendChild(name);
             
+            //所属政党
+            const party = document.createElement('p');
+            party.setAttribute("class","party");
+            const party_text= document.createTextNode(SURVAY_RESULT_ARRAY[i][PARTY_NAME]);
+            div.appendChild(party).appendChild(party_text);
+
+            //当選回数(保留)
+
             //質問２以降を見る　クリックすると各候補者の詳細ぺージへ飛ぶ
             let read_more = document.createElement("input");
             read_more.setAttribute("type","button");
