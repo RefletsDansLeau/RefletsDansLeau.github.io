@@ -32,6 +32,9 @@
                     from pyodide.http import open_url
                     from folium.features import DivIcon
                     from folium.features import CustomIcon
+                    import urllib3
+                    
+                    urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
 
                     url = (
                         "https://docs.google.com/spreadsheets/d/13wZMciV2Zw8AOR1ZLMD3GgcsYymm3cNtzFGrILvBuQA/export?format=csv&gid=0"
