@@ -12,7 +12,7 @@
 </head> 
 
   <body>
-    <div style="width: 100%; height: 2em; background-color:#008080; color:#fff">
+    <div style="width: 100%; height: 2em; background-color:#3d0e88; color:#fff">
         <h1 style="font-size: 1em;">幼保マップ</h1>
     </div>
     <div id="folium"></div>            
@@ -27,7 +27,7 @@
                     import folium
                     import json
                     import pandas as pd
-                    import requests
+                    import urllib3
 
                     from pyodide.http import open_url
                     from folium.features import DivIcon
@@ -40,9 +40,9 @@
                     url_content = open_url(url)
                     lists = pd.read_csv(url_content)
                     
-                    m = folium.Map(location=[35.7111326404866, 139.66453528858855], zoom_start=13, tiles="cartodb positron")
+                    m = folium.Map(location=[35.7111326404866, 139.66453528858855], zoom_start=14, tiles="cartodb positron")
 
-                    geojson_data = requests.get("https://raw.githubusercontent.com/RefletsDansLeau/Nakanoku-geojson/master/nakano_ku.json").json() 
+                    geojson_data = urllib3.request("GET","https://raw.githubusercontent.com/RefletsDansLeau/Nakanoku-geojson/master/nakano_ku.json",preload_content=False).json() 
                     
                     folium.GeoJson(geojson_data,name="nakanoku").add_to(m)
                     
