@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<head>
+  <title>0-4歳人口マップ</title>
+  <meta charset="utf-8" />
+  <link rel="icon" type="image/x-icon" href="./favicon.png" />
+  <link
+      rel="stylesheet"
+      href="https://pyscript.net/latest/pyscript.css"
+  />
+  <script defer src="https://pyscript.net/latest/pyscript.js"></script>
+  <link rel="stylesheet" href="./assets/css/examples.css" />
+</head> 
+
+  <body>
+    <div style="width: 100%; height: 2em; background-color:#3d0e88">
+        <h1 style="font-size: 1em;color:#fff">0-4歳人口マップ</h1>
+        <p style="display:block">データ出典：中野区オープンデータ　子育て施設及び入所最低指数一覧（2023/7/1）</p>
+        <p style="display:block">ライセンス：<a href="https://creativecommons.org/licenses/by/4.0/deed.ja">クリエイティブ・コモンズ・ライセンス 表示４．０
+          国際</a></p>
+    </div>
+    <div id="folium"></div>            
+                <py-config>
+                    packages = [
+                      "folium",
+                      "pandas"
+                    ]                    
+                </py-config>
+
+                <py-script>
+                    import folium
+                    import json
+                    import pandas as pd
+                    import urllib3
+
+                    from pyodide.http import open_url
+                    import urllib3
+                    
+                    urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
+
+                    url = (
+                        "https://docs.google.com/spreadsheets/d/1Ce2UnJCj_goOWb5OIQ9QCPYCh_FgsEQ2sErWn9wonXU/export?format=csv&gid=0"
+                    )
+                    
+                    url_content = open_url(url)
+                    population_data = pd.read_csv(url_content)
+                    
+                    m = folium.Map(location=[35.7111326404866, 139.66453528858855], zoom_start=14, tiles="cartodb positron")
+
+                    geo_json = urllib3.request("GET","https://raw.githubusercontent.com/RefletsDansLeau/Nakanoku-geojson/master/nakano_ku_85cho.json",preload_content=False).json() 
+                    
+                  
+                    
+                    
+                    folium.Choropleth(
+                      geo_data=geo_json,
+                      name="choropleth",
+                      data=population_data,
+                      columns=['KEYCODE1','総数０から４歳'],
+                      key_on="feature.properties.KEYCODE1",
+                      fill_color="YlGn",
+                      fill_opacity=0.7,
+                      line_opacity=0.2,
+
+                    ).add_to(m)
+
+
+                    folium.LayerControl().add_to(m)
+
+                    display(m, target="folium")
+                </py-script>
+            
+  </body>
+</html>
