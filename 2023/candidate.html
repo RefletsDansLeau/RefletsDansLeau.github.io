@@ -1,0 +1,260 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="中野区議会議員選挙2023｜子育て世代による市民アンケート"> 
+    <meta name="keywords" content="中野区,選挙,子育て環境向上委員会,アンケート">
+    <link rel="icon" href="pic/favicon.png">
+    <meta property="og:image" content="pic/og-img.jpg">
+    <link rel="stylesheet" href="css/style_senkyo.css">
+
+    
+</head>
+<body>
+    <header id="header">
+        <!--headerメニューを呼び出す関数に変更すること -->
+           
+        <div id="header_image">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="100%" height="100%" preserveAspectRatio="none">
+                <path d="M 20 50 C 20 0, 95 0, 95 50 C 95 100, 20 100, 20 50" fill="#eee"></path>
+                <path d="M 15 80 L 28 60 L45 65 Z" fill="#eee"></path>            
+            </svg>
+            <p>2023年 中野区 区議選</p>
+            <h1>子育て政策、聞いてみた！</h1> 
+        </div>
+        <nav class="header_menu">
+            <a href="index.html" class="menu_item"><span>候補者</span><span>一覧</span></a>
+            <a href="compare.html" class="menu_item"><span>質問ごとに</span><span>比較する</span></a>  
+            <a href="questionnaire.html" class="menu_item"><span>アンケート</span><span>について</span></a>              
+            <!--<a href="early_voting_map.html" class="menu_item"><span>期日前</span><span>投票について</span></a>
+            <a href="" class="menu_item"><span>投票所</span><span>について</span></a>-->            
+            <a href="about_us.html" class="menu_item">About us</a>                        
+        </nav>
+    
+    </header>
+    <main>
+    
+    <div id="contents">
+    <h2 id="selected_candidate_name"><!--ここに選択した候補者の名前を出力--></h2>
+
+    </div>
+    </main>
+    <script>
+   
+        
+
+        //アンケート結果が記載されたGoogleスプレッドシートを読み込む。セキュリティの設定を変更し、URLをCSVのものに修正したものを下記に記する。
+        const CSV_dataPath = 'https://docs.google.com/spreadsheets/d/1jcLZ4O03c38yji9oBFbZoOBpK7WmQi5lUSyWR764YNE/gviz/tq?tqx=out:csv&sheet=Sheet1';
+
+        
+        //スプレッドシートの列を指定(一番左の列を0番目として数える)
+        CANDIDATE_NAME = 2; //候補者名前（スプレッドシートのC列）(一番左の列は0番目)
+        PARTY = 4;//政党 
+        WEBSIATE = 6;//各候補者のウェブサイト
+        TWITTER = 7;//各候補者のTwitter
+        CANDIDATE_NO = 0;//候補者No
+        Q1 = 9//質問１
+        A1 = 10;//質問１の答え
+        IMG_SRC = 23;//写真
+        SHEET = 25;//有権者からの質問への追加回答が記載されたスプレッドシートのURL
+        ATTACHED_PIC = 26;
+           
+        getCSVDataAndConvertToArray(CSV_dataPath);//スプレッドシートのcsvデータをArrayに変換⇒吐き出したArrayは「SURVAY_RESULT_ARRAY」
+        
+        let text = create_candidate_profile_details(SURVAY_RESULT_ARRAY);
+
+        /*addLink(text);*/
+         
+        function create_candidate_profile_details(SURVAY_RESULT_ARRAY){
+
+            //URLのクエリー文字列から候補者の名前、候補者No(データベースの何行目か)のパラメータを取得
+            let query_params = new URLSearchParams(document.location.search.substring(1));
+            let q_name = query_params.get("name"); // 
+            let q_no = parseInt(query_params.get("no"), 10); //10進数で数値を取得
+
+            //候補者名前
+            let h2 =document.getElementById("selected_candidate_name");
+            h2.textContent=q_name;
+
+            //顔写真
+            let image = document.createElement('img');
+            image.src = 'pic/' + SURVAY_RESULT_ARRAY[q_no][IMG_SRC];
+            //image.src = 'pic/kugi' + q_no + ".jpg";
+            let div =document.getElementById("contents");
+            div.appendChild(image);
+            div.appendChild( document.createElement( 'br' ) );
+
+            //残りの質問＆回答
+            const div_3=document.createElement("div");
+            div_3.setAttribute("id","questions2_4");
+            div.appendChild(div_3);
+
+            for(let i = 9; i < 23; i++){
+                if(SURVAY_RESULT_ARRAY[q_no][i] != null){
+                let div_2 =document.createElement("div");
+                div_2.setAttribute("class","style_"+ [i]);
+                div_2.setAttribute("id","style_"+ [i]);
+                let p = document.createElement("p");                
+                p.innerText=(SURVAY_RESULT_ARRAY[q_no][i]);
+                div_3.appendChild(div_2).appendChild(p);
+                }
+            }
+
+            //有権者からの質問への追加回答（スプレッドシート）
+            if(SURVAY_RESULT_ARRAY[q_no][SHEET] != null){
+            const sheet = document.createElement('a');
+            sheet.setAttribute('href',SURVAY_RESULT_ARRAY[q_no][SHEET]);
+            sheet.setAttribute("target","_blank");
+            sheet.setAttribute("class","style_s");
+            sheet.setAttribute("id","style_s");
+            const sheetText=document.createTextNode("👉有権者からの質問への追加回答はこちら（⇐クリックすると別のページが開きます）");
+            const parent = document.getElementById("questions2_4");
+            const reference =document.getElementById("style_21");
+            parent.insertBefore(sheet,reference);
+            sheet.appendChild(sheetText);}
+
+            //添付画像追加
+            if(SURVAY_RESULT_ARRAY[q_no][ATTACHED_PIC] != null){
+            const attached_pic = document.createElement('img');
+            attached_pic.setAttribute('src','pic/'+ SURVAY_RESULT_ARRAY[q_no][ATTACHED_PIC]);
+            attached_pic.setAttribute("class","attached_pic");
+            const parent = document.getElementById("questions2_4");
+            const reference =document.getElementById("style_s");
+            parent.insertBefore(attached_pic,reference);
+            }
+        }
+
+        /*  addLink()は完成せず
+        //回答文中のURLにリンクを追加
+         function addLink(text){
+            let regexp_url = /((https?|ftp):\/\/[^\s/$.?#].[^\s]*)/gi;
+            let url_string = regexp_url.toString(); 
+            console.log(this);
+            let add_link = function(all,url){
+        return '<a href="' + url + '">' + url + '</a>'; 
+        }     
+        return text.replace(url_string,add_link);
+        } */  
+
+
+        //以下、jsファイルとして分離すること！！
+
+        function getCSVDataAndConvertToArray(CSV_dataPath) {
+        // CSVファイルを文字列として取得
+        let srt = new XMLHttpRequest();//サーバーと対話
+        
+        srt.open("GET", CSV_dataPath, false);//スプレッドシート(CSV版)を読み込む。値が false の場合、 send() メソッドはレスポンスを受信するまで戻りません。
+            try {
+                srt.send(null);
+                SURVAY_RESULT_ARRAY = CSVToArray( srt.responseText, ',' );//グローバル変数
+                console.log(SURVAY_RESULT_ARRAY); 
+            } catch (err) {
+            console.log(err);
+            }
+        }
+
+        
+        
+        
+        
+        // This will parse a delimited string into an array of
+	    // arrays. The default delimiter is the comma, but this
+	    // can be overriden in the second argument.
+	    function CSVToArray( strData, strDelimiter ){//注「\r\n」などは処理できないので、DOMの際に処理する必要がある。
+		
+        // Check to see if the delimiter is defined. If not,
+		// then default to comma.
+		strDelimiter = (strDelimiter || ",");//論理和 (||) 演算子 (論理的分割) をオペランドの組み合わせに対して使用すると、オペランドのうち 1 つ以上が true である場合に true になります。
+
+		// Create a regular expression to parse the CSV values.
+		var objPattern = new RegExp(//RegExp オブジェクトは、テキストをパターンと照合するために使用します。
+			(
+				// Delimiters.
+				"(\\" + strDelimiter + "|\\r?\\n|\\r|^)" +
+
+				// Quoted fields.
+				"(?:\"([^\"]*(?:\"\"[^\"]*)*)\"|" +
+
+				// Standard fields.
+				"([^\"\\" + strDelimiter + "\\r\\n]*))"
+			),
+			"gi"
+			);
+
+
+		// Create an array to hold our data. Give the array
+		// a default empty first row.
+		let arrData = [[]];//空の配列を用意
+        //console.log(arrData);
+
+		// Create an array to hold our individual pattern
+		// matching groups.
+		var arrMatches = null;
+
+		// Keep looping over the regular expression matches
+		// until we can no longer find a match.
+		while (arrMatches = objPattern.exec( strData )){//exec() メソッドは、指定された文字列内で一致するものの検索を実行
+
+			// Get the delimiter that was found.
+			var strMatchedDelimiter = arrMatches[ 1 ];
+
+			// Check to see if the given delimiter has a length
+			// (is not the start of string) and if it matches
+			// field delimiter. If id does not, then we know
+			// that this delimiter is a row delimiter.
+			if (
+				strMatchedDelimiter.length &&
+				(strMatchedDelimiter != strDelimiter)
+				){
+
+				// Since we have reached a new row of data,
+				// add an empty row to our data array.
+				arrData.push( [] );
+			}
+
+			// Now that we have our delimiter out of the way,
+			// let's check to see which kind of value we
+			// captured (quoted or unquoted).
+			if (arrMatches[ 2 ]){
+				// We found a quoted value. When we capture
+				// this value, unescape any double quotes.
+				var strMatchedValue = arrMatches[ 2 ].replace(
+					new RegExp( "\"\"", "g" ),
+					"\""
+					);
+
+			} else {
+
+				// We found a non-quoted value.
+				var strMatchedValue = arrMatches[ 3 ];
+			}
+
+			// Now that we have our value string, let's add
+			// it to the data array.
+			arrData[ arrData.length - 1 ].push( strMatchedValue );
+		    }
+
+		    // Return the parsed data.
+		    return( arrData );
+	        }
+    
+    </script>
+
+
+ 
+    
+
+<footer>
+    <nav class="header_menu">
+        <a href="index.html" class="menu_item"><span>候補者</span><span>一覧</span></a>
+        <a href="compare.html" class="menu_item">質問ごとに比較する</a>               
+        <!--<a href="early_voting_map.html" class="menu_item"><span>期日前</span><span>投票について</span></a>
+        <a href="" class="menu_item"><span>投票所</span><span>について</span></a>-->            
+        <a href="about_us.html" class="menu_item">About us</a>
+    </nav>
+    <p class="copyright">© All rights reserved by 子育て環境向上委員会@中野</p>
+</footer>
+</body>
+
+</html>
