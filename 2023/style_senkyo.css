@@ -1,0 +1,590 @@
+*{
+	box-sizing: border-box;
+    margin:0;
+    text-align: center;
+    font-family: 'Sawarabi Gothic', sans-serif;
+}
+
+html{scroll-behavior: smooth;}
+
+@media screen and (orientation: landscape) {
+body{
+    width:100vw;
+	display:grid;
+	grid-template-areas: 
+    "header"
+    "main"
+    "footer";
+    overflow-y: scroll;
+}
+.width_200vw{
+    display: none;
+}}
+@media screen and (orientation: portrait) {
+    body{
+        width:180vw;
+        display:grid;
+        grid-template-areas: 
+        "header"
+        "main"
+        "footer";
+    }
+    body#about_us{
+        width:100vw;
+    }
+
+}
+
+body#compare{
+    width:200vw;
+}
+
+select#compare{
+    height:4em;
+    width:max(90vw);
+}
+#compare_main{
+    min-height: 60vh;
+}
+
+p{
+    font-size: min(2vw,midium);
+   }
+
+section{
+    height:minmax(100vh, auto);
+    width:100%;
+}
+a{
+    color:#333;
+    text-decoration: none;
+}
+a:hover{
+    font-weight: bold;
+}
+footer a span:hover{
+    font-weight: bold;
+}
+span{
+    display: inline-block;
+}
+span.small{
+    display:inline;
+    font-size: small;
+}
+nav a{
+    text-decoration: none;
+    display: inline-block; /* aのdisplayはinline-block */
+    color:aliceblue;
+}
+/*nav a::after {
+	content: "";
+	display: block;
+    height: 2px;
+	width: 0; /* ホバーしていないときは幅0	
+	transition: all 0.5s ease;
+}*/
+/*nav a:hover::after {
+	width: 100%; /* ホバーしているときは幅100% 
+	height: 1px;
+	background-color:aliceblue;
+	transition: all 0.5s ease;
+}*/
+
+li{
+    list-style-type: none;
+}
+
+h3{
+    color:#191970;
+    font-size: small;
+    margin-bottom: 0.5em;
+}
+label{
+    display: block;
+    text-align: left;
+}
+#select_box{
+    text-align: left;
+}
+#header{
+    width:100%;
+    background-color: #9090aa;
+    text-align:left;
+}
+div#header_image{
+    position: relative;
+    height:100px;
+    width:100%;
+    background-color: #9090aa;
+    background-image: url(../pic/haikei.png);
+    background-size: 100vw 150px;
+    background-position:middle;
+    /*background-repeat: no-repeat;*/
+}
+
+div#header_image p{
+    position:absolute;
+    top:20px;
+    left:25vw;
+    transform:rotate(358deg)
+}
+div#header_image_compare{
+    position: relative;
+    height:100px;
+    width:100%;
+    background-color: #9090aa;
+    background-image: url(../pic/haikei.png);
+    background-size: 100vw 150px;
+    background-position:middle;
+    background-repeat: repeat;
+}
+div#header_image_compare p{
+    position:absolute;
+    top:20px;
+    left:25%;
+    transform:rotate(355deg)
+}
+
+.header_menu{
+    display: flex;
+    font-size: large;
+    width: 90vw;
+    color: black;
+    font-family: 'Hiragino Sans'/*Mac*/,'Yu Gothic UI'/*Windows*/,'Meiryo UI',sans-serif;
+}
+@media screen and(max-width:767px){
+    .header_menu{
+        padding-left:0em;
+        padding-right:0.3em;
+    }
+}
+h1{
+    text-align: left;
+    font-size: x-large;
+    color: #191970;
+    line-height: 2em;
+}
+header h1{
+    font-size: min(6vw, 2em);
+    position:absolute;
+    top:36px;
+    left:25vw;
+    font-family: 'Zen Maru Gothic', sans-serif;
+}
+h2{
+    text-align: left;
+    color: #191970;
+    line-height: 2em;
+    font-size: large;
+    width: 98vw;
+}
+
+#next_page{
+    font-size: large;
+    padding-right: 10%;
+}
+
+.menu_item{
+    font-size: small;
+    padding-top:0.5em;
+    padding-left: 2em;
+}
+.answer{
+    color:#000;
+    background-color: #ccc;
+    text-align: left;
+}
+@media screen and (orientation: landscape) {
+#introduction{    
+    font-family: 'Zen Maru Gothic', sans-serif;
+    width: min(95vw,1050px);
+    display: inline-block;
+    padding-bottom: 1em;
+    font-size: small;
+    color: #161635;
+}}
+@media screen and (orientation: portrait) {
+    #introduction{ 
+        display:block;
+        width:98vw;
+        font-family: 'Zen Maru Gothic', sans-serif;
+        padding-bottom: 1em;
+        font-size: small;
+        color: #161635;
+    }}
+#introduction >p{
+    text-align: left;
+}
+/*
+#kouhosha_list{
+    height:60vh;
+    background-color:#333;
+}*/
+div#comparison_lists > div > div{
+    margin: 1vw;
+    border: solid #eee;
+}
+
+
+div#candidate_profile{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+    height:auto;
+    gap:1vw;
+    overflow: scroll; 
+}
+div#comparison_lists{
+    display: grid;
+    grid-template-columns: 36vw 36vw 36vw 36vw 36vw 36vw;
+    height:auto;
+    gap:1vw;
+    overflow: scroll;
+}
+
+
+p.name{
+    font-size: min(2.8vw,1.1em);
+    padding-bottom: 2px;
+    line-height: 1.5em;
+}
+p.party{
+    font-size: x-small;
+    font-weight: lighter;
+    padding-bottom: 2px;
+    line-height: 1em;
+}
+div#candidate_profile img{
+    width:8vw;
+    clip-path: circle();
+}
+@media screen and (orientation: portrait) {
+    div#candidate_profile img{
+        width:18vw;
+        clip-path: circle();
+    }   
+}
+div#comparison_lists img{
+    width:8vw;
+    clip-path: circle();
+    margin-top:1em;
+}
+/*
+#candidate_profile > div{
+    border:solid #666;
+    border-width: 1px;
+    border-radius:10px;
+}*/
+
+
+#candidate_profile > div > div{
+    margin: 0 0 1em 0;
+    font-weight: 600;
+    line-height: 0.9em;
+}
+#candidate_profile > div > div a{
+    font-size: X-small;
+    font-weight: 300;
+}
+div.Q1{
+    font-size: 1.3vw;
+    width:14vw;
+    text-align: left;
+    line-height: 1.1em;
+    font-family: 'Zen Maru Gothic', sans-serif;
+    clip-path: polygon(0% 0, 100% 0, 100% 84%, 85% 84%, 65% 100%, 70% 84%, 0% 84%);
+    padding-bottom: 1em;
+    padding:0.2em 0 1em 0.5em;
+    background-color: #bdbdcd;
+} 
+@media screen and (orientation: portrait) {
+    div.Q1{
+        font-size: 2.6vw;
+        width:28vw;
+}}
+
+input {
+    font-size: min(2vw,1em);
+  }
+
+
+
+div#contents p{
+    display:inline-block;
+    padding-left: 5vw;
+    text-align: left;
+}
+
+@media screen and (orientation: landscape){
+    div#contents > img{
+    width: 20vw;
+    margin-left: 8vw;
+}
+    div#contents{
+    width:90vw;
+}
+    h2#selected_candidate_name{
+    text-align:center;
+    padding:1em;
+    font-size: x-large;
+}
+}
+@media screen and (orientation: portrait){
+    div#contents > img{
+        width: 60vw;
+    }
+    div#contents{
+        width:100vw;
+        padding-bottom: 2em;
+    }
+    h2#selected_candidate_name{
+        text-align:center;
+        padding:1em;
+    }
+}
+
+div#contents > div {
+    min-height: 2em;    
+    text-align: left;
+    text-indent: 1em;
+}
+div#questions2_4 > p{
+    text-align: left;
+}
+div#questions2_4 > a{
+    display: block;
+    padding: 1em 0em 1em 4em;
+    text-align: left;
+    text-decoration-line: underline;
+}
+
+/*回答は黒字*/
+div#contents > div > .style_10,div#contents > div > .style_12,div#contents > div > .style_15,div#contents > div > .style_20,div#contents > div > .style_22{
+    text-align: left;
+}
+/*質問は青字*/
+div#contents >div>.style_9, div#contents >div>.style_11, div#contents >div>.style_13, div#contents >div>.style_14, div#contents >div>.style_16, div#contents >div>.style_17, div#contents >div>.style_18, div#contents >div>.style_19, div#contents >div>.style_21{
+    /*background: #eee;*/    
+    color: #191970;
+    font-weight: bold;
+    text-indent: 0em;
+    padding-top:2em;
+    text-align: left;
+    /*clip-path: polygon(100% 0, 100% 100%, 4% 100%, 4% 88%, 0 82%, 4% 69%, 4% 0);*/
+}
+div#contents >div>.style_14,div#contents >div>.style_19{
+    font-size: smaller;
+    font-weight: lighter;
+    padding-top: 0em;
+}
+div#contents >div>div.style_17,div#contents >div>div.style_18{
+    display: inline;
+    text-align: left;
+    font-size: small;
+}
+.style_xls_compare{
+    padding-top:1em;
+    font-size: small;
+}
+
+div.no{
+    font-size: small;
+    color:#191970;
+    background-color: #eee;
+}
+div.question{
+    font-size: small;
+    color:#191970;
+    background-color: #eee;
+}
+
+
+
+
+
+h2#question{
+    text-align:left;
+    padding:1em;
+}
+h2#selected_candidate_name{
+    text-align:center;
+    padding:1em;
+}
+
+
+footer{
+    width:100vw;
+    background-color: #666;
+    color:#fff;
+    display:grid;
+    grid-template-areas: 
+      "top"
+      "menu"
+      "copyright";
+    text-align: center;
+    height: min-content;
+}
+.footer_top{
+    grid-area:top;
+    line-height: 2em;
+    background-color: #333;
+}
+h4{ /*footerメニュー*/
+    color: #ccc;
+    line-height: 2.5em;
+}
+.footer_menu a{
+    line-height: 1em;
+    padding:0.5em 0em 0.2em 0em;
+}
+.copyright{
+    grid-area: copyright;
+    font-size: x-small;
+}
+
+div#about_us {
+    padding-left:2vw;
+    margin-bottom: 1em;
+    width: 96vw;
+}
+div#about_us >p,.link>p{
+    text-align: left;
+}
+#about_us a{
+    color:#191970;
+    text-decoration: underline;
+}
+
+.link >ul >li{
+    text-align: left;
+    list-style-type:disc;
+    width:99vw;
+}
+.link>h3{
+    font-size: large;
+    color:#191970;
+    margin: 1em 0 0 1em;
+    text-align: left;
+}
+
+
+@media screen and (orientation: landscape){
+    #main_questionnaire{
+        display:grid;
+        grid-template-columns: 1fr 1fr;
+        grid-row-gap:2em;
+    
+    }
+}
+@media screen and (orientation: portrait){
+    #main_questionnaire{
+        display:grid;
+        grid-template-columns: 1fr;
+        grid-row-gap:2em;
+    
+    }
+}
+
+
+@media screen and (orientation: landscape) {
+section.questionnaire{
+    width:40vw;
+    border: solid #666 1px;
+    margin: 1em auto 1em 4vw;
+    background: linear-gradient(120deg, #eee 0%, #fff 90%);
+    text-align: left;
+    padding:1vw;
+}
+section.questionnaire img{
+    width:38vw;
+}
+}
+@media screen and (orientation: portrait) {
+    section.questionnaire{
+        width:94vw;
+        border: solid #666 1px;
+        margin-left: 2vw;
+        background: linear-gradient(120deg, #eee 0%, #fff 90%);
+        text-align: left;
+        padding:1vw;
+    }
+    section.questionnaire img{
+        width:90vw;
+    }
+    }
+
+section.questionnaire > h3{
+    margin-top: 1em;
+    text-align: left;
+    font-size: large;
+    display:inline-block;
+    overflow-wrap:normal;
+    margin-bottom:1em;
+}
+section.questionnaire a{
+    color:#191970;
+    text-decoration: underline;
+}
+
+    
+.answer_box{
+    height:2em;
+    width:30vw;
+    margin-left:5vw;
+    border:solid #333 1px;
+    border-radius: 1em 1em;
+    background-color: #fff;
+}
+section.questionnaire > h4{
+    color: #191970;
+    padding-top: 2em;
+    text-align: left;
+    font-size: medium;
+    display: block;
+    text-align: left;
+}
+section.questionnaire > p{
+    text-align: left;
+    font-size: small;
+}
+
+.font_sawarabi{
+    font-family: 'Sawarabi Gothic', sans-serif;
+}
+.small{
+    font-size:small
+}
+.circle{
+    clip-path:circle(40%);
+}
+.our_comments{
+    background-color: #eee;
+    border-radius: 2em 2em;
+    padding:0.5em 1em 0.5em 1em;
+    font-family: 'Sawarabi Gothic', sans-serif;
+    width: 100vw;
+}
+.gray{
+    color:gray;
+}
+.left{
+    text-align: left;
+}
+.curve{
+    position: absolute;
+    bottom: 37vh;
+    left: 0;
+    width: 100%;
+    overflow: hidden;
+    line-height: 0;
+    transform: rotate(180deg);
+}
+.curve_2{
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    overflow: hidden;
+    line-height: 0;
+    transform: rotate(180deg);
+}
