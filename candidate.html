@@ -63,8 +63,8 @@
         Q1 = 12;//質問１
         A1 = 13;//質問１の答え
         IMG_SRC = 10;//写真
-        SHEET = 25;//有権者からの質問への追加回答が記載されたスプレッドシートのURL
-        ATTACHED_PIC = 26;
+        SHEET = 28;//有権者からの質問への追加回答が記載されたスプレッドシートのURL
+        ATTACHED_PIC = 29;
            
         getCSVDataAndConvertToArray(CSV_dataPath);//スプレッドシートのcsvデータをArrayに変換⇒吐き出したArrayは「SURVAY_RESULT_ARRAY」
         
@@ -96,7 +96,7 @@
             div_3.setAttribute("id","questions2_4");
             div.appendChild(div_3);
 
-            for(let i = 9; i < 23; i++){
+            for(let i = 14; i < 25; i++){
                 if(SURVAY_RESULT_ARRAY[q_no][i] != null){
                 let div_2 =document.createElement("div");
                 div_2.setAttribute("class","style_"+ [i]);
