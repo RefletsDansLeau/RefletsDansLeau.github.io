@@ -1,1 +1,298 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="Cache-Control" content="max-age=3600">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="都議補選2024｜子育て世代による市民アンケート"> 
+    <meta name="keywords" content="中野区,選挙,子育て環境向上委員会,アンケート">
+    <link rel="icon" href="pic/favicon.png">
+    <meta property="og:image" content="pic/og-img.jpg">
+    <link rel="stylesheet" href="css/style_senkyo.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Sawarabi+Gothic&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic&display=swap" rel="stylesheet">
+    <title>2024年 都議補選(中野選挙区)｜立候補予定者に聞いてみた！</title>
+</head>
+<body>
+    <header id="header">
+        <!--headerメニューを呼び出す関数に変更すること -->
+           
+        <div id="header_image">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 100" width="100%" height="100%" preserveAspectRatio="none">
+                <path d="M 20 50 C 20 0, 95 0, 95 50 C 95 100, 20 100, 20 50" fill="#eee"></path>
+                <path d="M 15 80 L 28 60 L45 65 Z" fill="#eee"></path>            
+            </svg>
+            <p>2024年 都議補選(中野選挙区)</p>
+            <h1>子育て政策、聞いてみた！</h1> 
+        </div>
+        <nav class="header_menu">
+            <a href="index.html" class="menu_item"><span>候補者</span><span>一覧</span></a>
+            <a href="compare.html" class="menu_item"><span>質問ごとに</span><span>比較する</span></a>  
+            <a href="questionnaire.html" class="menu_item"><span>アンケート</span><span>について</span></a>              
+            <!--<a href="early_voting_map.html" class="menu_item"><span>期日前</span><span>投票について</span></a>
+            <a href="" class="menu_item"><span>投票所</span><span>について</span></a>-->            
+            <a href="about_us.html" class="menu_item">About us</a>                        
+        </nav>
+    
+    </header>
+    <main>
+        <div id="introduction">
+        <p>こんにちは。子育て環境向上委員会@中野 です。
+            私たちは、子育て世代の声を区政や議員の皆様へ届ける活動などをしている団体で、主に子育て中の母親で構成され、超党派で活動しています。<br>
+            当団体では、1人でも多くの有権者に区政へ関心を持っていただくこと、また子育て世代の有権者がどのようなことに関心を持っているのかを議員の皆様に知っていただくことを目的に、公開アンケートを実施しました。</p>
+            <br>
+            
+	    
+        </div>
+        <h2>質問１. 子育て世代へアピールしたいことは何ですか？<span class="small">（回答は２０文字以内）</span></h2>
+        <p class="left"><span class="small gray">※並び順は、左から右にむかって、候補予定者の多い政党順、政党所属候補者、無所属となっており、上から当選回数順となっております。</span></p>
+        <div class="width_200vw">👉こちら側にもページがあります。</div>
+        <div id="candidate_profile">
+            <div id="jimin"></div>
+            <div id="komei"></div>
+            <div id="kyosan"></div>
+            <div id="rikken"></div>
+            <div id="shoha"></div>
+            <div id="other"></div>
+        </div>
+        <div>
+            <p class="our_comments small">
+            忙しい中ご協力いただいた候補予定者の皆様、ありがとうございました。<br><br>
+           また、本公開アンケートは連絡先の分かる方、また街中でお会いすることのできた候補者予定者の皆様にご協力をお願いしております。<br>
+            ご連絡が取れていない候補予定者の方がいらっしゃいましたら、ご一報いただけますと幸いです。新たに回答を受領次第、追加更新を行います。<br></p>
+	    <br></div>
+    </main>
+    <script>
+   
+        
 
+        //アンケート結果が記載されたGoogleスプレッドシートを読み込む。セキュリティの設定を変更し、URLをCSVのものに修正したものを下記に記する。
+        const CSV_dataPath = 'https://docs.google.com/spreadsheets/d/1jcLZ4O03c38yji9oBFbZoOBpK7WmQi5lUSyWR764YNE/gviz/tq?tqx=out:csv&sheet=Sheet1';
+
+        
+        //スプレッドシートの列を指定(一番左の列を0番目として数える)
+        CANDIDATE_NAME = 2; //候補者名前（スプレッドシートのC列）
+        PARTY = 4;//政党(getElementbyIDでの選別用)
+        PARTY_NAME =3;//政党(web表示用)
+        WEBSIATE = 6;//各候補者のウェブサイト
+        TWITTER = 7;//各候補者のTwitter
+        FACEBOOK = 8;//各候補者のFacebook
+        CANDIDATE_NO = 0;//候補者No
+        Q1 = 11;//質問１
+        A1 = 12;//質問１の答え
+        IMG_SRC = 10;//写真
+
+        getCSVDataAndConvertToArray(CSV_dataPath);//スプレッドシートのcsvデータをArrayに変換⇒吐き出したArrayは「SURVAY_RESULT_ARRAY」
+        
+        create_candidate_profile(SURVAY_RESULT_ARRAY);//立候補予定者名鑑の作成
+
+
+        function create_candidate_profile(SURVAY_RESULT_ARRAY){
+        for (let i = 1; i < SURVAY_RESULT_ARRAY.length; i++) {
+	        let div = document.createElement('div');
+            let anchor = document.createElement('a');
+            let p =document.createElement("p");
+            p.setAttribute("class","name");
+                      
+            //質問１の回答　
+            let Q1 = document.createElement('div');
+            Q1.setAttribute("class","Q1");
+            let A1_text = document.createTextNode(SURVAY_RESULT_ARRAY[i][A1]);
+            div.appendChild(Q1).appendChild(A1_text);
+            
+            //候補者の写真
+            let image = document.createElement('img');
+            image.src = 'pic/' + SURVAY_RESULT_ARRAY[i][IMG_SRC];
+            div.appendChild(image);
+            div.appendChild( document.createElement( 'br' ) );
+
+            //候補者の名前
+            let name = document.createTextNode(SURVAY_RESULT_ARRAY[i][CANDIDATE_NAME]);
+            div.appendChild(p).appendChild(name);
+            
+            //所属政党
+            const party = document.createElement('p');
+            party.setAttribute("class","party");
+            const party_text= document.createTextNode(SURVAY_RESULT_ARRAY[i][PARTY_NAME]);
+            div.appendChild(party).appendChild(party_text);
+
+            //当選回数(保留)
+
+            //質問２以降を見る　クリックすると各候補者の詳細ぺージへ飛ぶ
+            let read_more = document.createElement("input");
+            read_more.setAttribute("type","button");
+            read_more.setAttribute("class","read_more");
+            read_more.setAttribute("value",'質問２以降を見る');
+            let name_to_send = SURVAY_RESULT_ARRAY[i][CANDIDATE_NAME];//別ぺージへ送りたい情報①。候補者の名前。
+            let no_to_send = SURVAY_RESULT_ARRAY[i][CANDIDATE_NO];//別ぺージへ送りたい情報②。データベースの何行目か。
+            let new_url = "candidate.html";//保持データの送り先のURL
+            let query = "?name=" + name_to_send + "&no=" + no_to_send;
+            let url = new_url + query; //開くファイルのURL
+            read_more.addEventListener('click',function(){//クリックすると値①②を保持して別ページへ飛ぶ
+                window.open(url);});
+            div.appendChild(read_more);
+            div.appendChild( document.createElement( 'br' ) );
+            
+            //公式ウェブサイト
+            if(SURVAY_RESULT_ARRAY[i][WEBSIATE] != null){
+            let website = document.createElement("a");
+            website.setAttribute("href",SURVAY_RESULT_ARRAY[i][WEBSIATE]);
+            website.setAttribute("target","_blank");
+            let websiteText = document.createTextNode('公式ウェブサイト');
+            div.appendChild(website).appendChild(websiteText);
+            div.appendChild( document.createElement( 'br' ) );
+            }
+
+            //公式twitter
+            if(SURVAY_RESULT_ARRAY[i][TWITTER] != null){
+            let twitter = document.createElement("a");
+            twitter.setAttribute("href",SURVAY_RESULT_ARRAY[i][TWITTER]);
+            twitter.setAttribute("target","_blank");
+            let twitterText = document.createTextNode('公式Twitter');
+            div.appendChild(twitter).appendChild(twitterText);
+            div.appendChild( document.createElement( 'br' ) );
+            }
+
+            //公式Facebook
+            if(SURVAY_RESULT_ARRAY[i][FACEBOOK] != null){
+            let facebook = document.createElement("a");
+            facebook.setAttribute("href",SURVAY_RESULT_ARRAY[i][FACEBOOK]);
+            facebook.setAttribute("target","_blank");
+            let facebookText = document.createTextNode('公式Facebook');
+            div.appendChild(facebook).appendChild(facebookText);
+            div.appendChild( document.createElement( 'br' ) );
+            }
+
+            //各政党毎に並べる
+            let parent = document.getElementById(SURVAY_RESULT_ARRAY[i][PARTY]); 
+            parent.appendChild(div);
+
+            let br = document.createElement('br');
+            }
+        }
+        
+        
+
+
+        //以下、jsファイルとして分離すること！！
+
+        function getCSVDataAndConvertToArray(CSV_dataPath) {
+        // CSVファイルを文字列として取得
+        let srt = new XMLHttpRequest();//サーバーと対話
+        
+        srt.open("GET", CSV_dataPath, false);//スプレッドシート(CSV版)を読み込む。値が false の場合、 send() メソッドはレスポンスを受信するまで戻りません。
+            try {
+                srt.send(null);
+                SURVAY_RESULT_ARRAY = CSVToArray( srt.responseText, ',' );//グローバル変数
+                console.log(SURVAY_RESULT_ARRAY); 
+            } catch (err) {
+            console.log(err);
+            }
+        }
+
+        
+        
+        // This will parse a delimited string into an array of
+	    // arrays. The default delimiter is the comma, but this
+	    // can be overriden in the second argument.
+	    function CSVToArray( strData, strDelimiter ){//注「\r\n」などは処理できないので、DOMの際に処理する必要がある。
+		
+        // Check to see if the delimiter is defined. If not,
+		// then default to comma.
+		strDelimiter = (strDelimiter || ",");//論理和 (||) 演算子 (論理的分割) をオペランドの組み合わせに対して使用すると、オペランドのうち 1 つ以上が true である場合に true になります。
+
+		// Create a regular expression to parse the CSV values.
+		var objPattern = new RegExp(//RegExp オブジェクトは、テキストをパターンと照合するために使用します。
+			(
+				// Delimiters.
+				"(\\" + strDelimiter + "|\\r?\\n|\\r|^)" +
+
+				// Quoted fields.
+				"(?:\"([^\"]*(?:\"\"[^\"]*)*)\"|" +
+
+				// Standard fields.
+				"([^\"\\" + strDelimiter + "\\r\\n]*))"
+			),
+			"gi"
+			);
+
+
+		// Create an array to hold our data. Give the array
+		// a default empty first row.
+		let arrData = [[]];//空の配列を用意
+        //console.log(arrData);
+
+		// Create an array to hold our individual pattern
+		// matching groups.
+		var arrMatches = null;
+
+		// Keep looping over the regular expression matches
+		// until we can no longer find a match.
+		while (arrMatches = objPattern.exec( strData )){//exec() メソッドは、指定された文字列内で一致するものの検索を実行
+
+			// Get the delimiter that was found.
+			var strMatchedDelimiter = arrMatches[ 1 ];
+
+			// Check to see if the given delimiter has a length
+			// (is not the start of string) and if it matches
+			// field delimiter. If id does not, then we know
+			// that this delimiter is a row delimiter.
+			if (
+				strMatchedDelimiter.length &&
+				(strMatchedDelimiter != strDelimiter)
+				){
+
+				// Since we have reached a new row of data,
+				// add an empty row to our data array.
+				arrData.push( [] );
+			}
+
+			// Now that we have our delimiter out of the way,
+			// let's check to see which kind of value we
+			// captured (quoted or unquoted).
+			if (arrMatches[ 2 ]){
+				// We found a quoted value. When we capture
+				// this value, unescape any double quotes.
+				var strMatchedValue = arrMatches[ 2 ].replace(
+					new RegExp( "\"\"", "g" ),
+					"\""
+					);
+
+			} else {
+
+				// We found a non-quoted value.
+				var strMatchedValue = arrMatches[ 3 ];
+			}
+
+			// Now that we have our value string, let's add
+			// it to the data array.
+			arrData[ arrData.length - 1 ].push( strMatchedValue );
+		    }
+
+		    // Return the parsed data.
+		    return( arrData );
+	        }
+        
+    
+    </script>
+
+
+ 
+    
+    
+
+    <footer>
+        <nav class="header_menu">
+            <a href="index.html" class="menu_item"><span>候補者</span><span>一覧</span></a>
+            <a href="compare.html" class="menu_item">質問ごとに比較する</a>               
+            <!--<a href="early_voting_map.html" class="menu_item"><span>期日前</span><span>投票について</span></a>
+            <a href="" class="menu_item"><span>投票所</span><span>について</span></a>-->            
+            <a href="about_us.html" class="menu_item">About us</a>
+        </nav>
+        <p class="copyright">© All rights reserved by 子育て環境向上委員会@中野</p>
+    </footer>
+</body>
+
+</html>
