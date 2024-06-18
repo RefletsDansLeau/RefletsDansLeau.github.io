@@ -2,13 +2,19 @@
 <html>
 <head>
     <meta charset="UTF-8">
+    <meta http-equiv="Cache-Control" content="max-age=3600">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="中野区議会議員選挙2023｜子育て世代による市民アンケート"> 
+    <meta name="description" content="都議補選2024｜子育て世代による市民アンケート"> 
     <meta name="keywords" content="中野区,選挙,子育て環境向上委員会,アンケート">
     <link rel="icon" href="pic/favicon.png">
     <meta property="og:image" content="pic/og-img.jpg">
     <link rel="stylesheet" href="css/style_senkyo.css">
-
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Sawarabi+Gothic&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic&display=swap" rel="stylesheet">
+    <title>2024年 都議補選(中野選挙区)｜立候補予定者に聞いてみた！</title>
+</head>
     
 </head>
 <body>
@@ -20,7 +26,7 @@
                 <path d="M 20 50 C 20 0, 95 0, 95 50 C 95 100, 20 100, 20 50" fill="#eee"></path>
                 <path d="M 15 80 L 28 60 L45 65 Z" fill="#eee"></path>            
             </svg>
-            <p>2023年 中野区 区議選</p>
+            <p>2024年 都議補選(中野選挙区)</p>
             <h1>子育て政策、聞いてみた！</h1> 
         </div>
         <nav class="header_menu">
@@ -45,7 +51,7 @@
         
 
         //アンケート結果が記載されたGoogleスプレッドシートを読み込む。セキュリティの設定を変更し、URLをCSVのものに修正したものを下記に記する。
-        const CSV_dataPath = 'https://docs.google.com/spreadsheets/d/1jcLZ4O03c38yji9oBFbZoOBpK7WmQi5lUSyWR764YNE/gviz/tq?tqx=out:csv&sheet=Sheet1';
+        const CSV_dataPath = 'https://docs.google.com/spreadsheets/d/10YFGz_HqEP7ptg9kRAJ7NajKSYFYmykiQdOz37U5iPQ/gviz/tq?tqx=out:csv&sheet=Sheet1';
 
         
         //スプレッドシートの列を指定(一番左の列を0番目として数える)
@@ -54,9 +60,9 @@
         WEBSIATE = 6;//各候補者のウェブサイト
         TWITTER = 7;//各候補者のTwitter
         CANDIDATE_NO = 0;//候補者No
-        Q1 = 9//質問１
-        A1 = 10;//質問１の答え
-        IMG_SRC = 23;//写真
+        Q1 = 12;//質問１
+        A1 = 13;//質問１の答え
+        IMG_SRC = 10;//写真
         SHEET = 25;//有権者からの質問への追加回答が記載されたスプレッドシートのURL
         ATTACHED_PIC = 26;
            
