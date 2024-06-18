@@ -46,9 +46,9 @@
         <label for="compare">下記セレクトボタンから質問を選択してください。</label>
             <select name="compare" id="compare">
                 <option value="">質問ごとに比較する</option>
-                <option value="12">質問２．ご自身が小学生の頃、どこで何をして遊んでいましたか？</option> <!--valueの数値はスプレッドシートの対応する列の数値をValueに入力すること-->
-                <option value="15">質問３．東京都の子育て支援で、何に一番力を入れたいですか？</option>
-                <option value="20">質問４．有権者の質問の中からひとつ回答ください。（質問４原文：子育て世代の有権者からたくさんの質問が届いております。下記URLの質問一覧表の中から、ひとつお選びいただき回答ください。）</option>
+                <option value="15">質問２．ご自身が小学生の頃、どこで何をして遊んでいましたか？</option> <!--valueの数値はスプレッドシートの対応する列の数値をValueに入力すること-->
+                <option value="18">質問３．東京都の子育て支援で、何に一番力を入れたいですか？</option>
+                <option value="23">質問４．有権者の質問の中からひとつ回答ください。（質問４原文：子育て世代の有権者からたくさんの質問が届いております。下記URLの質問一覧表の中から、ひとつお選びいただき回答ください。）</option>
             </select>            
         </div>
         <div id="next_page"></div>
@@ -131,14 +131,14 @@
                 div2.setAttribute("class","answer");
                 
                     //質問4の場合は、有権者からの質問文を追加
-                    if (selected_question_no == 20){//スプレッドシートの20列目
+                    if (selected_question_no == 23){//スプレッドシートの23列目
                         const div3 = document.createElement('div');
                         div3.setAttribute("class",'no');
                         const selected_no_discription = document.createTextNode("有権者からの質問 番号");
-                        const voter_questions_no = document.createTextNode(SURVAY_RESULT_ARRAY[i][18]);
+                        const voter_questions_no = document.createTextNode(SURVAY_RESULT_ARRAY[i][21]);
                         const div4 =document.createElement('div');
                         div4.setAttribute("class",'question');
-                        const voter_questions_text = document.createTextNode(SURVAY_RESULT_ARRAY[i][19]);
+                        const voter_questions_text = document.createTextNode(SURVAY_RESULT_ARRAY[i][22]);
                         const div5 =document.createElement('div');
                         div5.setAttribute("class",'answer');
                         div2.appendChild(div3).appendChild(selected_no_discription);
