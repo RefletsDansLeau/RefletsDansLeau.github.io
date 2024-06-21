@@ -22,7 +22,7 @@
         <!--headerメニューを呼び出す関数に変更すること -->
            
         <div id="header_image_compare">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 100" width="100%" height="100%" preserveAspectRatio="none">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="100%" height="100%" preserveAspectRatio="none">
                 <path d="M 20 50 C 20 0, 95 0, 95 50 C 95 100, 20 100, 20 50" fill="#eee"></path>
                 <path d="M 15 80 L 28 60 L45 65 Z" fill="#eee"></path>            
             </svg>
@@ -51,17 +51,16 @@
                 <option value="23">質問４．有権者の質問の中からひとつ回答ください。（質問４原文：子育て世代の有権者からたくさんの質問が届いております。下記URLの質問一覧表の中から、ひとつお選びいただき回答ください。）</option>
             </select>            
         </div>
-        <div id="next_page"></div>
+        <!--<div id="next_page"></div>-->
            
-    <div id="comparison_lists">
-        
-        <div id="jimin"></div>
-        <div id="komei"></div>
-        <div id="kyosan"></div>
-        <div id="rikken"></div>
-        <div id="shoha"></div>
-        <div id="other"></div>
-    </div>
+        <div id="comparison_lists">
+            <div id="tofa"></div>
+            <!--<div id="komei"></div>-->
+            <div id="kyosan"></div>
+            <!--<div id="rikken"></div>-->
+            <div id="jimin"></div>
+            <!--<div id="other"></div>-->     
+        </div>
     </main>
     <script>
    
@@ -105,8 +104,8 @@
             element.innerHTML = '';
             });
         //文字列「⇒こちらにもページがあります」の追加
-            const next_page = document.getElementById("next_page");
-            next_page.textContent = "⇒こちらにもページがあります";
+            //const next_page = document.getElementById("next_page");
+            //next_page.textContent = "⇒こちらにもページがあります";
         
             //各候補分ループ
             for (let i = 1; i < SURVAY_RESULT_ARRAY.length; i++) {
@@ -302,6 +301,7 @@
     </nav>
     <p class="copyright">© All rights reserved by 子育て環境向上委員会@中野</p>
 </footer>
+
 </body>
 
 </html>
