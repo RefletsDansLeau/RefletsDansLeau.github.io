@@ -2,10 +2,14 @@
 	box-sizing: border-box;
     margin:0;
     text-align: center;
-    font-family: 'Sawarabi Gothic', sans-serif;
+    font-family: 'Zen Maru Gothic','Sawarabi Gothic', sans-serif;
 }
 
 html{scroll-behavior: smooth;}
+
+#text{
+    text-overflow: ellipsis;
+}
 
 @media screen and (orientation: landscape) {
 body{
@@ -22,9 +26,8 @@ body{
 }}
 @media screen and (orientation: portrait) {
     body{
-        width:180vw;
         display:grid;
-        grid-template-areas: 
+        grid-template-areas:
         "header"
         "main"
         "footer";
@@ -36,7 +39,7 @@ body{
 }
 
 body#compare{
-    width:200vw;
+    width:100vw;
 }
 
 select#compare{
@@ -69,7 +72,7 @@ span{
     display: inline-block;
 }
 span.small{
-    display:inline;
+    display:inline-block;
     font-size: small;
 }
 nav a{
@@ -126,7 +129,7 @@ div#header_image{
 div#header_image p{
     position:absolute;
     top:20px;
-    left:25vw;
+    left:35vw;
     transform:rotate(358deg)
 }
 div#header_image_compare{
@@ -149,7 +152,6 @@ div#header_image_compare p{
 .header_menu{
     display: flex;
     font-size: large;
-    width: 90vw;
     color: black;
     font-family: 'Hiragino Sans'/*Mac*/,'Yu Gothic UI'/*Windows*/,'Meiryo UI',sans-serif;
 }
@@ -166,7 +168,7 @@ h1{
     line-height: 2em;
 }
 header h1{
-    font-size: min(6vw, 2em);
+    font-size: x-large;
     position:absolute;
     top:36px;
     left:25vw;
@@ -175,9 +177,9 @@ header h1{
 h2{
     text-align: left;
     color: #191970;
-    line-height: 2em;
+    line-height: 1.1em;
     font-size: large;
-    width: 98vw;
+    padding: 0 0 1em 0;
 }
 
 #next_page{
@@ -187,8 +189,7 @@ h2{
 
 .menu_item{
     font-size: small;
-    padding-top:0.5em;
-    padding-left: 2em;
+    padding:0.2em 0 0.2em 2em;
 }
 .answer{
     color:#000;
@@ -197,9 +198,6 @@ h2{
 }
 @media screen and (orientation: landscape) {
 #introduction{    
-    font-family: 'Zen Maru Gothic', sans-serif;
-    width: min(95vw,1050px);
-    display: inline-block;
     padding-bottom: 1em;
     font-size: small;
     color: #161635;
@@ -207,9 +205,8 @@ h2{
 @media screen and (orientation: portrait) {
     #introduction{ 
         display:block;
-        width:98vw;
         font-family: 'Zen Maru Gothic', sans-serif;
-        padding-bottom: 1em;
+        padding-bottom: 2em;
         font-size: small;
         color: #161635;
     }}
@@ -229,14 +226,13 @@ div#comparison_lists > div > div{
 
 div#candidate_profile{
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr;
     height:auto;
     gap:1vw;
-    overflow: scroll; 
 }
 div#comparison_lists{
     display: grid;
-    grid-template-columns: 36vw 36vw 36vw 36vw 36vw 36vw;
+    grid-template-columns: 33vw 33vw 33vw;
     height:auto;
     gap:1vw;
     overflow: scroll;
@@ -255,7 +251,7 @@ p.party{
     line-height: 1em;
 }
 div#candidate_profile img{
-    width:8vw;
+    width:15vw;
     clip-path: circle();
 }
 @media screen and (orientation: portrait) {
@@ -265,7 +261,7 @@ div#candidate_profile img{
     }   
 }
 div#comparison_lists img{
-    width:8vw;
+    width:15vw;
     clip-path: circle();
     margin-top:1em;
 }
@@ -287,10 +283,11 @@ div#comparison_lists img{
     font-weight: 300;
 }
 div.Q1{
-    font-size: 1.3vw;
-    width:14vw;
+    font-size: 2.4vw;
+    width:25vw;
     text-align: left;
     line-height: 1.1em;
+    margin: 0 auto;
     font-family: 'Zen Maru Gothic', sans-serif;
     clip-path: polygon(0% 0, 100% 0, 100% 84%, 85% 84%, 65% 100%, 70% 84%, 0% 84%);
     padding-bottom: 1em;
@@ -318,14 +315,13 @@ div#contents p{
 @media screen and (orientation: landscape){
     div#contents > img{
     width: 20vw;
-    margin-left: 8vw;
 }
     div#contents{
-    width:90vw;
+    width:100vw;
 }
     h2#selected_candidate_name{
     text-align:center;
-    padding:1em;
+    padding:1em 0 0 0;
     font-size: x-large;
 }
 }
@@ -359,11 +355,13 @@ div#questions2_4 > a{
 }
 
 /*回答は黒字*/
-div#contents > div > .style_10,div#contents > div > .style_12,div#contents > div > .style_15,div#contents > div > .style_20,div#contents > div > .style_22{
+div#contents > div > .style_15,div#contents > div > .style_18,div#contents > div > .style_23,div#contents > div > .style_24{
     text-align: left;
+    padding-top: 0.5em;
+    font-weight: bold;
 }
 /*質問は青字*/
-div#contents >div>.style_9, div#contents >div>.style_11, div#contents >div>.style_13, div#contents >div>.style_14, div#contents >div>.style_16, div#contents >div>.style_17, div#contents >div>.style_18, div#contents >div>.style_19, div#contents >div>.style_21{
+div#contents >div>.style_14, div#contents >div>.style_16, div#contents >div>.style_19{
     /*background: #eee;*/    
     color: #191970;
     font-weight: bold;
@@ -372,15 +370,20 @@ div#contents >div>.style_9, div#contents >div>.style_11, div#contents >div>.styl
     text-align: left;
     /*clip-path: polygon(100% 0, 100% 100%, 4% 100%, 4% 88%, 0 82%, 4% 69%, 4% 0);*/
 }
-div#contents >div>.style_14,div#contents >div>.style_19{
+/*質問　説明文(小文字)*/
+div#contents >div>.style_17,div#contents >div>div.style_22{
     font-size: smaller;
     font-weight: lighter;
     padding-top: 0em;
+    color:#191970;
+    line-height: 1.2em;
 }
-div#contents >div>div.style_17,div#contents >div>div.style_18{
+/*「お答えいただける番号　●●番」*/
+div#contents >div>div.style_20,div#contents >div>div.style_21{
     display: inline;
     text-align: left;
     font-size: small;
+    color:#191970;
 }
 .style_xls_compare{
     padding-top:1em;
@@ -388,7 +391,8 @@ div#contents >div>div.style_17,div#contents >div>div.style_18{
 }
 
 div.no{
-    font-size: small;
+    font-size: x-small;
+    line-height: 2em;
     color:#191970;
     background-color: #eee;
 }
@@ -408,12 +412,11 @@ h2#question{
 }
 h2#selected_candidate_name{
     text-align:center;
-    padding:1em;
+    padding:1em 0 0 0;
 }
 
 
 footer{
-    width:100vw;
     background-color: #666;
     color:#fff;
     display:grid;
@@ -431,7 +434,7 @@ footer{
 }
 h4{ /*footerメニュー*/
     color: #ccc;
-    line-height: 2.5em;
+    line-height: 1.2em;
 }
 .footer_menu a{
     line-height: 1em;
@@ -534,6 +537,7 @@ section.questionnaire a{
     border:solid #333 1px;
     border-radius: 1em 1em;
     background-color: #fff;
+    
 }
 section.questionnaire > h4{
     color: #191970;
