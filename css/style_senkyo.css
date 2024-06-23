@@ -11,6 +11,7 @@ html{scroll-behavior: smooth;}
     text-overflow: ellipsis;
 }
 
+
 @media screen and (orientation: landscape) {
 body{
     width:100vw;
@@ -34,9 +35,9 @@ body{
     }
     body#about_us{
         width:100vw;
-    }
-
+    }    
 }
+
 
 body#compare{
     width:100vw;
@@ -75,6 +76,13 @@ span.small{
     display:inline-block;
     font-size: small;
 }
+span.x-small{
+    display:inline-block;
+    font-size: x-small;
+}
+
+
+
 nav a{
     text-decoration: none;
     display: inline-block; /* aのdisplayはinline-block */
@@ -168,7 +176,7 @@ h1{
     line-height: 2em;
 }
 header h1{
-    font-size: x-large;
+    font-size: min(2em,6vw);
     position:absolute;
     top:36px;
     left:25vw;
@@ -198,7 +206,7 @@ h2{
 }
 @media screen and (orientation: landscape) {
 #introduction{    
-    padding-bottom: 1em;
+    padding: 0 1em 2em 1em;
     font-size: small;
     color: #161635;
 }}
@@ -206,7 +214,7 @@ h2{
     #introduction{ 
         display:block;
         font-family: 'Zen Maru Gothic', sans-serif;
-        padding-bottom: 2em;
+        padding: 0 1em 2em 1em;
         font-size: small;
         color: #161635;
     }}
@@ -229,7 +237,10 @@ div#candidate_profile{
     grid-template-columns: 1fr 1fr 1fr;
     height:auto;
     gap:1vw;
+    margin: 0 1em 0 1em;
 }
+
+
 div#comparison_lists{
     display: grid;
     grid-template-columns: 33vw 33vw 33vw;
@@ -251,8 +262,9 @@ p.party{
     line-height: 1em;
 }
 div#candidate_profile img{
-    width:15vw;
+    width:14vw;
     clip-path: circle();
+    filter: drop-shadow(0 0 0.75rem #aaa);
 }
 @media screen and (orientation: portrait) {
     div#candidate_profile img{
@@ -283,8 +295,8 @@ div#comparison_lists img{
     font-weight: 300;
 }
 div.Q1{
-    font-size: 2vw;
-    width:22vw;
+    font-size: 1.1em;
+    width:11em;
     text-align: left;
     line-height: 1.1em;
     margin: 0 auto;
