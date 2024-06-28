@@ -63,8 +63,8 @@
         Q1 = 12;//質問１
         A1 = 13;//質問１の答え
         IMG_SRC = 10;//写真
-        SHEET = 28;//有権者からの質問への追加回答が記載されたスプレッドシートのURL
-        ATTACHED_PIC = 29;
+        SHEET = 27;//有権者からの質問への追加回答が記載されたスプレッドシートのURL
+        ATTACHED_PIC = 28;
            
         getCSVDataAndConvertToArray(CSV_dataPath);//スプレッドシートのcsvデータをArrayに変換⇒吐き出したArrayは「SURVAY_RESULT_ARRAY」
         
@@ -116,7 +116,7 @@
             sheet.setAttribute("id","style_s");
             const sheetText=document.createTextNode("👉有権者からの質問への追加回答はこちら（⇐クリックすると別のページが開きます）");
             const parent = document.getElementById("questions2_4");
-            const reference =document.getElementById("style_21");
+            const reference =document.getElementById("style_24");
             parent.insertBefore(sheet,reference);
             sheet.appendChild(sheetText);}
 
