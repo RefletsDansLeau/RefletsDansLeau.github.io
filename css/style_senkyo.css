@@ -253,7 +253,7 @@ div#candidate_profile{
 
 div#comparison_lists{
     display: grid;
-    grid-template-columns: 33vw 33vw 33vw;
+    grid-template-columns: 31vw 31vw 31vw;
     height:auto;
     gap:1vw;
     overflow: scroll;
