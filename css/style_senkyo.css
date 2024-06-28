@@ -376,11 +376,12 @@ div#questions2_4 > a{
 }
 
 /*回答は黒字*/
-div#contents > div > .style_15,div#contents > div > .style_18,div#contents > div > .style_23,div#contents > div > .style_25{
+div#contents > div > .style_15,div#contents > div > .style_18,div#contents > div > .style_23,div#contents > div > .style_25,div#contents > div > .style_23{
     text-align: left;
     padding: 0.5em 0 2em 0;
     font-weight: bold;
 }
+
 /*質問は青字*/
 div#contents >div>.style_14, div#contents >div>.style_16, div#contents >div>.style_19, div#contents >div>.style_24{
     /*background: #eee;*/    
@@ -393,8 +394,6 @@ div#contents >div>.style_14, div#contents >div>.style_16, div#contents >div>.sty
     /*clip-path: polygon(100% 0, 100% 100%, 4% 100%, 4% 88%, 0 82%, 4% 69%, 4% 0);*/
 }
 
-
-
 /*質問　説明文(小文字)*/
 div#contents >div>.style_17,div#contents >div>div.style_22{
     font-size: smaller;
@@ -406,11 +405,18 @@ div#contents >div>.style_17,div#contents >div>div.style_22{
 }
 /*「お答えいただける番号　●●番」*/
 div#contents >div>div.style_20,div#contents >div>div.style_21{
-    display: inline;
+    display: inline-block;
     text-align: left;
     font-size: small;
     color:#191970;
     background-color: #eee;
+}
+/*有権者からの質問への追加回答をいただけるもの*/
+div#contents >div> a.style_s{
+    text-align: left;
+    padding: 0em 0 2em 0;
+    font-weight: bold;
+    text-indent: 4em;
 }
 .style_xls_compare{
     padding-top:1em;
