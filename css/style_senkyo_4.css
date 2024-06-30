@@ -286,7 +286,7 @@ div#candidate_profile img{
     div#candidate_profile img{
         width:18vw;
         clip-path: circle();
-    }   
+    }       
 }
 div#comparison_lists img{
     width:15vw;
@@ -306,10 +306,7 @@ div#comparison_lists img{
     font-weight: 600;
     line-height: 0.9em;
 }
-#candidate_profile > div > div a{
-    font-size: X-small;
-    font-weight: 300;
-}
+
 div.Q1{
     font-size: 2.1vw;
     width: 23vw;
@@ -351,6 +348,10 @@ div#contents p{
     padding:1em 0 0 0;
     font-size: x-large;
 }
+#candidate_profile > div > div a{
+    font-size: X-small;
+    font-weight: 300;
+}
 }
 @media screen and (orientation: portrait){
     div#contents > img{
@@ -363,6 +364,10 @@ div#contents p{
     h2#selected_candidate_name{
         text-align:center;
         padding:1em;
+    }
+    #candidate_profile > div > div a{
+        font-size: xx-small;
+        font-weight: 300;
     }
 }
 
