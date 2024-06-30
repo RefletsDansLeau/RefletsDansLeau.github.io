@@ -261,7 +261,7 @@ div#candidate_profile{
     grid-template-columns: 1fr 1fr 1fr 1fr;
     height:auto;
     gap:1vw;
-    margin: 1em 1em 0 1em;
+    margin: 1em 1vw 0 1vw;
 }
 
 
@@ -286,6 +286,12 @@ div#candidate_profile img{
     div#candidate_profile img{
         width:18vw;
         clip-path: circle();
+    }
+    p.party{
+        font-size: 2.2vw;
+        font-weight: lighter;
+        padding-bottom: 2px;
+        line-height: 1em;
     }       
 }
 div#comparison_lists img{
