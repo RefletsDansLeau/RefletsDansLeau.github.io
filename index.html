@@ -8,7 +8,7 @@
     <meta name="keywords" content="中野区,選挙,子育て環境向上委員会,アンケート">
     <link rel="icon" href="pic/favicon.png">
     <meta property="og:image" content="pic/og-img.jpg">
-    <link rel="stylesheet" href="css/style_senkyo.css">
+    <link rel="stylesheet" href="css/style_senkyo_4.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Sawarabi+Gothic&display=swap" rel="stylesheet">
@@ -52,10 +52,10 @@
         <div id="candidate_profile">
             <div id="tofa"></div>
             <div id="jimin"></div>
-            <!--<div id="other"></div>--> 
             <!--<div id="komei"></div>-->
             <div id="kyosan"></div>
             <!--<div id="rikken"></div>-->
+            <div id="other"></div>
                 
         </div>
         
@@ -81,6 +81,7 @@
         CANDIDATE_NO = 0;//候補者No
         Q1 = 12;//質問１
         A1 = 13;//質問１の答え
+        A2 = 15;//質問２の答え
         IMG_SRC = 10;//写真
 
         getCSVDataAndConvertToArray(CSV_dataPath);//スプレッドシートのcsvデータをArrayに変換⇒吐き出したArrayは「SURVAY_RESULT_ARRAY」
@@ -112,14 +113,17 @@
             div.appendChild(p).appendChild(name);
             
             //所属政党
+            if(SURVAY_RESULT_ARRAY[i][PARTY_NAME] != null){
             const party = document.createElement('p');
             party.setAttribute("class","party");
             const party_text= document.createTextNode(SURVAY_RESULT_ARRAY[i][PARTY_NAME]);
             div.appendChild(party).appendChild(party_text);
+            }
 
             //当選回数(保留)
 
             //質問２以降を見る　クリックすると各候補者の詳細ぺージへ飛ぶ
+            if(SURVAY_RESULT_ARRAY[i][A2] != null){
             let read_more = document.createElement("input");
             read_more.setAttribute("type","button");
             read_more.setAttribute("class","read_more");
@@ -133,7 +137,7 @@
                 window.open(url);});
             div.appendChild(read_more);
             div.appendChild( document.createElement( 'br' ) );
-            
+        }
             //公式ウェブサイト
             if(SURVAY_RESULT_ARRAY[i][WEBSIATE] != null){
             let website = document.createElement("a");
