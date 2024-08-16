@@ -48,7 +48,9 @@
                     
                     folium.GeoJson(geojson_data,name="nakanoku").add_to(m)
                     
-                    url_01 = (
+
+                    # 児童館・キッズプラザ（面積有）
+                    url_01 = ( 
                         "https://docs.google.com/spreadsheets/d/1oNBu63qKRZEdC174uC_NqNXHfpW8fitP/export?format=csv&gid=8996997"
                     )
                     url_01_content = open_url(url_01)
@@ -70,6 +72,8 @@
                                 tooltip=row['名称'],
                         ).add_to(m)
 
+
+                    # 図書館   
                     url_02 = (
                           "https://docs.google.com/spreadsheets/d/1oNBu63qKRZEdC174uC_NqNXHfpW8fitP/export?format=csv&gid=955470168"
                       )
@@ -91,6 +95,7 @@
                                 tooltip=row['名称'],
                         ).add_to(m)
 
+                    #その他  区活、スポーツセンター  
                     url_03 = (
                           "https://docs.google.com/spreadsheets/d/1oNBu63qKRZEdC174uC_NqNXHfpW8fitP/export?format=csv&gid=657164188"
                       )
