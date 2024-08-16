@@ -59,13 +59,13 @@
                         folium.Marker(
                             location= [row['緯度'],row['経度']],
                             icon=folium.features.CustomIcon(icon_image="https://github.com/RefletsDansLeau/RefletsDansLeau.github.io/blob/21aad5b8d32fa16949ce02c4c09f93bbd7337811/pic_map/"+row['アイコン']+"?raw=true",
-                                                            icon_size=(20,20),
-                                                            icon_anchor=(0,10)),
+                                                            icon_size=(15,15),
+                                                            icon_anchor=(10,20)),
                         ).add_to(m)
                         folium.Marker(
                             location= [row['緯度'],row['経度']],
-                            icon=folium.features.DivIcon(icon_size=(60,20),
-                                icon_anchor=(5,-5),
+                            icon=folium.features.DivIcon(icon_size=(30,20),
+                                icon_anchor=(10,10),
                                 ),
                                 tooltip=row['名称'],
                         ).add_to(m)
@@ -85,12 +85,12 @@
                             location= [row['緯度'],row['経度']],
                             icon=folium.features.CustomIcon(icon_image="https://github.com/RefletsDansLeau/RefletsDansLeau.github.io/blob/2663be3087fb62a0315b49fc45f831434f4403c6/pic_map/"+row['アイコン']+"?raw=true",
                                                             icon_size=(25,25),
-                                                            icon_anchor=(0,0)),
+                                                            icon_anchor=(20,10)),
                         ).add_to(m)
                         folium.Marker(
                             location= [row['緯度'],row['経度']],
                             icon=folium.features.DivIcon(icon_size=(60,20),
-                                icon_anchor=(-7,-16),
+                                icon_anchor=(10,-6),
                                 html=row['広さ'],
                                 ),
                                 tooltip=row['名称'],
@@ -131,7 +131,7 @@
                             location= [row['緯度'],row['経度']],
                             icon=folium.features.CustomIcon(icon_image="https://github.com/RefletsDansLeau/RefletsDansLeau.github.io/blob/"+row['絶対パス']+"/pic_map/"+row['アイコン']+"?raw=true",
                                                             icon_size=(20,20),
-                                                            icon_anchor=(0,0)),
+                                                            icon_anchor=(10,10)),
                         ).add_to(m)
                         folium.Marker(
                             location= [row['緯度'],row['経度']],
