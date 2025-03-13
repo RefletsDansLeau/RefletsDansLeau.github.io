@@ -9,8 +9,12 @@
       rel="stylesheet"
       href="https://pyscript.net/latest/pyscript.css"
   />
-  <script defer src="https://pyscript.net/latest/pyscript.js"></script>
-  <link rel="stylesheet" href="./assets/css/examples.css" />
+  <script type="module" src="https://pyscript.net/releases/2024.1.1/core.js"></script>
+  <script type="module">
+      const loading = document.getElementById('loading');
+      addEventListener('py:ready', () => loading.close());
+      loading.showModal();
+  </script>  
   <style>
     body, body a{
       color:white;
@@ -19,6 +23,9 @@
 </head> 
 
   <body>
+    <dialog id="loading">
+        <h1>Loading...</h1>
+    </dialog>
     <div style="width: 100%; height: 3em; background-color:#3d0e88">
         <h1 style="font-size: 1em;color:#fff">猛暑×夏休みの小学生の居場所MAP(中野区)<span style="font-size: 0.5em">※室内＆事前予約不要で過ごせそうな場所についてまとめています。児童館、キッズ・プラザについては面積を記載していますが、事務室や乳幼児室、倉庫などを含む数字です。※本郷小学校は建て替え後の位置にしています。<br>データ出典：①中野区オープンデータ（2024/8/11時点）
           ライセンス：<a href="https://creativecommons.org/licenses/by/4.0/deed.ja">クリエイティブ・コモンズ・ライセンス 表示４．０国際</a>  <a href="https://www.city.tokyo-nakano.lg.jp/kusei/kousou/bunyabetsu/kuyuusisetuseibikeikaku.files/kuyuusisetuseibikeikaku.pdf">②中野区区有施設整備計画2021▸2030</a></span></h1>
@@ -32,6 +39,7 @@
                 </py-config>
 
                 <py-script>
+                    from pyscript import display
                     import folium
                     import json
                     import pandas as pd
