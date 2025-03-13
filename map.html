@@ -7,7 +7,13 @@
       rel="stylesheet"
       href="https://pyscript.net/latest/pyscript.css"
   />
-  <script defer src="https://pyscript.net/latest/pyscript.js"></script>
+  <script type="module" src="https://pyscript.net/releases/2024.1.1/core.js"></script>
+  <script type="module">
+    const loading = document.getElementById('loading');
+    addEventListener('py:ready', () => loading.close());
+    loading.showModal();
+  </script>
+
   <link rel="stylesheet" href="./assets/css/examples.css" />
   <style>
     body, body a{
@@ -18,7 +24,7 @@
 
   <body>
     <div style="width: 100%; height: 2em; background-color:#3d0e88">
-        <h1 style="font-size: 1em;color:#fff">幼保マップ<span style="font-size: 0.5em">データ出典：中野区オープンデータ　子育て施設及び入所最低指数一覧（2023/7/1）
+        <h1 style="font-size: 1em;color:#fff">幼保マップ<span style="font-size: 0.5em">データ出典：中野区オープンデータ　子育て施設及び入所最低指数一覧（2024/4/1）
           ライセンス：<a href="https://creativecommons.org/licenses/by/4.0/deed.ja">クリエイティブ・コモンズ・ライセンス 表示４．０国際</a></span></h1>
     </div>
     <div id="folium"></div>            
@@ -30,6 +36,7 @@
                 </py-config>
 
                 <py-script>
+                    from pyscript import display
                     import folium
                     import json
                     import pandas as pd
@@ -43,7 +50,7 @@
                     urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
 
                     url = (
-                        "https://docs.google.com/spreadsheets/d/13wZMciV2Zw8AOR1ZLMD3GgcsYymm3cNtzFGrILvBuQA/export?format=csv&gid=0"
+                        "https://docs.google.com/spreadsheets/d/13wZMciV2Zw8AOR1ZLMD3GgcsYymm3cNtzFGrILvBuQA/export?format=csv&gid=1523218117"
                     )
                     
                     url_content = open_url(url)
@@ -68,7 +75,7 @@
                         
                         folium.Marker(
                             location= [row['緯度'],row['経度']],
-                            icon=folium.features.DivIcon(icon_size=(50,20),
+                            icon=folium.features.DivIcon(icon_size=(30,20),
                                 icon_anchor=(-10,3),
                                 html=row['Capacity'],
                                 ),
