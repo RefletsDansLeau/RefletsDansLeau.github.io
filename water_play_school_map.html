@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<head>
+  <title>小学生の水遊びMAP(中野区)</title>
+  <meta charset="utf-8" />
+  <meta property="og:description" content="※中野区の区民プール／水遊びマップ" />
+ 
+  <link rel="icon" type="image/x-icon" href="./favicon.png" />
+  <link
+      rel="stylesheet"
+      href="https://pyscript.net/latest/pyscript.css"
+  />
+  <script type="module" src="https://pyscript.net/releases/2024.1.1/core.js"></script>
+  <script type="module">
+      const loading = document.getElementById('loading');
+      addEventListener('py:ready', () => loading.close());
+      loading.showModal();
+  </script>  
+  <style>
+    body, body a{
+      color:white;
+    }
+  </style>
+</head> 
+
+  <body>
+    <dialog id="loading">
+        <h1>Loading...</h1>
+    </dialog>
+    <div style="width: 100%; height: 2em; background-color:#3d0e88">
+        <h1 style="font-size: 1em;color:#fff">中野区　区民プール／水遊びMAP(中野区)
+          <span style="font-size:0.6em">ライセンス：<a href="https://creativecommons.org/licenses/by/4.0/deed.ja">クリエイティブ・コモンズ・ライセンス 表示４．０国際</a>
+            参考：中野区オープンデータ</span></h1>
+    </div>
+    <div id="folium"></div>            
+                <py-config>
+                    packages = [
+                      "folium",
+                      "pandas"
+                    ]                    
+                </py-config>
+
+                <py-script>
+                    from pyscript import display
+                    import folium
+                    import json
+                    import pandas as pd
+                    import urllib3
+
+                    from pyodide.http import open_url
+                    from folium.features import DivIcon
+                    from folium.features import CustomIcon
+                    import urllib3
+                    
+                    urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
+                    
+                    m = folium.Map(location=[35.688274555367684, 139.6569529592899], zoom_start=13.2, tiles="cartodb positron")
+                    
+                    #小学校の境界線
+                    geojson_data = urllib3.request("GET","https://raw.githubusercontent.com/RefletsDansLeau/Nakanoku-geojson/master/nakano_ku_school_district.json",preload_content=False).json() 
+                    folium.GeoJson(geojson_data,name="nakanoku").add_to(m)
+                    
+                                        
+                    #区民プール                    
+                    url_01 = ( 
+                        "https://docs.google.com/spreadsheets/d/1OuqaEOWJhwAtpf629Uv3JoLE8sVNuUBw7RrQ2kjzI60/export?format=csv&gid=487940383"
+                    )
+                    url_01_content = open_url(url_01)
+                    list_01 = pd.read_csv(url_01_content)
+                    
+                    for index, row in list_01.iterrows():
+                        folium.Marker(
+                            location= [row['緯度'],row['経度']],
+                            icon=folium.features.CustomIcon(icon_image="https://github.com/RefletsDansLeau/RefletsDansLeau.github.io/blob/"+row['githubURL']+"/pic_map/"+row['アイコン']+"?raw=true",
+                                                            icon_size=(25,25),
+                                                            icon_anchor=(20,10)),
+                        ).add_to(m)
+                        folium.Marker(
+                            location= [row['緯度'],row['経度']],
+                            icon=folium.features.DivIcon(
+                                icon_size=(300,20),
+                                icon_anchor=(10,-6),
+                                html=row['名称'],
+                                ),
+                        ).add_to(m)
+
+                    #小学校                    
+                    url_02 = ( 
+                        "https://docs.google.com/spreadsheets/d/1OuqaEOWJhwAtpf629Uv3JoLE8sVNuUBw7RrQ2kjzI60/export?format=csv&gid=1050826076"
+                    )
+                    url_02_content = open_url(url_02)
+                    list_02 = pd.read_csv(url_02_content)
+                    
+                    for index, row in list_02.iterrows():
+                        folium.Marker(
+                            location= [row['緯度'],row['経度']],
+                            icon=folium.features.CustomIcon(icon_image="https://github.com/RefletsDansLeau/RefletsDansLeau.github.io/blob/"+row['githubURL']+"/pic_map/"+row['アイコン']+"?raw=true",
+                                                            icon_size=(15,15),
+                                                            icon_anchor=(5,5)),
+                        ).add_to(m)
+                        folium.Marker(
+                            location= [row['緯度'],row['経度']],
+                            icon=folium.features.DivIcon(
+                                icon_size=(30,20),
+                                icon_anchor=(10,-6),
+                                html=row['児童数'],
+                                ),tooltip=row['名称'],
+                        ).add_to(m)
+    
+
+                    folium.LayerControl().add_to(m)
+
+                    display(m, target="folium")
+                </py-script>
+            
+  </body>
+</html>
