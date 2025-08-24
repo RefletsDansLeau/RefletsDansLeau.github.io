@@ -26,10 +26,10 @@
     <dialog id="loading">
         <h1>Loading...</h1>
     </dialog>
-    <div style="width: 100%; height: 3em; background-color:#3d0e88">
+    <div style="width: 100%; height: 2em; background-color:#3d0e88">
         <h1 style="font-size: 1em;color:#fff">中野区　区民プール／水遊びMAP(中野区)
-          ライセンス：<a href="https://creativecommons.org/licenses/by/4.0/deed.ja">クリエイティブ・コモンズ・ライセンス 表示４．０国際</a>  <a href="https://www.city.tokyo-nakano.lg.jp/kusei/kousou/bunyabetsu/kuyuusisetuseibikeikaku.files/kuyuusisetuseibikeikaku.pdf">
-            参考：中野区オープンデータ</a></span></h1>
+          <span style="font-size:0.6em">ライセンス：<a href="https://creativecommons.org/licenses/by/4.0/deed.ja">クリエイティブ・コモンズ・ライセンス 表示４．０国際</a>
+            参考：中野区オープンデータ</span></h1>
     </div>
     <div id="folium"></div>            
                 <py-config>
@@ -53,7 +53,7 @@
                     
                     urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
                     
-                    m = folium.Map(location=[35.7111326404866, 139.66453528858855], zoom_start=14, tiles="cartodb positron")
+                    m = folium.Map(location=[35.688274555367684, 139.6569529592899], zoom_start=13.2, tiles="cartodb positron")
 
                     geojson_data = urllib3.request("GET","https://raw.githubusercontent.com/RefletsDansLeau/Nakanoku-geojson/master/nakano_ku_school_district.json",preload_content=False).json() 
                     
@@ -77,7 +77,7 @@
                         folium.Marker(
                             location= [row['緯度'],row['経度']],
                             icon=folium.features.DivIcon(
-                                icon_size=(60,20),
+                                icon_size=(300,20),
                                 icon_anchor=(10,-6),
                                 html=row['名称'],
                                 ),
