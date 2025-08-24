@@ -101,7 +101,7 @@
                             location= [row['緯度'],row['経度']],
                             icon=folium.features.DivIcon(
                                 icon_size=(30,20),
-                                icon_anchor=(10,-6),
+                                icon_anchor=(-5,-3),
                                 html=row['児童数'],
                                 ),tooltip=row['名称'],
                         ).add_to(m)
